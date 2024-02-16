@@ -1,0 +1,75 @@
+<nav class="page-nav">
+  <icon-element class="page-icon">img L-</icon-element>
+  <ul class="page-nav-list">
+    <li>
+      <a href="/contents/1.html">1.Зоны приватов</a>
+    </li>
+    <li style="align-items: center;">
+      <a href="/contents/2.html">2.Батарейки</a>
+    </li>
+    <li style="align-items: center;">
+      <a href="/contents/3.html">3.Кланы</a>
+    </li>
+    <li style="align-items: center;">
+      <a href="/contents/4.html">4.Помощь проекту</a>
+    </li>
+    <li style="align-items: center;">
+      <a href="/contents/5.html">5.Спавн легенд</a>
+    </li>
+    <li style="align-items: center;">
+      <a href="/contents/6.html">6.Цены на предметы</a>
+    </li>
+    <li style="align-items: center;"><a href="/contents/7.html">7.Магазины и их валюта</a></li>
+    <li style="align-items: center;"><a href="/contents/8.html">8.Покевикторина(Покевопросы)</a></li>
+    <li style="align-items: center;"><a href="/contents/9.html">9. </a></li>
+    <li style="align-items: center;"><a href="/contents/10.html">10</a></li>
+  </ul>
+</nav>
+
+<section class="page-wrapper">
+  <header class="page-header">
+    <section class="page-header-leftContent">
+      <element-group
+        style="gap: 30px; align-items: center; height: 100%; padding-inline: 30px;"
+      >
+        <span class="all links" style="font-size: 0.9em;">
+          Ссылки на наши соц. сети:
+        </span>
+        <span class="link-1">
+          <a href="https://discord.gg/kWhCx4Kdbb">Discord</a>
+        </span>
+        <span class="link-2">
+          <a href="https://t.me/+pREC84AhX8xmMmRi">Telegram</a>
+        </span>
+      </element-group>
+    </section>
+    <section class="page-header-rightContent"></section>
+  </header>
+  <main class="page-main">
+    <slot />
+  </main>
+</section>
+
+<style>
+  .page-nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-nav-list li {
+    aspect-ratio: 2/1;
+  }
+
+  .page-nav-list li a {
+    display: flex;
+    align-items: center;
+    padding-inline:;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .page-nav-list li a:hover {
+    background-color: #88888888;
+  }
+</style>
