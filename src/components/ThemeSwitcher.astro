@@ -1,0 +1,74 @@
+<button class="theme-switcher">T</button>
+
+<style>
+  .theme-switcher {
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    padding: 1em;
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    border-radius: 50%;
+    font-weight: bold;
+    -webkit-text-stroke: 4px currentColor;
+    -text-stroke: 4px currentColor;
+  }
+
+  :global(theme-swither_element-filter) {
+    --animation-speed: 0.5s;
+    backdrop-filter: invert(1) sepia(1) hue-rotate(180deg);
+    display: block;
+    aspect-ratio: 1/1;
+    transition:
+      width var(--animation-speed),
+      height var(--animation-speed);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  :global(theme-swither_element-filter:not(.light)) {
+    width: 0px;
+  }
+
+  :global(theme-swither_element-filter.light) {
+    width: 100vmax;
+    height: 100vmax;
+  }
+</style>
+
+<script>
+  // Find our component DOM on the page.
+  const buttons = document.querySelectorAll(".theme-switcher");
+
+  const getNode = () =>
+    document.querySelector("theme-swither_element-filter") ||
+    (() => {
+      const node = document.createElement("theme-swither_element-filter");
+      document.body.appendChild(node);
+      return node;
+    })();
+
+  if (localStorage.getItem("namelog_theme-swither_value") === "light") {
+    getNode().classList.add("light"); 
+  }
+
+  // Add event listeners to fire confetti when a button is clicked.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const node = getNode();
+
+      setTimeout(() => {
+        node.classList.toggle("light");
+        localStorage.setItem(
+          "namelog_theme-swither_value",
+          node.classList.contains("light") ? "light" : "dark"
+        );
+      })
+    });
+  });
+</script>

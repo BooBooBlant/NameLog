@@ -1,0 +1,54 @@
+<section class="discus-container">
+  <group>
+    <h4 style="padding-top: 10px;">Комментарии</h4>
+    <small><code></code></small>
+  </group>
+
+  <main class="giscus">Загружаемся...</main>
+</section>
+
+<style>
+	.discus-container {
+		padding-top: 15vh;
+	}
+</style>
+
+
+<script>
+  const InitGiscus = () => {
+    const giscus = {
+      repository: "zoodogood/1119",
+      repoId: "MDEwOlJlcG9zaXRvcnkyNTI3MjE2NjQ=",
+      categoryName: "Articles comments",
+      categoryId: "DIC_kwDODxA6AM4CUXuy",
+      /* https://giscus.app/ */
+    };
+    const giscusConfig = giscus;
+    const giscusSource = "https://giscus.app/client.js";
+
+    // @ts-ignore
+    const attributes = new Map([
+      ["src", giscusSource],
+      ["data-repo", giscusConfig.repository],
+      ["data-repo-id", giscusConfig.repoId],
+      ["data-category", giscusConfig.categoryName],
+      ["data-category-id", giscusConfig.categoryId],
+      ["data-mapping", "specific"],
+      ["data-term", document.location.href],
+      ["data-strict", "0"],
+      ["data-reactions-enabled", "1"],
+      ["data-emit-metadata", "0"],
+      ["data-input-position", "top"],
+      ["data-theme", "dark"],
+      ["data-lang", "ru"],
+      ["data-loading", "lazy"],
+      ["crossorigin", "anonymous"],
+      ["async", true],
+    ]);
+
+    const node = document.createElement("script");
+    attributes.forEach((value, name) => node.setAttribute(name, value));
+    document.body.appendChild(node);
+  };
+  globalThis.giscus ||= InitGiscus();
+</script>

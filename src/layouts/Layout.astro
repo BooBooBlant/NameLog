@@ -1,56 +1,70 @@
+---
+import Header from "../layouts/Header.astro";
+import GiscusComments from "../components/GiscusComments.astro";
+---
+
 <nav class="page-nav">
-  <icon-element class="page-icon">img L-</icon-element>
+  <icon-element class="page-icon">
+    <a href="/" class="page_logo"> <img src="/images/logo.webp" alt="NL" /></a>
+  </icon-element>
   <ul class="page-nav-list">
-    <li>
-      <a href="/contents/1.html">1.Зоны приватов</a>
-    </li>
-    <li style="align-items: center;">
-      <a href="/contents/2.html">2.Батарейки</a>
-    </li>
-    <li style="align-items: center;">
-      <a href="/contents/3.html">3.Кланы</a>
-    </li>
-    <li style="align-items: center;">
-      <a href="/contents/4.html">4.Помощь проекту</a>
-    </li>
-    <li style="align-items: center;">
-      <a href="/contents/5.html">5.Спавн легенд</a>
-    </li>
-    <li style="align-items: center;">
-      <a href="/contents/6.html">6.Цены на предметы</a>
-    </li>
-    <li style="align-items: center;"><a href="/contents/7.html">7.Магазины и их валюта</a></li>
-    <li style="align-items: center;"><a href="/contents/8.html">8.Покевикторина(Покевопросы)</a></li>
-    <li style="align-items: center;"><a href="/contents/9.html">9. </a></li>
-    <li style="align-items: center;"><a href="/contents/10.html">10</a></li>
+    {
+      [
+        { label: "Зоны приватов", id: "zones_privates" },
+        { label: "Батарейки", id: "batareiki" },
+        { label: "Кланы", id: "clans" },
+        { label: "Помощь проекту", id: "project_help" },
+        { label: "Спавн легенд", id: "spawn_legend" },
+        { label: "Цены на предметы", id: "prices_of_items" },
+        { label: "Магазины и их валюта", id: "stores_and_value" },
+        { label: "Покевикторина", id: "poke_question" },
+      ].map(({ label, id }, index) => (
+        <li>
+          <a href={`/contents/${id}.html`}>
+            <span style="opacity: 0.5" class="list-number">
+              {index + 1}.
+            </span>{" "}
+            {label}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
 <section class="page-wrapper">
-  <header class="page-header">
-    <section class="page-header-leftContent">
-      <element-group
-        style="gap: 30px; align-items: center; height: 100%; padding-inline: 30px;"
-      >
-        <span class="all links" style="font-size: 0.9em;">
-          Ссылки на наши соц. сети:
-        </span>
-        <span class="link-1">
-          <a href="https://discord.gg/kWhCx4Kdbb">Discord</a>
-        </span>
-        <span class="link-2">
-          <a href="https://t.me/+pREC84AhX8xmMmRi">Telegram</a>
-        </span>
-      </element-group>
-    </section>
-    <section class="page-header-rightContent"></section>
-  </header>
+  <Header />
   <main class="page-main">
-    <slot />
+    <section>
+      <slot />
+    </section>
+    <GiscusComments />
   </main>
 </section>
 
 <style>
+  .page-main {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .page-wrapper {
+    min-width: min(100vw, 800px);
+    max-width: 100vw;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    overflow: auto;
+    
+    
+  }
+  nav {
+    font-family: "Comfortaa";
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
   .page-nav-list {
     display: flex;
     flex-direction: column;
@@ -63,7 +77,6 @@
   .page-nav-list li a {
     display: flex;
     align-items: center;
-    padding-inline:;
     width: 100%;
     height: 100%;
     padding: 5px;
@@ -71,5 +84,24 @@
 
   .page-nav-list li a:hover {
     background-color: #88888888;
+  }
+
+  .page_logo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  .page_logo img {
+    height: 100%;
+    border-radius: 25%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .list-number {
   }
 </style>
