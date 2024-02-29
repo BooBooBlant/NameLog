@@ -11,10 +11,14 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
         Ссылки на наши соц. сети:
       </span>
       <span class="link-1">
-        <a href="https://discord.gg/kWhCx4Kdbb">Discord</a>
+        <a href="https://discord.gg/kWhCx4Kdbb">
+        <img src="/images/icons8-discord-64.png" alt="Discord" width="50" height="50">
+        </a>
       </span>
       <span class="link-2">
-        <a href="https://t.me/+pREC84AhX8xmMmRi">Telegram</a>
+        <a href="https://t.me/+pREC84AhX8xmMmRi">
+        <img src="/images/icons8-телеграм-188 (1).png" alt="Telegram" width="50" height="50">
+        </a>
       </span>
     </element-group>
   </section>
@@ -59,6 +63,9 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
     position: absolute;
     opacity: 0.7;
     font-family: "Comfortaa";
+    color: orangered;
   }
-	
+	.link-1 span {
+    border-radius: 50%;
+  }
 </style>
