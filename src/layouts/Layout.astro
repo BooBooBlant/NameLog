@@ -37,7 +37,7 @@ import GiscusComments from "../components/GiscusComments.astro";
 <section class="page-wrapper">
   <Header />
   <main class="page-main">
-    <section>
+    <section class = "slot-layout">
       <slot />
     </section>
     <GiscusComments />
@@ -106,5 +106,9 @@ import GiscusComments from "../components/GiscusComments.astro";
   }
 
   .list-number {
+  }
+
+  .slot-layout {
+    line-height: 1.8;
   }
 </style>
