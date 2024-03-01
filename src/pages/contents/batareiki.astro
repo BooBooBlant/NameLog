@@ -8,7 +8,7 @@ import Layout from "../../layouts/Layout.astro";
     <h1>
       Батарейки
     </h1>
-    <span>
+    <>
       <p style="margin-top: 20px; display: block ">Типы батареек:</p>
 
       <ul class="list-with-images">
@@ -25,10 +25,12 @@ import Layout from "../../layouts/Layout.astro";
           <img src="/images/battery3.webp" alt="" />
         </li>
       </ul>
-      <b style="margin-top: 90px; display: block">
+    <span class="line"></span>
+      <b style="margin-top: 20px; display: block">
         Батарейки это ходовая валюта сервера, за них вы можете купить почти всё
         что угодно(если ваш бюджет вам это позволяет конечно), так же, их используют для заряда покевопросов(о том что такое покевопросы вы можете почитать в самом разделе "Покевикторина")
       </b>
+       <span class="line"></span>
 		<b style = "margin-top: 10px; display: block ">
 			Способов получения батареек есть много.
 		</b>
@@ -73,5 +75,12 @@ import Layout from "../../layouts/Layout.astro";
   .list li {
 	margin-block: 1em;
 	margin-left: 1em;
+  }
+  .line {
+    height: var( --page-header-height );
+	border-bottom: 2px solid #440707c0;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
 </style>

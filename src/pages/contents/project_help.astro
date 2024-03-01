@@ -18,7 +18,8 @@ import Layout from "../../layouts/Layout.astro";
     <b style="margin-top:20px; display: block">
       Восклицательный знак возле смс видите? Вот на него тыкаете, и жалуетесь на гнустного нарушителя😈. (Стукачём быть плохо, но если человек этого заслужил, то кидайте репорт с чистой душой)
     </b>
-    <h1 style="margin-top: 50px">
+    <span class="line"></span>
+    <h1 style="margin-top: 30px">
       НО СИЛЬНО ТАКИМ НЕ УВЛЕКАЙТЕСЬ, И САМИ НЕ НАРУШАЙТЕ ПРАВИЛА
     </h1>
     <!-- /contents/0.html -->
@@ -28,5 +29,12 @@ import Layout from "../../layouts/Layout.astro";
 <style>
   span {
     white-space: pre;
+  }
+  .line {
+    height: var( --page-header-height );
+	border-bottom: 2px solid #440707c0;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
 </style>
