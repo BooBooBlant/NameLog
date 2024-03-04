@@ -1,0 +1,29 @@
+---
+const {tooltip, _container} = Astro.props;
+---
+
+<span title = {tooltip} {..._container} tabindex="0">
+	<slot/>
+</span>
+
+<style>
+	span:focus::after
+	{
+		content: "(" attr(title) ")";
+		animation: apparance 200ms;
+	}
+	span {
+		padding: 4px;
+		border: 1px;
+		background-color: #8884;
+	}
+
+	@keyframes apparance {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>
