@@ -1,3 +1,10 @@
+---
+// https://giscus.app/ru
+
+const { id } = Astro.props;
+const env = { GISCUS_TERM: id };
+---
+
 <section class="discus-container">
   <group>
     <h4 style="padding-top: 10px;">Комментарии</h4>
@@ -8,13 +15,12 @@
 </section>
 
 <style>
-	.discus-container {
-		padding-top: 15vh;
-	}
+  .discus-container {
+    padding-top: 15vh;
+  }
 </style>
 
-
-<script>
+<script define:vars={{env: env}}>
   const InitGiscus = () => {
     const giscus = {
       repository: "zoodogood/1119",
@@ -34,8 +40,8 @@
       ["data-category", giscusConfig.categoryName],
       ["data-category-id", giscusConfig.categoryId],
       ["data-mapping", "specific"],
-      ["data-term", document.location.href],
-      ["data-strict", "0"],
+      ["data-term", env.GISCUS_TERM],
+      ["data-strict", "1"],
       ["data-reactions-enabled", "1"],
       ["data-emit-metadata", "0"],
       ["data-input-position", "top"],
