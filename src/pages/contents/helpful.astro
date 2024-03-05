@@ -5,9 +5,46 @@ import Layout from "../../layouts/Layout.astro";
 
 <Page>
   <Layout>
-    <details>
-      <summary>Показать картинку</summary>
-      <img id="ochko.jpg" src="/images/ochko.jpg" />
-    </details>
+    <h1>
+      Полезное
+    </h1>
+    <h4 style="margin-top: 20px">
+      В этом разделе будут размещены уточнения по некоторым другим разделам,а также мини гайды по самому моду pixelmon
+    </h4>
+    <span class="line"></span>
+    <h3>
+      Список всего что есть в этом разделе:
+    </h3>
+    <ul class="list">
+      <li>
+        Ультра мир
+      </li>
+      <li>
+        Рейды
+      </li>
+    </ul>
+    <span class="line"></span>
+    <h3>
+      Ультра мир
+    </h3>
+    <b>
+      Ультра-мир очень схож с Эндер-миром.
+       Он состоит из множества летающих островов,
+       находящихся в разных биомах, так же там есть уникальные ультра-биомы.
+    </b>
+    <b>
+      В этом измерении с перемещением есть не большие проблемы, так как там понижена гравитация, но для вас это не будет проблемой если у вам есть ультра ускоритель
+    </b>
+        <!-- /contents/0.html -->
   </Layout>
 </Page>
+
+<style>
+  .line {
+    height: var( --page-header-height );
+	border-bottom: 2px solid #440707c0;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  </style>
