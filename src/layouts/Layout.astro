@@ -1,38 +1,10 @@
 ---
 import Header from "../layouts/Header.astro";
+import Nav from "../layouts/Nav.astro";
 import GiscusComments from "../components/GiscusComments.astro";
 ---
 
-<nav class="page-nav">
-  <icon-element class="page-icon">
-    <a href="/" class="page_logo"> <img src="/images/logo.webp" alt="NL" /></a>
-  </icon-element>
-  <ul class="page-nav-list">
-    {
-      [
-        { label: "Зоны приватов", id: "zones_privates" },
-        { label: "Батарейки", id: "batareiki" },
-        { label: "Кланы", id: "clans" },
-        { label: "Помощь проекту", id: "project_help" },
-        { label: "Спавн легенд/ультра бистов", id: "spawn_legend" },
-        { label: "Цены на предметы", id: "prices_of_items" },
-        { label: "Магазины и их валюта", id: "stores_and_value" },
-        { label: "Покевикторина", id: "poke_question" },
-        { label: "Измерения", id: "dimension"},
-        { label: "Админы и Модеры", id: "harakteristika"},
-      ].map(({ label, id }, index) => (
-        <li>
-          <a href={`/contents/${id}.html`}>
-            <span style="opacity: 0.5" class="list-number">
-              {index + 1}.
-            </span>{" "}
-            {label}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</nav>
+<Nav/>
 
 <section class="page-wrapper">
   <Header />
@@ -60,49 +32,6 @@ import GiscusComments from "../components/GiscusComments.astro";
     overflow: auto;
     
     
-  }
-  nav {
-    font-family: "Comfortaa";
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    color: orange;
-  }
-  .page-nav-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .page-nav-list li {
-    aspect-ratio: 2/1;
-  }
-
-  .page-nav-list li a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-  }
-
-  .page-nav-list li a:hover {
-    background-color: #88888888;
-  }
-
-  .page_logo {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-  }
-
-  .page_logo img {
-    height: 100%;
-    border-radius: 25%;
-    object-position: center;
-    object-fit: cover;
   }
 
   .list-number {
