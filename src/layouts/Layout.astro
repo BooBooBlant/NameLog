@@ -12,7 +12,7 @@ import GiscusComments from "../components/GiscusComments.astro";
     <section class = "slot-layout">
       <slot />
     </section>
-    <GiscusComments />
+    <GiscusComments id = {Astro.url.pathname} />
   </main>
 </section>
 
