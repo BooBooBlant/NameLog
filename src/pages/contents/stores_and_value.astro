@@ -1,6 +1,7 @@
 ---
  	import Page from "../../layouts/Page.astro"; 
  	import Layout from "../../layouts/Layout.astro";
+	import Copyable from "../../components/Copyable.astro";
 ---
 <Page>
   <Layout>
@@ -33,7 +34,7 @@
 	 </ul>
 	 <span class="line"></span>
 	<h3 style="margin-top: 50px; display: block ">
-		Метка на магазины: [name:"Магазин", x:-802, y:99, z:41], просто скопируйте и напишите это в чат, нажмите и сохраните метку у себя
+		Метка на магазины: <Copyable>[name:"Магазин", x:-802, y:99, z:41]</Copyable>, — нажмите на текст, чтобы скопировать. Введите скопированный текст в игровой чат и нажмите, чтобы сохранить метку у себя
 	</h3>
 	<span class="line"></span>
     <!-- /contents/0.html -->
