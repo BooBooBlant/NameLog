@@ -88,21 +88,34 @@ element-group {
   margin-left: 1em;
 }
 
-
 :target {
-	animation: anchor-highlight 1s;
+  animation: anchor-highlight 1s;
 }
 
 @keyframes anchor-highlight {
-	0% {
-		background-color: var(--accent-color);
-	}
-	100% {
-		background-color: transparent;
-	}
-	
+  0% {
+    background-color: var(--accent-color);
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 img {
   max-width: 100%;
 }
+
+.line {
+  height: var(--page-header-height);
+  /* margin-block: 0.5em; */
+  border-bottom: 2px solid #440707c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+details > summary {
+  cursor: pointer;
+  text-decoration: underline;
+} 
+
