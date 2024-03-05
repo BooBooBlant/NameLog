@@ -8,15 +8,14 @@ import {Code} from "astro:components";
 
 <Page>
   <Layout>
-    <p>Привет, это моя собственная страничка для всяких штук</p>
+    <p>Привет, это моя собственная страничка для всяких штук. Вы можете сюда добавлять свои классные штуки</p>
     <Copyable>Нажми, чтобы скопировать</Copyable>
     <details>
       <summary>Нажми, чтобы открыть</summary>
       <Code code = "hello('console.log');" lang = "js"/>
     </details>
-
     <Tooltiped>
-      <span slot = "container">1111111111</span>
+      <span slot = "container" style="text-decoration: underline dotted; margin-bottom: 2em">Аватарка</span>
       <img slot = "content" src="https://images-ext-2.discordapp.net/external/OimPuLr4HnGusRLoiZqPSCW88hAeXbty0jpStPFuDyQ/https/cdn.discordapp.com/avatars/921403577539387454/bcef00c62b72864983775c065071edd1.webp?format=webp" alt=""/>
     </Tooltiped>
   </Layout>
