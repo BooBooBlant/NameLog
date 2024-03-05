@@ -1,0 +1,24 @@
+---
+import Page from "../../layouts/Page.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Page>
+	<Layout>
+<button onclick="showImage()">Показать картинку</button>
+<img id="ochko.jpg" style="display:none" src="/images/ochko.jpg">
+
+<script>
+function showImage() {
+  var x = document.getElementById("ochko.jpg");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+</body>
+	</Layout>
+</Page>
