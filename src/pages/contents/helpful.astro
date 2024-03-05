@@ -11,7 +11,7 @@ import Layout from "../../layouts/Layout.astro";
     <h4 style="margin-top: 20px">
       В этом разделе будут размещены уточнения по некоторым другим разделам,а также мини гайды по самому моду pixelmon
     </h4>
-    <span class="line"></span>
+    <span class="line-1"></span>
     <h3>
       Список всего что есть в этом разделе:
     </h3>
@@ -32,8 +32,15 @@ import Layout from "../../layouts/Layout.astro";
        Он состоит из множества летающих островов,
        находящихся в разных биомах, так же там есть уникальные ультра-биомы.
     </b>
-    <b>
-      В этом измерении с перемещением есть не большие проблемы, так как там понижена гравитация, но для вас это не будет проблемой если у вам есть ультра ускоритель
+    <b style="margin-top: 10; display: block">
+      В этом измерении с перемещением есть не большие проблемы, так как там понижена гравитация,
+       но для вас это не будет проблемой если у вас есть ультра ускоритель
+    </b>
+    <b style="margin-top: 10px; display: block">
+      Так же в ультра-мире шансы спавна хидов и шайни покемонов больше в 2 раза
+    </b>
+    <b style="margin-top: 10px; display: block">
+      Туман в измерении сильно уменьшает дальность обзора, для того, что бы ослабить эффект тумана можно надеть Защитные Очки в слот шлема
     </b>
         <!-- /contents/0.html -->
   </Layout>
@@ -46,5 +53,13 @@ import Layout from "../../layouts/Layout.astro";
 	display: flex;
 	justify-content: center;
 	align-items: center;
+  }
+   .line-1 {
+    height: var( --page-header-height );
+	border-bottom: 2px solid #440707c0;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  margin-bottom: 10px;
   }
   </style>
