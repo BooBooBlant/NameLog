@@ -1,6 +1,7 @@
 ---
 import Page from "../../layouts/Page.astro";
 import Layout from "../../layouts/Layout.astro";
+import Tooltiped from "../../components/Tooltiped.astro";
 ---
 
 <Page>
@@ -17,37 +18,75 @@ import Layout from "../../layouts/Layout.astro";
       <li>Рейды</li>
     </ul>
     <span class="line"></span>
-    <h3>Ультра мир</h3>
-    <b>
+    <h3 style="display: block">Ультра мир</h3>
+    <b style="margin-top: 10px; display: block">
       Ультра-мир очень схож с Эндер-миром. Он состоит из множества летающих
       островов, находящихся в разных биомах, так же там есть уникальные
       ультра-биомы.
     </b>
-    <b style="margin-top: 10; display: block">
+    <b style="margin-top: 10px; display: block">
       В этом измерении с перемещением есть не большие проблемы, так как там
-      понижена гравитация, но для вас это не будет проблемой если у вас есть
-      ультра ускоритель
+      понижена гравитация, но для вас это не будет проблемой если у вас есть <Tooltiped>
+      <span style="text-decoration: underline dotted" slot = "container">ультра ускоритель</span>
+      <img slot = "content" src="/images/Booster.png" alt="" width="125" height="125"/>
+</Tooltiped>
     </b>
     <b style="margin-top: 10px; display: block">
       Так же в ультра-мире шансы спавна хидов и шайни покемонов больше в 2 раза
     </b>
     <b style="margin-top: 10px; display: block">
       Туман в измерении сильно уменьшает дальность обзора, для того, что бы
-      ослабить эффект тумана можно надеть Защитные Очки в слот шлема
+      ослабить эффект тумана можно надеть <Tooltiped>
+      <span style="text-decoration: underline dotted" slot = "container">Защитные очки</span>
+      <img style="margin-bottom: 20px; display: block" slot = "content" src="/images/Grid_Safety_Goggles.png" alt=""/>
+</Tooltiped> в слот шлема
     </b>
     <b style="margin-top: 10px; display: block">
       Исследуя ультра-мир, помимо обычных деревень вы можете найти несколько
       других данжей, а именно: крепости из незера и эндер-города с летающими
       кораблями. По всему ультра миру разбросаны бист-луты и мастер-луты
     </b>
+    <b style="margin-top: 10px; display: block">
+      Бист-лут. Дроп:
+    </b>
     <details>
       <summary>Показать картинку</summary>
       <img style="margin-top:20px" src="/images/beastloot.jpg" alt="" width="750" height="350" />
       </details>
-
+      <b style="margin-top: 10px; display: block">
+        Мастер-лут. Дроп:
+      </b>
     <details>
       <summary>Показать картинку</summary>
-      <img style="margin-top:20px" src="" alt="" />
+      <img style="margin-top:20px" src="/images/masterloot.jpg" alt="" width="750" height="350" />
+    </details>
+    <b style="margin-top: 40px; display: block">
+      Здесь можно найти алтари легендарных птиц (Артикуно, Запдос, Молтрес) / Временные алтари для призыва Палкии, Гиратины, Диалги.
+    </b>
+    <h3 style="margin-top: 50px; display: block">
+      Уверен, что у вас появился вопрос, а как же попасть в этот ультра-мир ? Для этого нужен портал в ультра-мир.
+    </h3>
+    <details>
+      <summary>Показать картинку</summary>
+      <img style="margin-top:20px" src="/images/portals.png" alt="" width="350" height="250" />
+    </details>
+    <b style="margin-top:20px; display: block">
+      Получить этот портал можно двумя способами.
+    </b>
+    <ul>
+      <li>
+        Первый: С небольшим шансом портал может заспавниться в обычном мире.
+      </li>
+      <li>
+        Второй: Заспавнить её самостоятельно, использовав внешнюю атаку Солгалео, Луналы, Арцеуса, Некрозмы или Палкии.
+      </li>
+    </ul>
+    <h3 style="margin-top:20px; display: block">
+      Внешнюю атаку можно выбрать нажав на "B", а использовать на "G"
+    </h3>
+    <details>
+      <summary>Показать картинку</summary>
+      <img style="margin-top:20px" src="/images/howtouse.jpg" alt="" width="550" height="350" />
     </details>
     <!-- /contents/0.html -->
   </Layout>
