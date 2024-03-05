@@ -1,0 +1,50 @@
+<pre
+  title="Нажмите, чтобы скопировать"
+  tabindex="0"
+  class="components_copiable"><slot /></pre>
+
+<style>
+  pre {
+    position: relative;
+    background-color: #88888820;
+    display: inline;
+    font-family: inherit;
+
+    display: inline-flex;
+  }
+
+  :global(.components_copiable__tooltip) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #888;
+    border-radius: 4px;
+    animation: apparance 200ms;
+  }
+</style>
+
+<script>
+  const nodes = document.querySelectorAll(".components_copiable");
+  async function createTooltip({ node, text }) {
+    const tooltip = document.createElement("span");
+    tooltip.textContent = text;
+    tooltip.className = "components_copiable__tooltip";
+    node.appendChild(tooltip);
+
+    await globalThis.sleep(1_200);
+    node.removeChild(tooltip);
+  }
+  async function onClick(clickEvent) {
+    const { target } = clickEvent;
+    try {
+      await navigator.clipboard.writeText(target.textContent);
+      createTooltip({ node: target, text: "Скопировано!" });
+    } catch (error) {}
+  }
+  for (const node of nodes) {
+    node.addEventListener("click", onClick);
+  }
+</script>
