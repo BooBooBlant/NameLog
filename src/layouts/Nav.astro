@@ -19,6 +19,7 @@ const {url} = Astro;
         { label: "Покевикторина", id: "poke_question" },
         { label: "Измерения", id: "dimension" },
         { label: "Админы и Модеры", id: "harakteristika" },
+        { label: "Полезное", id: "helpful" },
       ].map(({ label, id }, index) => (
         <li class:list = {{active: url.pathname.includes(id)}}>
           <a href={`/contents/${id}.html`}>
