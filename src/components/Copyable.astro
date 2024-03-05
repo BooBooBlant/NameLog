@@ -15,6 +15,8 @@
 
   :global(.components_copiable__tooltip) {
     position: absolute;
+    min-width: fit-content;
+    padding-inline: 4px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -28,13 +30,13 @@
 
 <script>
   const nodes = document.querySelectorAll(".components_copiable");
-  async function createTooltip({ node, text }) {
+  async function createTooltip({ node, text, time = 1_200 }) {
     const tooltip = document.createElement("span");
     tooltip.textContent = text;
     tooltip.className = "components_copiable__tooltip";
     node.appendChild(tooltip);
 
-    await globalThis.sleep(1_200);
+    await globalThis.sleep(time);
     node.removeChild(tooltip);
   }
   async function onClick(clickEvent) {
@@ -42,7 +44,10 @@
     try {
       await navigator.clipboard.writeText(target.textContent);
       createTooltip({ node: target, text: "Скопировано!" });
-    } catch (error) {}
+    } catch (error) {
+      console.error(`Неудалось скопировать текст: ${error.message}`, error);
+      createTooltip({ node: target, text: "Ошибка в консоли", time: 4_000 });
+    }
   }
   for (const node of nodes) {
     node.addEventListener("click", onClick);
