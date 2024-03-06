@@ -33,6 +33,13 @@ import { Code } from "astro:components";
         />
       </span>
     </Tooltiped>
+    <p>Нажмите на <span id="openSite" style="color:blue; text-decoration: underline; cursor: pointer;">это сочетание слов</span>, чтобы открыть новое окно с указанным сайтом.</p>
+
+<script>
+document.getElementById("openSite").addEventListener("click", function(){
+  window.open("https://bd-server.com/", "_blank");
+});
+</script>
   </Layout>
 </Page>
 

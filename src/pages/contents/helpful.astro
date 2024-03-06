@@ -9,7 +9,7 @@ import Tooltiped from "../../components/Tooltiped.astro";
     <h1>Полезное</h1>
     <h4 style="margin-top: 20px">
       В этом разделе будут размещены уточнения по некоторым другим разделам,а
-      также мини гайды по самому моду pixelmon
+      также мини гайды по игровым механикам мода Pixelmon на <span id="openSite" style="color:white; text-decoration: underline; cursor: pointer;">Black Dragon</span>
     </h4>
     <span class="line-1"></span>
     <h3>Список всего что есть в этом разделе:</h3>
@@ -95,7 +95,7 @@ import Tooltiped from "../../components/Tooltiped.astro";
     <h3 style="margin-top: 50px; display: block">
       Уверен, что у вас появился вопрос, а как же попасть в этот ультра-мир ?
       Для этого нужен портал в ультра-мир.
-    </h3>
+    </h3  >
     <details>
       <summary>Показать картинку</summary>
       <img
@@ -133,8 +133,52 @@ import Tooltiped from "../../components/Tooltiped.astro";
         height="350"
       />
     </details>
+    <span class="line"></span>
+    <h3>
+      Рейды
+    </h3>
+    <b style="margin-top:20px; display: block">
+      Рейды это очень полезная штука, с которой вы можете залутать хорошие предметы, но далеко не всегда и не со всех рейдов падает хороший лут, всё зависит от вашей удачи и от уровня рейда. 
+    </b>
+    <b style="margin-top:10px; display: block">
+      Всего существует 5 уровней рейда, от 1 звезды до 5. Рейды 1-4* вы можете закрывать соло, но для 5* рейдов, вам возможно понадобится помощь.
+    </b>
+    <b>
+      С рейдов 1-4* вам скорее всего будет падать так себе лут, за рейд 5* награды уже будут получше, но опять же, всё зависит от вашей удачи, вам может дропнуться как несколько голд крышек, так и пара ягод и конфет.
+    </b>
+    <h3 style="margin-top:30px; display: block">
+      Где найти эти рейды?
+    </h3>
+    <b>
+      Рейды спавняться в рейд логовах, это такие дырки:
+    </b>
+    <details>
+      <summary>Показать картинку</summary>
+      <img
+        loading="lazy"
+        style="margin-top:20px"
+        src="/images/raid.jpg"
+        alt=""
+        width="750"
+        height="450"
+      />
+    </details>
+    <b style="margin-top:10px; display: block">
+      Рейд логова вы можете найти в "Заповедник" и "Разлом".
+    </b>
+    <b style="margin-top:40px; display: block">
+      Покемоны могут вернуться к жизни во время битвы.
+       Если битва продлится более 10 ходов или покемоны участников рейда будут повержены в общей сложности 4 раза, то рейд завершится неудачей, и покемон исчезнет.
+    </b>
+    <b style="margin-top:10px; display: block">
+  Боссы в рейдах появляются с небольшой задержкой. Большинство логов, которые вы обнаружите, скорее всего будут пустыми.
+    </b>
     <!-- /contents/0.html -->
   </Layout>
 </Page>
-
+<script>
+document.getElementById("openSite").addEventListener("click", function(){
+  window.open("https://bd-server.com/", "_blank");
+});
+</script>
 <style></style>
