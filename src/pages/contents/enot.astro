@@ -17,13 +17,13 @@ import { Code } from "astro:components";
       <summary>Нажми, чтобы открыть</summary>
       <Code code="hello('console.log');" lang="js" />
     </details>
-    <Tooltiped>
+    <Tooltiped transition>
       <span slot="container" style="text-decoration: underline dotted;"
         >Аватарка</span
       >
       <span
         slot="content"
-        style="margin-bottom: 20px; border-radius: 50%; padding: 10px; background-color: #2228; display: flex; place-content: center; width: 5em; aspect-ratio: 1/1"
+        style="transform: translateY(-20px); border-radius: 50%; padding: 10px; background-color: #2228; display: flex; place-content: center; width: 5em; aspect-ratio: 1/1"
       >
         <img
           src="https://images-ext-2.discordapp.net/external/OimPuLr4HnGusRLoiZqPSCW88hAeXbty0jpStPFuDyQ/https/cdn.discordapp.com/avatars/921403577539387454/bcef00c62b72864983775c065071edd1.webp?format=webp"
