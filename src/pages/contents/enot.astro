@@ -33,21 +33,68 @@ import { Code } from "astro:components";
         />
       </span>
     </Tooltiped>
-    <p>Нажмите на <span id="openSite" style="color:blue; text-decoration: underline; cursor: pointer;">это сочетание слов</span>, чтобы открыть новое окно с указанным сайтом.</p>
+    <a href="https://bd-server.com/" target="_blank"
+      >Комплекс игровых серверов Minecraft</a
+    >
 
-<script>
-document.getElementById("openSite").addEventListener("click", function(){
-  window.open("https://bd-server.com/", "_blank");
-});
-</script>
+    <p>
+      <input
+        type="checkbox"
+        onclick="document.body.style.setProperty('text-align', this.checked ? 'justify' : 'inherit')"
+      />
+      Выравнивание текста
+    </p>
+    <p>
+      <p>Размер шрифта:</p>
+      <input
+        type="range"
+        min="1"
+        onchange="document.body.style.setProperty('font-size', isNaN(this.value) ? 'inherit' : `${this.value / 100 + 0.5}em`)"
+      />
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta enim
+      et efficitur consequat. Nunc mauris urna, varius vel odio quis, tincidunt
+      placerat lectus. Cras eget suscipit lectus, eget ornare ipsum. Vestibulum
+      ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+      curae; Suspendisse ut interdum tortor. Sed arcu erat, fermentum at tellus
+      ut, sodales semper mi. Phasellus nec congue mi. Maecenas ac mauris sit
+      amet tortor placerat sollicitudin. Etiam hendrerit facilisis erat id
+      sollicitudin. Pellentesque commodo accumsan eleifend. Suspendisse libero
+      turpis, mollis ac aliquam sed, congue eget felis. Sed rhoncus varius
+      mauris. Mauris a erat mollis, vulputate est quis, tristique massa. Morbi
+      eleifend id leo bibendum mollis. Pellentesque suscipit dolor nec porta
+      pharetra. Vivamus rhoncus lacus ac nisl convallis, vel eleifend orci
+      vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+      ultricies tincidunt justo, vitae facilisis nunc posuere scelerisque. Nulla
+      quis placerat diam. Orci varius natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus. Sed eget condimentum erat, eu pretium est.
+      Maecenas tempor venenatis nulla quis molestie. Donec rutrum congue
+      ullamcorper. Fusce vitae eros eget felis pellentesque blandit. Nulla
+      pulvinar eu lectus eu egestas. In placerat quis augue vel pharetra. Nunc
+      dolor erat, tristique sit amet eros laoreet, efficitur tincidunt libero.
+      Donec in purus varius, porta nisl at, gravida purus. Mauris in venenatis
+      metus. Sed elementum eget erat in posuere. Duis lobortis vitae ex vitae
+      lobortis. Aenean velit eros, ullamcorper imperdiet massa eu, lacinia
+      vestibulum sem. Sed venenatis lacus vehicula tellus porttitor, sed
+      ullamcorper ipsum bibendum. Suspendisse auctor quam felis, rhoncus commodo
+      libero blandit non. Vivamus et felis enim. Integer ut vulputate felis.
+      Fusce consectetur eros sit amet nunc rutrum consectetur. Fusce iaculis
+      eget purus nec volutpat. Fusce ut semper purus, sed cursus dolor. Mauris
+      purus lacus, condimentum rutrum pretium non, venenatis ac lacus. Ut eros
+      nisi, posuere in turpis vel, mattis posuere justo. Morbi lobortis, augue
+      eu mollis lobortis, mi metus facilisis ligula, et efficitur nibh est in
+      eros. Suspendisse venenatis eros eget malesuada consectetur. Curabitur
+      ultrices dapibus mi, eu tincidunt mi laoreet vitae. Nullam tristique porta
+      nisi in euismod. Praesent nisi dolor, accumsan in elit non, ullamcorper
+      sodales ex. Nunc dictum enim non cursus tincidunt. Nullam eu lectus
+      lobortis, efficitur velit vel, convallis ipsum. Suspendisse potenti.
+    </p>
   </Layout>
 </Page>
 
 <style>
   span {
     white-space: pre;
-  }
-
-
   }
 </style>
