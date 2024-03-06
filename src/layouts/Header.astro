@@ -7,6 +7,13 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
     <element-group
       style="gap: 30px; align-items: center; height: 100%; padding-inline: 30px;"
     >
+        <p>
+      <input
+        type="checkbox"
+        onclick="document.body.style.setProperty('text-align', this.checked ? 'justify' : 'inherit')"
+      />
+      Выравнивание текста
+    </p>
       <span class="all-links-label" style="font-size: 0.9em;">
         Ссылки на наши соц. сети:
       </span>
