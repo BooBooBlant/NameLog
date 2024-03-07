@@ -1,19 +1,13 @@
 ---
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
 ---
 
 <header class="page-header">
-  <section class="page-header-leftContent">
+  <section class="page-header-leftContent page-header-content">
     <element-group
       style="gap: 30px; align-items: center; height: 100%; padding-inline: 30px;"
     >
-        <p>
-      <input
-        type="checkbox"
-        onclick="document.body.style.setProperty('text-align', this.checked ? 'justify' : 'inherit')"
-      />
-      Выравнивание текста
-    </p>
       <span class="all-links-label" style="font-size: 0.9em;">
         Ссылки на наши соц. сети:
       </span>
@@ -29,11 +23,13 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
       </span>
     </element-group>
   </section>
-  <section class = "page-header-float">
+  <section class = "page-header-float page-header-content">
     <span>(NameLog)</span>
   </section>
-  <section class="page-header-rightContent"></section>
-  <ThemeSwitcher />
+  <section class="page-header-rightContent page-header-content">
+     <TextAlignSwitcher />
+    <ThemeSwitcher />
+  </section>
 </header>
 
 
@@ -52,6 +48,11 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
       display: none;
     }
 	}
+
+  .page-header-content
+  {
+    display: flex;
+  }
 
   .page-header-float {
     position: absolute;
