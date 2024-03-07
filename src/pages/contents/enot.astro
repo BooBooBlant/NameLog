@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Copyable from "../../components/Copyable.astro";
 import Tooltiped from "../../components/Tooltiped.astro";
 import { Code } from "astro:components";
+import TextAlignSwitcher from "../../components/control/TextAlignSwitcher.astro";
 ---
 
 <Page>
@@ -37,13 +38,7 @@ import { Code } from "astro:components";
       >Комплекс игровых серверов Minecraft</a
     >
 
-    <p>
-      <input
-        type="checkbox"
-        onclick="document.body.style.setProperty('text-align', this.checked ? 'justify' : 'inherit')"
-      />
-      Выравнивание текста
-    </p>
+    <TextAlignSwitcher/>
     <p>
       <p>Размер шрифта:</p>
       <input
