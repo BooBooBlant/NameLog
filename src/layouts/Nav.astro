@@ -22,7 +22,7 @@ const {url} = Astro;
         { label: "Полезное", id: "helpful" },
       ].map(({ label, id }, index) => (
         <li class:list = {{active: url.pathname.includes(id)}}>
-          <a href={`/contents/${id}.html`}>
+          <a href={`/contents/${id}`}>
             <span style="opacity: 0.5" class="list-number">
               {index + 1}.
             </span>{" "}
