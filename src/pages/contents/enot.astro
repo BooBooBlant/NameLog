@@ -5,6 +5,7 @@ import Copyable from "../../components/Copyable.astro";
 import Tooltiped from "../../components/Tooltiped.astro";
 import { Code } from "astro:components";
 import TextAlignSwitcher from "../../components/control/TextAlignSwitcher.astro";
+import Wow from "../../components/Wow.astro";
 ---
 
 <Page>
@@ -38,7 +39,11 @@ import TextAlignSwitcher from "../../components/control/TextAlignSwitcher.astro"
       >Комплекс игровых серверов Minecraft</a
     >
 
-    <TextAlignSwitcher/>
+    <span class = "line"/>
+    <p>В моменте захотелось сделать такое:</p>
+    <Wow />
+    <hr>
+    <TextAlignSwitcher />
     <p>
       <p>Размер шрифта:</p>
       <input
