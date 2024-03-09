@@ -1,0 +1,46 @@
+<element-group>
+  <span class="green"></span>
+  <span class="blue"></span>
+</element-group>
+
+<style>
+  element-group {
+    max-height: 200px;
+    position: relative;
+    aspect-ratio: 2/1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span {
+    display: block;
+    position: absolute;
+    height: 50%;
+    aspect-ratio: 1/1;
+    animation: animate 3s infinite;
+  }
+  .green {
+    background-color: green;
+    translate: -50% -25%;
+  }
+  .blue {
+    background-color: blue;
+    translate: 50% 25%;
+  }
+
+  @keyframes animate {
+    0% {
+      rotate: 0deg;
+    }
+    20% {
+      rotate: 45deg;
+    }
+    80% {
+      rotate: 45deg;
+    }
+    100% {
+      rotate: 90deg;
+    }
+  }
+</style>
