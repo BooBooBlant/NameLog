@@ -44,6 +44,14 @@ import Wow from "../../components/Wow.astro";
     <Wow />
     <hr>
     <TextAlignSwitcher />
+
+    <p>
+      <p>Цветовой акцент:</p>
+      <input
+        type="color"
+        onchange=`document.documentElement.style.setProperty("--accent-color", this.value)`
+      />
+    </p>
     <p>
       <p>Размер шрифта:</p>
       <input
