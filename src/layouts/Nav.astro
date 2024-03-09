@@ -20,7 +20,6 @@ const {url} = Astro;
         { label: "Измерения", id: "dimension" },
         { label: "Админы и Модеры", id: "harakteristika" },
         { label: "Полезное", id: "helpful" },
-        { label: "ЕНот", id: "enot" },
       ].map(({ label, id }, index) => (
         <li class:list = {{active: url.pathname.includes(id)}}>
           <a href={`/contents/${id}.html`}>
