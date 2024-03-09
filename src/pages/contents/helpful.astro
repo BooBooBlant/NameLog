@@ -18,6 +18,7 @@ import Tooltiped from "../../components/Tooltiped.astro";
       <li><a href="#Raids">Рейды</a></li>
       <li><a href="#Dynamax">Динамакс</a></li>
       <li><a href="#MegaEvol">Мега Эволюции</a></li>
+      <li><a href="#LvlUp">Прокачка покемонов</a></li>
     </ul>
     <span class="line"></span>
     <section id = "Ultra">
@@ -245,6 +246,156 @@ import Tooltiped from "../../components/Tooltiped.astro";
 </b>
   </section>
   <span class="line"></span>
+  <section id = "LvlUp">
+  <h3 style="display: block; text-align: center;">
+    Прокачка покемонов
+  </h3>
+  <b style="margin-top:10px; display: block">
+Прокачивать покемонов вы будете либо с помощью битв с дикими покемонами, либо с помощью конфет, конфеты бавают разные, я пройдусь и обьясню про каждую конфету.
+ На счёт битв с дикими покемонами, опыт вы будете получать в зависимости от того, какого уровня дикий покемон, чем выше уровень, тем больше опыта за победу над ним вы получите.
+  </b>
+  <b style="margin-top:10px; display: block">
+С каждым новым уровнем, вам нужно будет всё больше и больше опыта для перехода на следующий уровень.
+  </b>
+  <b style="margin-top:10px; display: block">
+    Все конфеты которые есть на проекте:
+  </b>
+  <details>
+      <summary>Показать картинку</summary>
+      <img
+        loading="lazy"
+        style="margin-top:20px"
+        src="/images/Candies.jpg"
+        alt=""
+        />
+</details>
+<b style="margin-top:60px; display: block">
+<Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/rare.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+      </Tooltiped>: Повышает 1 уровень покемона, не зависимо от того, сколько EXP ему нужно для его повышения. 
+</b>
+<b style="margin-top:20px; display: block">
+<Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >XL Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/XL.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+      </Tooltiped>: XL конфеты дают очень много опыта, она очень полезна из-за того, что её можно использовать на низкоуровневых покемонах,
+   что бы не тратить кучу Редких конфет на его прокачку до 100 лвла.
+</b>
+<b style="margin-top:20px; display: block">
+<Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >L Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/L.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+      </Tooltiped> \ <Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >M Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/M.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+      </Tooltiped> \ <Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >S Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/S.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+      </Tooltiped> \ <Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >XS Редкая конфета</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/XS.png"
+          alt=""
+          width="40"
+          height="40"
+        />
+      </Tooltiped>: Их используют с той же целью, что и XL, но конфеты S и XS дают очень мало опыта, по этому их использование весьма сомнительное
+</b>
+
+<b style="margin-top:20px; display: block">
+  <Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >Вредные конфеты</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/Bad.png"
+          alt=""
+          width="30"
+          height="30"
+        />
+        </Tooltiped>: Понижают уровень покемона на 1 единицу. Используют их для того что бы понизить уровень покемона, после чего повысить его, и изучить нужную атаку.Так же их использование распространено в целях снизижения уровня, до минимального уровня определённых турниров.
+</b>
+<b style="margin-top:20px; display: block">
+  <Tooltiped>
+        <span style="text-decoration: underline dotted" slot="container"
+          >Динамакс конфеты</span
+        >
+        <img
+          loading="lazy"
+          style="margin-bottom: 20px; display: block"
+          slot="content"
+          src="/images/DMax.png"
+          alt=""
+          width="25"
+          height="25"
+        />
+        </Tooltiped>: Динамакс конфеты испольюзут, что бы повысить динамкс уровень желаемого покемона,
+         у каждого покемона изначально нулевой уровень динамакса, его максимальное значение - 10, то есть,
+         что бы замаксить динамакс уровень вашего покемона, вам нужно будет потратить 10 Динамакс конфет.
+</b>
+</section>
+
+<span class="line"></span>
+
     <!-- /contents/0.html -->
   </Layout>
 </Page>
