@@ -18,7 +18,10 @@
     position: absolute;
     height: 50%;
     aspect-ratio: 1/1;
-    animation: animate 3s infinite;
+    animation: animate 100ms;
+    animation-fill-mode: both;
+
+    animation-timeline: scroll();
   }
   .green {
     background-color: var(--accent-color);
