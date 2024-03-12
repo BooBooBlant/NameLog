@@ -4,8 +4,6 @@
   .theme-switcher {
     cursor: pointer;
     aspect-ratio: 1/1;
-    height: 100%;
-    padding: 1em;
     height: 80%;
     align-self: center;
     border-radius: 50%;
@@ -60,6 +58,8 @@
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const node = getNode();
+      // todo-developer cruntch
+      alert("123");
 
       setTimeout(() => {
         node.classList.toggle("light");
