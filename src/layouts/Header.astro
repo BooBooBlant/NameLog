@@ -13,44 +13,52 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
       </span>
       <span class="link-1">
         <a href="https://discord.gg/kWhCx4Kdbb">
-        <img src="/images/icons8-discord-64.png" alt="Discord" loading="lazy" width="50" height="50">
+          <img
+            src="/images/icons8-discord-64.png"
+            alt="Discord"
+            loading="lazy"
+            width="50"
+            height="50"
+          />
         </a>
       </span>
       <span class="link-2">
         <a href="https://t.me/+pREC84AhX8xmMmRi">
-        <img src="/images/icons8-телеграм-188 (1).png" alt="Telegram" loading="lazy" width="50" height="50">
+          <img
+            src="/images/icons8-телеграм-188 (1).png"
+            alt="Telegram"
+            loading="lazy"
+            width="50"
+            height="50"
+          />
         </a>
       </span>
     </element-group>
   </section>
-  <section class = "page-header-float page-header-content">
+  <section class="page-header-float page-header-content">
     <span>(NameLog)</span>
   </section>
   <section class="page-header-rightContent page-header-content">
-     <TextAlignSwitcher />
+    <TextAlignSwitcher />
     <ThemeSwitcher />
   </section>
 </header>
 
-
 <style>
-  .page-header
-  {
+  .page-header {
     position: relative;
   }
-	@media (width <= 1280px) {
-		.all-links-label {
-			display: none;
-		}
-
-    .page-header-float span 
-    {
+  @media (width <= 1280px) {
+    .all-links-label {
       display: none;
     }
-	}
 
-  .page-header-content
-  {
+    .page-header-float span {
+      display: none;
+    }
+  }
+
+  .page-header-content {
     display: flex;
   }
 
@@ -66,6 +74,12 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
 
     pointer-events: none;
   }
+  
+  .page-header-rightContent {
+    margin-left: auto;
+    justify-content: end;
+    align-items: center;
+  }
 
   .page-header-float span {
     position: absolute;
@@ -73,7 +87,15 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
     font-family: "Comfortaa";
     color: orangered;
   }
-	.link-1 span {
+  .link-1 span {
     border-radius: 50%;
   }
+
+  .page-header {
+    min-height: var(--page-header-height);
+    background-color: transparent;
+    border-bottom: 1px solid #80808020;
+    display: flex;
+  }
+ 
 </style>
