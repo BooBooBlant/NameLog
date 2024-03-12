@@ -26,6 +26,7 @@ body {
   max-height: 100lvh;
   accent-color: var(--accent-color);
   overflow: auto;
+  word-break: break-word;
 }
 
 a {
