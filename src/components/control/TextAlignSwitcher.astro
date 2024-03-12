@@ -24,8 +24,6 @@ const STORAGE_KEY = "namelog_page-main_text-align_value";
   };
 
   function updateAlign() {
-    console.log(node.checked);
-
     document.documentElement.style.setProperty(
       "--page-main_text-align",
       node.checked ? "justify" : "inherit"
