@@ -1,8 +1,9 @@
 ---
 const { url } = Astro;
+const id = `id_${Math.random() * Date.now()}`;
 ---
 
-<nav class="page-nav">
+<nav class="page-nav" id={id}>
   <icon-element class="page-icon">
     <a href="/" class="page_logo">
       <img loading="lazy" src="/images/logo.webp" alt="NL" /></a
@@ -35,6 +36,18 @@ const { url } = Astro;
     }
   </ul>
 </nav>
+
+<script define:vars={{ id: id }}>
+  const node = document.getElementById(id);
+  const STORAGE_KEY = "namelog_page-nav_scroll_position";
+  const scroll_position_on_start = sessionStorage.getItem(STORAGE_KEY);
+  if (scroll_position_on_start) {
+    node.scrollTo(0, scroll_position_on_start);
+  }
+  node.addEventListener("scroll", () => {
+    sessionStorage.setItem(STORAGE_KEY, node.scrollTop);
+  });
+</script>
 
 <style>
   nav {
