@@ -1,0 +1,70 @@
+---
+const {
+  transition,
+  _aside,
+  _section,
+  justify = "center",
+  align = "end",
+} = Astro.props;
+
+const id = `id_${Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)}`;
+---
+
+<section {..._section} id={id}>
+  <slot name="container" />
+  <aside
+    class:list={[{ transition }]}
+    {..._aside}
+    style={`justify-content: ${justify}; align-items: ${align}`}
+  >
+    <slot name="content" />
+  </aside>
+</section>
+
+<style>
+  section {
+    display: inline-flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+  }
+  section.active > aside {
+    display: inherit;
+    opacity: 1;
+    transform: translateY(0);
+    /* transition-delay: 1s; */
+  }
+  aside.transition {
+    transition: opacity 0.5s, transform 0.5s;
+    transition-behavior: allow-discrete;
+    opacity: 0;
+    transform: translateY(0.5em);
+    transition-delay: 0.2s;
+  }
+  aside {
+    display: none;
+    position: absolute;
+  }
+</style>
+
+<script is:inline define:vars={{ id: id }}>
+  const node = document.getElementById(id);
+  node.onclick = async () => {
+    if (node.classList.contains("active")) {
+      return;
+    }
+    node.classList.add("active");
+
+    await sleep(100);
+
+    await new Promise((resolve) =>
+      document.addEventListener("click", (event) => {
+        const { target } = event;
+        if (!target.closest(`#${id} > aside`)) {
+          resolve(event);
+        }
+      })
+    );
+    node.classList.remove("active");
+  };
+</script>
