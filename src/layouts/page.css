@@ -3,6 +3,11 @@
 :root {
   --page-header-height: 4em;
   --accent-color: orange;
+  --light: #ffffff;
+  --dark: #111010;
+
+  /* https://www.codegram.com/blog/stop-ab-using-z-index/ */
+  --z-index-layout: 1000;
 }
 
 * {
@@ -16,10 +21,20 @@
 html {
   overflow: hidden;
 }
+
+body.light {
+  --page-text-color: var(--dark);
+  --page-background-color: var(--light);
+
+}
+body:not(.light){
+  --page-text-color: var(--light);
+  --page-background-color: var(--dark);
+}
 body {
+  color: var(--page-text-color);
+  background-color: var(--page-background-color);
   font-family: "Open Sans", sans-serif;
-  color: #ffffff;
-  background-color: #111010;
   display: flex;
   flex-direction: row;
   min-height: 100lvh;
