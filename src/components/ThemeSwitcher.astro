@@ -1,10 +1,55 @@
-<button class="theme-switcher">T</button>
+---
+import Tooltiped from "./TooltipedOnClick.astro";
+import TextAlignSwitcher from ".//control/TextAlignSwitcher.astro";
+---
+
+<element-container>
+  <Tooltiped
+    transition
+    _aside={{ style: "right: -100%; top: 100%" }}
+    _section={{ style: "height: 100%" }}
+  >
+    <button class="theme-switcher" slot="container">T</button>
+    <section
+      slot="content"
+      style="background-color: red; width: 300px; aspect-ratio: 4/2; max-width: 80vw;"
+    >
+      <TextAlignSwitcher />
+      <p>
+        <input type="checkbox" name="" id="" />
+        Светлая тема
+      </p>
+      <p>
+        <p>Цветовой акцент:</p>
+        <input
+          type="color"
+          oninput=`document.documentElement.style.setProperty("--accent-color", this.value)`
+        />
+      </p>
+      <p>
+        <p>Размер шрифта:</p>
+        <input
+          type="range"
+          min="1"
+          oninput="document.body.style.setProperty('font-size', isNaN(this.value) ? 'inherit' : `${this.value / 100 + 0.5}em`)"
+        />
+      </p>
+    </section>
+  </Tooltiped>
+</element-container>
 
 <style>
-  .theme-switcher {
-    cursor: pointer;
+  element-container {
     aspect-ratio: 1/1;
     height: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .theme-switcher {
+    height: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
     align-self: center;
     border-radius: 50%;
     font-weight: bold;
@@ -40,34 +85,34 @@
 
 <script>
   // Find our component DOM on the page.
-  const buttons = document.querySelectorAll(".theme-switcher");
+  // const buttons = document.querySelectorAll(".theme-switcher");
 
-  const getNode = () =>
-    document.querySelector("theme-swither_element-filter") ||
-    (() => {
-      const node = document.createElement("theme-swither_element-filter");
-      document.body.appendChild(node);
-      return node;
-    })();
+  // const getNode = () =>
+  //   document.querySelector("theme-swither_element-filter") ||
+  //   (() => {
+  //     const node = document.createElement("theme-swither_element-filter");
+  //     document.body.appendChild(node);
+  //     return node;
+  //   })();
 
-  if (localStorage.getItem("namelog_theme-swither_value") === "light") {
-    getNode().classList.add("light"); 
-  }
+  // if (localStorage.getItem("namelog_theme-swither_value") === "light") {
+  //   getNode().classList.add("light");
+  // }
 
-  // Add event listeners to fire confetti when a button is clicked.
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const node = getNode();
-      // todo-developer cruntch
-      alert("123");
+  // // Add event listeners to fire confetti when a button is clicked.
+  // buttons.forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     const node = getNode();
 
-      setTimeout(() => {
-        node.classList.toggle("light");
-        localStorage.setItem(
-          "namelog_theme-swither_value",
-          node.classList.contains("light") ? "light" : "dark"
-        );
-      })
-    });
-  });
+  //     console.log(getNode().className);
+
+  //     setTimeout(() => {
+  //       node.classList.toggle("light");
+  //       localStorage.setItem(
+  //         "namelog_theme-swither_value",
+  //         node.classList.contains("light") ? "light" : "dark"
+  //       );
+  //     });
+  //   });
+  // });
 </script>
