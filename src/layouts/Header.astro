@@ -1,6 +1,5 @@
 ---
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
-import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
 ---
 
 <header class="page-header">
@@ -39,7 +38,6 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
     <span>(NameLog)</span>
   </section>
   <section class="page-header-rightContent page-header-content">
-    <TextAlignSwitcher />
     <ThemeSwitcher />
   </section>
 </header>
@@ -47,6 +45,7 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
 <style>
   .page-header {
     position: relative;
+    z-index: var(--z-index-layout);
   }
   @media (width <= 1280px) {
     .all-links-label {
@@ -87,9 +86,11 @@ import TextAlignSwitcher from "../components/control/TextAlignSwitcher.astro";
     font-family: "Comfortaa";
     color: orangered;
   }
-  .link-1 span {
-    border-radius: 50%;
+  .link-1, .link-2 {
+    object-fit: contain;
   }
+
+  
 
   .page-header {
     min-height: var(--page-header-height);
