@@ -1,5 +1,5 @@
 ---
-import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import PageControl from "../components/PageControl.astro";
 ---
 
 <header class="page-header">
@@ -38,7 +38,7 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
     <span>(NameLog)</span>
   </section>
   <section class="page-header-rightContent page-header-content">
-    <ThemeSwitcher />
+    <PageControl />
   </section>
 </header>
 
@@ -73,7 +73,7 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 
     pointer-events: none;
   }
-  
+
   .page-header-rightContent {
     margin-left: auto;
     justify-content: end;
@@ -86,11 +86,10 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
     font-family: "Comfortaa";
     color: orangered;
   }
-  .link-1, .link-2 {
+  .link-1,
+  .link-2 {
     object-fit: contain;
   }
-
-  
 
   .page-header {
     min-height: var(--page-header-height);
@@ -98,5 +97,4 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
     border-bottom: 1px solid #80808020;
     display: flex;
   }
- 
 </style>
