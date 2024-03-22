@@ -25,11 +25,13 @@ html {
 body.light {
   --page-text-color: var(--dark);
   --page-background-color: var(--light);
+  color-scheme: light;
 
 }
 body:not(.light){
   --page-text-color: var(--light);
   --page-background-color: var(--dark);
+  color-scheme: dark;
 }
 body {
   color: var(--page-text-color);
