@@ -10,29 +10,11 @@ import TextAlignSwitcher from ".//control/TextAlignSwitcher.astro";
     _section={{ style: "height: 100%" }}
   >
     <button class="theme-switcher" slot="container">T</button>
-    <section
-      slot="content"
-      style="background-color: red; width: 300px; aspect-ratio: 4/2; max-width: 80vw;"
-    >
+    <section slot="content" class="params_cointainer">
       <TextAlignSwitcher />
       <p>
         <input type="checkbox" name="" id="" />
         Светлая тема
-      </p>
-      <p>
-        <p>Цветовой акцент:</p>
-        <input
-          type="color"
-          oninput=`document.documentElement.style.setProperty("--accent-color", this.value)`
-        />
-      </p>
-      <p>
-        <p>Размер шрифта:</p>
-        <input
-          type="range"
-          min="1"
-          oninput="document.body.style.setProperty('font-size', isNaN(this.value) ? 'inherit' : `${this.value / 100 + 0.5}em`)"
-        />
       </p>
     </section>
   </Tooltiped>
@@ -44,6 +26,15 @@ import TextAlignSwitcher from ".//control/TextAlignSwitcher.astro";
     height: 80%;
     display: flex;
     justify-content: center;
+  }
+
+  .params_cointainer {
+    width: 300px;
+    aspect-ratio: 4/2;
+    max-width: 80vw;
+    background-color: color-mix(in hsl shorter hue, var(--page-background-color), var(--page-text-color) 5%);
+    padding: 5px;
+    border-radius: 2px;
   }
 
   .theme-switcher {
