@@ -101,6 +101,14 @@ import Wow from "../../components/Wow.astro";
   </Layout>
 </Page>
 
+<script is:inline>
+  (async () => {
+   const x= await fetch("/api/on-user-join")
+   x.text();
+   console.log(x);
+  })();
+</script>
+
 <style>
   span {
     white-space: pre;
