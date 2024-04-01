@@ -5,7 +5,7 @@ import Copyable from "../../components/Copyable.astro";
 import Tooltiped from "../../components/Tooltiped.astro";
 import { Code } from "astro:components";
 import TextAlignSwitcher from "../../components/control/TextAlignSwitcher.astro";
-import Wow from "../../components/Wow.astro";
+import AnimatedCube from "../../components/zoodogood/AnimatedCube.astro";
 ---
 
 <Page>
@@ -39,10 +39,10 @@ import Wow from "../../components/Wow.astro";
       >Комплекс игровых серверов Minecraft</a
     >
 
-    <span class = "line"/>
+    <span class="line"></span>
     <p>В моменте захотелось сделать такое:</p>
-    <Wow />
-    <hr>
+    <AnimatedCube />
+    <hr />
     <TextAlignSwitcher />
 
     <p>
@@ -103,9 +103,9 @@ import Wow from "../../components/Wow.astro";
 
 <script is:inline>
   (async () => {
-   const x= await fetch("/api/on-user-join")
-   x.text();
-   console.log(x);
+    const x = await fetch("/api/on-user-join");
+    const text = await x.text();
+    console.log(text);
   })();
 </script>
 
