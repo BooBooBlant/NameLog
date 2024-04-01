@@ -59,3 +59,17 @@ import Layout from "../../layouts/Layout.astro";
     display: none;
   }
 </style>
+  
+<script is:inline>
+  (async () => {
+    const response = await fetch("/api/activate-promocode", {
+      method: "POST",
+      headers: {
+        "X-name": "Енот",
+        "X-promocode": "123",
+      },
+    });
+
+	 console.log(await response.text());
+  })();
+</script>
