@@ -1,5 +1,5 @@
 ---
-const id = `id_${Date.now()}_${Math.floor(Date.now() * Math.random())}`;
+const id = `id_${crypto.randomUUID()}`;
 const COMPONENT = "control/TextAlignSwitcher";
 ---
 
@@ -9,7 +9,7 @@ const COMPONENT = "control/TextAlignSwitcher";
 </span>
 
 <script define:vars={{ id: id }}>
-const STORAGE_KEY = "namelog_page-main_text-align_value";
+  const STORAGE_KEY = "namelog_page-main_text-align_value";
   const node = document.querySelector(`#${id} > input`);
   if (localStorage.getItem(STORAGE_KEY)) {
     node.setAttribute("checked", "");

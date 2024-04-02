@@ -17,6 +17,14 @@ import Layout from "../../layouts/Layout.astro";
             required
           />
         </label>
+        <label>
+          <input
+            type="text"
+            name="user-code"
+            placeholder=""
+            required
+          />
+        </label>
         <button type="submit">Активировать</button>
       </form>
       <div class="my-image">
@@ -59,17 +67,17 @@ import Layout from "../../layouts/Layout.astro";
     display: none;
   }
 </style>
-  
+
 <script is:inline>
   (async () => {
-    const response = await fetch("/api/activate-promocode", {
+    const response = await fetch("/api/activate_promocode", {
       method: "POST",
       headers: {
-        "X-name": "Енот",
-        "X-promocode": "123",
+        "x-name": encodeURIComponent("enot"),
+        "x-promocode": encodeURIComponent("123"),
       },
     });
 
-	 console.log(await response.text());
+    console.log(await response.text());
   })();
 </script>

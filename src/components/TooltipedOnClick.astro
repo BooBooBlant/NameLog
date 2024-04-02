@@ -7,7 +7,7 @@ const {
   align = "end",
 } = Astro.props;
 
-const id = `id_${Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)}`;
+const id = `id_${crypto.randomUUID()}`;
 ---
 
 <section {..._section} id={id}>
@@ -35,7 +35,9 @@ const id = `id_${Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)}`;
     /* transition-delay: 1s; */
   }
   aside.transition {
-    transition: opacity 0.5s, transform 0.5s;
+    transition:
+      opacity 0.5s,
+      transform 0.5s;
     transition-behavior: allow-discrete;
     opacity: 0;
     transform: translateY(0.5em);

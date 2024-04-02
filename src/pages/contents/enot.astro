@@ -1,24 +1,30 @@
 ---
-import Page from "../../layouts/Page.astro";
-import Layout from "../../layouts/Layout.astro";
-import Copyable from "../../components/Copyable.astro";
-import Tooltiped from "../../components/Tooltiped.astro";
+import Page from "@/layouts/Page.astro";
+import Layout from "@/layouts/Layout.astro";
+import Copyable from "@components/Copyable.astro";
+import Tooltiped from "@components/Tooltiped.astro";
 import { Code } from "astro:components";
-import TextAlignSwitcher from "../../components/control/TextAlignSwitcher.astro";
-import AnimatedCube from "../../components/zoodogood/AnimatedCube.astro";
+import TextAlignSwitcher from "@components/control/TextAlignSwitcher.astro";
+import AnimatedCube from "@components/zoodogood/AnimatedCube.astro";
+const id = `id_${crypto.randomUUID()}`;
 ---
 
 <Page>
   <Layout>
+    <h1>@/pages/enot.astro</h1>
     <p>
       Привет, это моя собственная страничка для всяких штук. Вы можете сюда
       добавлять свои классные штуки
     </p>
+    <h3>@components/Copyable</h3>
     <Copyable>Нажми, чтобы скопировать</Copyable>
+    <h3>HTML tag: details</h3>
     <details>
       <summary>Нажми, чтобы открыть</summary>
       <Code code="hello('console.log');" lang="js" />
     </details>
+    <hr />
+    <h3>@components/Tooltiped</h3>
     <Tooltiped transition>
       <span slot="container" style="text-decoration: underline dotted;"
         >Аватарка</span
@@ -35,12 +41,15 @@ import AnimatedCube from "../../components/zoodogood/AnimatedCube.astro";
         />
       </span>
     </Tooltiped>
+
+    <h3>HTML tag: a (open new page in browser)</h3>
     <a href="https://bd-server.com/" target="_blank"
       >Комплекс игровых серверов Minecraft</a
     >
 
     <span class="line"></span>
     <p>В моменте захотелось сделать такое:</p>
+    <h3>@components/AnimatedCube</h3>
     <AnimatedCube />
     <hr />
     <TextAlignSwitcher />
@@ -98,6 +107,14 @@ import AnimatedCube from "../../components/zoodogood/AnimatedCube.astro";
       sodales ex. Nunc dictum enim non cursus tincidunt. Nullam eu lectus
       lobortis, efficitur velit vel, convallis ipsum. Suspendisse potenti.
     </p>
+
+    <section class = {`authorize ${id}`}>
+      <span
+        >Authorized data: <slot-element class="authorized-data"
+        ></slot-element></span
+      >
+      <button>Authorize</button>
+    </section>
   </Layout>
 </Page>
 
@@ -106,6 +123,26 @@ import AnimatedCube from "../../components/zoodogood/AnimatedCube.astro";
     const x = await fetch("/api/on-user-join");
     const text = await x.text();
     console.log(text);
+  })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" is:inline
+></script>
+<script is:inline define:vars={ID: id}>
+  (async () => {
+    const { createClient } = supabase;
+    // Create a single supabase client for interacting with your database
+    supabaseClient = createClient(
+      "https://amtkqhfkxjbyoilswwzi.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtdGtxaGZreGpieW9pbHN3d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIwMzExNTYsImV4cCI6MjAyNzYwNzE1Nn0.5ozuUYc7clRWbom-RG7cIWNTHt71wYoaz8b2ZipoCyY"
+    );
+
+
+    const section = document.querySelector(`.${ID}.authorize`);
+    section.querySelector("button").onclick = () => supabaseClient.auth.signInWithOAuth({ provider: "google" });
+
+    
+
   })();
 </script>
 
