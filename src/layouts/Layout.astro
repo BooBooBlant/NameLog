@@ -4,15 +4,15 @@ import Nav from "../layouts/Nav.astro";
 import GiscusComments from "../components/GiscusComments.astro";
 ---
 
-<Nav/>
+<Nav />
 
 <section class="page-wrapper">
   <Header />
   <main class="page-main">
-    <section class = "slot-layout">
+    <section class="slot-layout">
       <slot />
     </section>
-    <GiscusComments id = {Astro.url.pathname} />
+    <GiscusComments id={Astro.url.pathname} />
   </main>
 </section>
 
@@ -34,8 +34,6 @@ import GiscusComments from "../components/GiscusComments.astro";
     scroll-snap-align: center;
     scroll-snap-stop: always;
     overflow: auto;
-    
-    
   }
 
   .list-number {
