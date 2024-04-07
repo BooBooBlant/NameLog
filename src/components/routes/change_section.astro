@@ -10,7 +10,6 @@ const index = sections.findIndex(
 const target = sections.at((index + 1) % sections.length);
 const label = target.label;
 const href = `/contents/${target.mainPage}`;
-console.log(sections, href);
 ---
 
 <a href={href} style="min-width: max-content;">{label}</a>
