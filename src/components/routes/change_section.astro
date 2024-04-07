@@ -1,0 +1,22 @@
+---
+import { page_sections } from "@constants/page_sections.js";
+import { globalProps } from "@lib/globalProps";
+const sections = [...page_sections.values()];
+
+const index = sections.findIndex(
+  (section) => section.key === globalProps.page_section
+);
+
+const target = sections.at((index + 1) % sections.length);
+const label = target.label;
+const href = `/contents/${target.mainPage}`;
+console.log(sections, href);
+---
+
+<a href={href} style="min-width: max-content;">{label}</a>
+
+<style>
+  a {
+    min-width: max-content;
+  }
+</style>
