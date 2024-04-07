@@ -1,5 +1,8 @@
 ---
+import { globalProps } from "@lib/globalProps";
 import PageControl from "../components/PageControl.astro";
+import ChangeSection from "@components/routes/change_section.astro";
+import { page_sections } from "@constants/page_sections";
 ---
 
 <header class="page-header">
@@ -38,12 +41,10 @@ import PageControl from "../components/PageControl.astro";
     </element-group>
   </section>
   <section class="page-header-float page-header-content">
-    <span>(NameLog)</span>
-  </section>
-  <section class="" style="font-size: 1em; margin-top: 20px;margin-left: 940px">
-    <a href="/contents/roulette">Рулетка</a>
+    <span>({page_sections.get(globalProps?.page_section)?.label || "NameLog"})</span>
   </section>
   <section class="page-header-rightContent page-header-content">
+    <ChangeSection/>
     <PageControl />
   </section>
 </header>
