@@ -5,9 +5,10 @@
     "paths": {
       "@config": ["./src/config.json.js"],
       "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"],
       "@lib/*": ["./src/lib/*"],
       "@/*": ["./src/*"],
       "@root": ["./*"]
-    }
+    } 
   }
 }
