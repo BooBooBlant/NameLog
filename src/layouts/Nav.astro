@@ -2,8 +2,6 @@
 import { routes } from "@/constants/routes.js";
 import { globalProps } from "@lib/globalProps.js";
 
-console.log(globalProps);
-
 const { url } = Astro;
 const id = `id_${crypto.randomUUID()}`;
 ---
@@ -29,7 +27,7 @@ const id = `id_${crypto.randomUUID()}`;
               </a>
             </li>
           ));
-          return values.length ? values : <li>Похоже, здесь пусто</li>;
+        return values.length ? values : <li>Похоже, здесь пусто</li>;
       })()
     }
   </ul>
