@@ -7,6 +7,9 @@ import { Code } from "astro:components";
 import TextAlignSwitcher from "@components/control/TextAlignSwitcher.astro";
 import AnimatedCube from "@components/zoodogood/AnimatedCube.astro";
 const id = `id_${crypto.randomUUID()}`;
+import {globalProps} from '@lib/globalProps.js';
+
+globalProps.page_section = "guides";
 ---
 
 <Page>

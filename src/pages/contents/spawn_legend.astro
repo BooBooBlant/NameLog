@@ -2,6 +2,9 @@
 import Page from "../../layouts/Page.astro";
 import Layout from "../../layouts/Layout.astro";
 import Copyable from "../../components/Copyable.astro";
+import { globalProps } from "@lib/globalProps.js";
+
+globalProps.page_section = "guides";
 ---
 
 <Page>
@@ -36,7 +39,12 @@ import Copyable from "../../components/Copyable.astro";
     </b>
     <details>
       <summary>Показать картинку</summary>
-    <img loading="lazy" style="margin-top: 20px" src="/images/legendi.jpg" alt="" />
+      <img
+        loading="lazy"
+        style="margin-top: 20px"
+        src="/images/legendi.jpg"
+        alt=""
+      />
     </details>
     <span class="line"></span>
     <h3 style="margin-top: 40px">Спавн ультра бистов</h3>
@@ -53,7 +61,12 @@ import Copyable from "../../components/Copyable.astro";
     </b>
     <details>
       <summary>Показать картинку</summary>
-    <img loading="lazy" style="margin-top:20px" src="/images/bisti.jpg" alt="" />
+      <img
+        loading="lazy"
+        style="margin-top:20px"
+        src="/images/bisti.jpg"
+        alt=""
+      />
     </details>
     <span class="line"></span>
     <!-- /contents/0.html -->

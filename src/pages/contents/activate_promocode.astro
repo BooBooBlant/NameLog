@@ -1,6 +1,9 @@
 ---
 import Page from "../../layouts/Page.astro";
 import Layout from "../../layouts/Layout.astro";
+import {globalProps} from '@lib/globalProps.js';
+
+globalProps.page_section = "guides";
 ---
 
 <Page>
@@ -18,12 +21,7 @@ import Layout from "../../layouts/Layout.astro";
           />
         </label>
         <label>
-          <input
-            type="text"
-            name="user-code"
-            placeholder=""
-            required
-          />
+          <input type="text" name="user-code" placeholder="" required />
         </label>
         <button type="submit">Активировать</button>
       </form>
