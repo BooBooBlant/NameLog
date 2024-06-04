@@ -37,7 +37,6 @@
           const node = document.createElement("div");
           node.classList.add("segment", segment.class);
           node.style.transform = `rotate(${angle}deg)`;
-          node.style.transformOrigin = "50% 100%";
           node.dataset.multiplier = String(segment.multiplier);
           node.style.setProperty("--data_bg", segment.class);
           wheel.appendChild(node);
