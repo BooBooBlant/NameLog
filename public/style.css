@@ -1,0 +1,57 @@
+body {
+    background-color: #121212; /* Темний фон для контрасту */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 1px solid red; /* Граница контейнера для отладки */
+}
+
+#wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid yellow; /* Граница колеса для отладки */
+    position: relative;
+    transform: rotate(0deg);
+    background-color: rgba(0, 0, 255, 0.2); /* Полупрозрачный синий фон для видимости */
+    overflow: hidden; /* Убедимся, что сегменты не выходят за пределы круга */
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    transform-origin: 0 100%;
+    border: 1px solid white; /* Граница сегментов для отладки */
+}
+
+.segment.black { background-color: black; }
+.segment.white { background-color: white; }
+.segment.red { background-color: red; }
+.segment.gold { background-color: gold; }
+
+#arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #FF0000; /* Красная стрелка для видимости */
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Убедимся, что стрелка над колесом */
+}

@@ -6,7 +6,27 @@ globalProps.page_section = "games";
 ---
 
 <Page>
-	<Layout>
-
-	</Layout> 
+  <Layout>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Міні Гра Рулетка</title>
+      <link rel="stylesheet" href="public/style.css" />
+    </head>
+    <body>
+      <div class="container">
+        <div id="wheel"></div>
+        <div id="arrow"></div>
+        <button id="spinButton">Обертати</button>
+      </div>
+      <script src="public/script.js"></script>
+      <div id="wheel">
+        <div class="segment black" style="transform: rotate(0deg);"></div>
+        <div class="segment white" style="transform: rotate(36deg);"></div>
+        <div class="segment red" style="transform: rotate(72deg);"></div>
+        <div class="segment gold" style="transform: rotate(108deg);"></div>
+        <div class="segment black" style="transform: rotate(144deg);"></div>
+      </div>
+    </body>
+  </Layout>
 </Page>
