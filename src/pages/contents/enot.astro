@@ -7,7 +7,7 @@ import { Code } from "astro:components";
 import TextAlignSwitcher from "@components/control/TextAlignSwitcher.astro";
 import AnimatedCube from "@components/zoodogood/AnimatedCube.astro";
 const id = `id_${crypto.randomUUID()}`;
-import {globalProps} from '@lib/globalProps.js';
+import { globalProps } from "@lib/globalProps.js";
 
 globalProps.page_section = "guides";
 ---
@@ -111,7 +111,7 @@ globalProps.page_section = "guides";
       lobortis, efficitur velit vel, convallis ipsum. Suspendisse potenti.
     </p>
 
-    <section class = {`authorize ${id}`}>
+    <section class={`authorize ${id}`}>
       <span
         >Authorized data: <slot-element class="authorized-data"
         ></slot-element></span
@@ -131,23 +131,6 @@ globalProps.page_section = "guides";
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" is:inline
 ></script>
-<script is:inline define:vars={ID: id}>
-  (async () => {
-    const { createClient } = supabase;
-    // Create a single supabase client for interacting with your database
-    supabaseClient = createClient(
-      "https://amtkqhfkxjbyoilswwzi.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtdGtxaGZreGpieW9pbHN3d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIwMzExNTYsImV4cCI6MjAyNzYwNzE1Nn0.5ozuUYc7clRWbom-RG7cIWNTHt71wYoaz8b2ZipoCyY"
-    );
-
-
-    const section = document.querySelector(`.${ID}.authorize`);
-    section.querySelector("button").onclick = () => supabaseClient.auth.signInWithOAuth({ provider: "google" });
-
-    
-
-  })();
-</script>
 
 <style>
   span {
