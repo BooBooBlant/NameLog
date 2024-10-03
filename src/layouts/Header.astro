@@ -1,8 +1,8 @@
 ---
-import { globalProps } from "@lib/globalProps";
-import PageControl from "../components/PageControl.astro";
 import ChangeSection from "@components/routes/change_section.astro";
 import { page_sections } from "@constants/page_sections";
+import { globalProps } from "@lib/globalProps";
+import PageControl from "../components/PageControl.astro";
 ---
 
 <header class="page-header">
@@ -35,17 +35,21 @@ import { page_sections } from "@constants/page_sections";
           />
         </a>
       </span>
-      <span class="" style="font-size: 1em; margin-left: 20px">
-        <a href="/contents/activate_promocode">Бонусы</a>
-      </span>
     </element-group>
   </section>
   <section class="page-header-float page-header-content">
-    <span>({page_sections.get(globalProps?.page_section)?.label || "NameLog"})</span>
+    <span
+      >({
+        page_sections.get(globalProps?.page_section)?.label || "NameLog"
+      })</span
+    >
   </section>
-  <section class="page-header-rightContent page-header-content" style="gap: 40px">
-    <ChangeSection/>
-    <PageControl/>
+  <section
+    class="page-header-rightContent page-header-content"
+    style="gap: 40px"
+  >
+    <ChangeSection />
+    <PageControl />
   </section>
 </header>
 
