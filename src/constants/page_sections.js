@@ -3,7 +3,7 @@ export const page_sections = new Map(
     {
       key: "guides",
       label: "Гайды",
-      mainPage: "../",
+      mainPage: "../index",
     },
     {
       key: "games",
