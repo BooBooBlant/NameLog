@@ -3,7 +3,8 @@ export const page_sections = new Map(
     {
       key: "guides",
       label: "Гайды",
-      mainPage: "../index",
+      // index.astro. Leave it as “../”
+      mainPage: "../",
     },
     {
       key: "games",
