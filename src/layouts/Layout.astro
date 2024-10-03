@@ -1,7 +1,7 @@
 ---
+import GiscusComments from "../components/GiscusComments.astro";
 import Header from "../layouts/Header.astro";
 import Nav from "../layouts/Nav.astro";
-import GiscusComments from "../components/GiscusComments.astro";
 ---
 
 <Nav />
@@ -41,5 +41,12 @@ import GiscusComments from "../components/GiscusComments.astro";
 
   .slot-layout {
     line-height: 1.8;
+  }
+
+  :global([data-page_section_article]) {
+    max-width: 40em;
+    margin-inline: auto;
+    align-self: center;
+    overflow: hidden;
   }
 </style>
