@@ -3,7 +3,7 @@
 :root {
   --page-header-height: 4em;
   --accent-color: orange;
-  --light: #ffffff;
+  --light: #eeeeee;
   --dark: #111010;
 
   /* https://www.codegram.com/blog/stop-ab-using-z-index/ */
@@ -26,9 +26,8 @@ body.light {
   --page-text-color: var(--dark);
   --page-background-color: var(--light);
   color-scheme: light;
-
 }
-body:not(.light){
+body:not(.light) {
   --page-text-color: var(--light);
   --page-background-color: var(--dark);
   color-scheme: dark;
@@ -70,9 +69,6 @@ element-group {
   flex-grow: 1;
 }
 
-
-
-
 .page-main {
   padding: 1em;
 }
@@ -111,5 +107,4 @@ img {
 details > summary {
   cursor: pointer;
   text-decoration: underline;
-} 
-
+}
