@@ -10,5 +10,10 @@ export const page_sections = new Map(
       label: "Игры",
       mainPage: "roulette",
     },
+    {
+      key: "commands",
+      label: "Команды",
+      mainPage: "commands",
+    },
   ].map((sectionBase) => [sectionBase.key, sectionBase])
 );
