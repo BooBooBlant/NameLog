@@ -6,6 +6,8 @@
   --light: #eeeeee;
   --dark: #111010;
 
+  --default-block-padding: calc(1.5vw + 8px);
+
   /* https://www.codegram.com/blog/stop-ab-using-z-index/ */
   --z-index-layout: 1000;
 }
@@ -70,7 +72,7 @@ element-group {
 }
 
 .page-main {
-  padding: 2vw;
+  padding: var(--default-block-padding, 2vw);
 }
 
 .list li {

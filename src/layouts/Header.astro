@@ -6,9 +6,7 @@ import PageControl from "../components/PageControl.astro";
 
 <header class="page-header">
   <section class="page-header-leftContent page-header-content">
-    <element-group
-      style="gap: 2vw; align-items: center; height: 100%; padding-inline: 2vw;"
-    >
+    <element-group page_header__links>
       <span class="all-links-label" style="font-size: 0.9em;">
         Ссылки на наши соц. сети:
       </span>
@@ -55,6 +53,14 @@ import PageControl from "../components/PageControl.astro";
   .page-header {
     position: relative;
     z-index: var(--z-index-layout);
+    padding-left: var(--default-block-padding, 2vw);
+  }
+
+  [page_header__links] {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    height: 100%;
   }
   @media (width <= 1280px) {
     .all-links-label {
