@@ -44,9 +44,16 @@ import Nav from "../layouts/Nav.astro";
   }
 
   :global([data-page_section_article]) {
-    max-width: 40em;
-    margin-inline: auto;
-    align-self: center;
     overflow: hidden;
+  }
+
+  @media screen and (width >= 40rem) {
+    :global([data-page_section_article]) {
+      max-width: 40em;
+      margin-inline: auto;
+      align-self: center;
+      padding-inline: 1em;
+      border-inline: 1px solid #8882;
+    }
   }
 </style>
