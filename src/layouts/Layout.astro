@@ -47,7 +47,8 @@ import Nav from "../layouts/Nav.astro";
     overflow: hidden;
   }
 
-  @media screen and (width >= 40rem) {
+  /* [N]rem shold be equalent to other @media [N]rem */
+  @media screen and (width >= 60rem) {
     :global([data-page_section_article]) {
       max-width: 40em;
       margin-inline: auto;
