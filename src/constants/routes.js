@@ -30,4 +30,5 @@ export const routes = [
     sections: ["guides"],
   },
   { label: "Полезное", id: "helpful", sections: ["guides"] },
+  { label: "Уникальные покемоны", id: "uniqpokemons", sections: ["guides"] },
 ];

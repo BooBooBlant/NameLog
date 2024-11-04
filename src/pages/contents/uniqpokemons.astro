@@ -1,0 +1,271 @@
+---
+import Page from "../../layouts/Page.astro";
+import Layout from "../../layouts/Layout.astro";
+import { globalProps } from "@lib/globalProps.js";
+
+globalProps.page_section = "guides";
+---
+
+<Page>
+  <Layout>
+    <div style="display: flex; align-items: flex-start;">
+      <div>
+        <img
+          loading="lazy"
+          style="width: 350px; height: 250px;"
+          src="/images/darkdevo.png"
+          alt=""
+        />
+        <br /><b>Номер в дексе: <i>#1001</i></b>
+      </div>
+      <div class="shifted-right">
+        <ul style="text-align: left; list-style-type: none; padding-left: 0;">
+          <li>Тип:</li>
+          <li>
+            <pre
+              style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
+          </li>
+          <li>
+            <pre
+              style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
+          </li>
+          <li style="display: flex; align-items: center;">
+            <span style="margin-right: 15px;">Абилки:</span>
+            <div style="display: flex; flex-direction: column;">
+              <span>Плохие сны</span>
+              <span>След</span>
+              <span>Оворожение</span>
+            </div>
+          </li>
+          <li>
+            <pre
+              style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
+          </li>
+        </ul>
+      </div>
+      <div class="shifted-right">
+        <h2><b>Способ получения:</b></h2>
+        <ol>
+          <li>Легендарные рейды</li>
+          <li>Турниры(ключ)</li>
+          <li>ПокеВопросы(ключ)</li>
+          <li>Аукционы</li>
+        </ol>
+      </div>
+      <div class="shifted-right">
+        <h2><b>Разведение:</b></h2>
+        <ul>
+          <li>???</li>
+        </ul>
+      </div>
+    </div>
+
+    <element-rows>
+      <div class="slider-container">
+        <span class="slider-label">XP</span>
+        <div class="slider" style="width: calc(95px);"></div><b>95</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Атака</span>
+        <div class="slider" style="width: calc(95px);"></div><b>95</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Дэф</span>
+        <div class="slider" style="width: calc(80px);"></div><b>80</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">СП Атака</span>
+        <div class="slider" style="width: calc(165px);"></div><b>165</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">СП Дэф</span>
+        <div class="slider" style="width: calc(90px);"></div><b>90</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Скорость</span>
+        <div class="slider" style="width: calc(140px);"></div><b>140</b>
+      </div>
+    </element-rows>
+    <hr /><br />
+    <element-group class="types_table">
+      <div class="container">
+        <div class="type-box NORM">NORM</div>
+        <div class="type-box FIRE">FIRE</div>
+        <div class="type-box WATER">WATER</div>
+        <div class="type-box ELECTR">ELECTR</div>
+        <div class="type-box GRASS">GRASS</div>
+        <div class="type-box ICE">ICE</div>
+        <div class="type-box FIGHT">FIGHT</div>
+        <div class="type-box POISON">POISON</div>
+        <div class="type-box GROUN">GROUN</div>
+        <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box x0">0</div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box x05">0.5</div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box x2">x2</div>
+		  <div class="type-box empty"></div>
+
+        <div class="type-box FLY">FLY</div>
+        <div class="type-box PSYCH">PSYCH</div>
+        <div class="type-box BUG">BUG</div>
+        <div class="type-box ROCK">ROCK</div>
+        <div class="type-box GHOST">GHOST</div>
+        <div class="type-box DRAGO">DRAGO</div>
+        <div class="type-box DARK">DARK</div>
+        <div class="type-box STEEL">STEEL</div>
+        <div class="type-box FAIRY">FAIRY</div>
+        <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box x05">0.5</div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box empty"></div>
+		  <div class="type-box x2">x2</div>
+		  <div class="type-box empty">
+        </div>
+      </div>
+    </element-group>
+  </Layout>
+</Page>
+<style>
+  .shifted-right {
+    margin-left: 100px;
+  }
+
+  .card li {
+    list-style: none;
+  }
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .slider-label {
+    width: 100px;
+    margin-right: 10px;
+  }
+
+  .slider {
+    height: 15px;
+    background-color: gold;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .slider-value {
+    width: 40px;
+  }
+
+  .types_table {
+    display: grid;
+    --size: 1em;
+    grid-template-columns: repeat(9, var(--size));
+    gap: 1em;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(9, 60px);
+    grid-template-rows: repeat(4, 50px);
+    gap: 1px;
+  }
+
+  .type-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  .NORM {
+    background-color: #a8a77a;
+  }
+  .FIRE {
+    background-color: #ee8130;
+  }
+  .WATER {
+    background-color: #6390f0;
+  }
+  .ELECTR {
+    background-color: #f7d057;
+  }
+  .GRASS {
+    background-color: #7ac74c;
+  }
+  .ICE {
+    background-color: #96d9d6;
+  }
+  .FIGHT {
+    background-color: #c22e28;
+  }
+  .POISON {
+    background-color: #a33ea1;
+  }
+  .GROUN {
+    background-color: #e2bf65;
+  }
+  .FLY {
+    background-color: #a98ff3;
+  }
+  .PSYCH {
+    background-color: #f95587;
+  }
+  .BUG {
+    background-color: #a6b91a;
+  }
+  .ROCK {
+    background-color: #b6a136;
+  }
+  .GHOST {
+    background-color: #735797;
+  }
+  .DRAGO {
+    background-color: #6f35fc;
+  }
+  .DARK {
+    background-color: #705746;
+  }
+  .STEEL {
+    background-color: #b7b7ce;
+  }
+  .FAIRY {
+    background-color: #d685ad;
+  }
+
+  .x2 {
+    background-color: #7ac74c;
+    color: white;
+  }
+  .x0 {
+    background-color: #606060;
+    color: white;
+  }
+  .x05 {
+    background-color: #c22e28;
+    color: white;
+  }
+  .x025 {
+    background-color: #a04338;
+    color: white;
+  }
+  .empty {
+    background-color: transparent;
+    color: transparent;
+  }
+</style>
