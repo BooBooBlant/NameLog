@@ -8,37 +8,32 @@ globalProps.page_section = "guides";
 
 <Page>
   <Layout>
-    <div>
-      Список уникальных покемонов:
-      <div>
-        <ul style="list-style: none;">
-          <li>Darkdevoir-<a href="#1001">#1001</a></li>
-          <li>Хуй знает-<a href="#1002">#1002</a></li>
-          <li>Хуй знает-<a href="#1003">#1003</a></li>
-          <li>Хуй знает-<a href="#1004">#1004</a></li>
-        </ul>
-      </div>
-    </div>
-    <span class="line"></span>
-    <div id="1001">
-      <div style="display: flex; align-items: flex-start;">
+<div>
+  Список уникальных покемонов:
+  <div>
+    <ul style="list-style: none;">
+      <li>Darkdevoir-<a href="#1001">#1001</a></li>
+      <li>Хуй знает-<a href="#1002">#1002</a></li>
+      <li>Хуй знает-<a href="#1003">#1003</a></li>
+      <li>Хуй знает-<a href="#1004">#1004</a></li>
+    </ul>
+  </div>
+</div>
+<span class="line"></span>
+    <element-columns style = "flex-wrap: wrap; gap: 40px">
+      <element-rows>
+        <img
+          loading="lazy"
+          style="width: 350px; height: 250px;"
+          src="/images/darkdevo.png"
+          alt=""
+        />
+        <br /><b>Номер в дексе: <i>#1001</i></b>
+      </element-rows>
+      <element-columns style = "flex-wrap: wrap; justify-content: space-between; gap: 40px">
         <div>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/darkdevo.png"
-            alt=""
-          />
-          <br /><b>Номер в дексе: <i>#1001</i></b>
-        </div>
-        <div class="shifted-right">
           <ul style="text-align: left; list-style-type: none; padding-left: 0;">
-            <li>
-              Тип: <span class="type-badge dark" style="margin-left: 20px;"
-                >DARK</span
-              >
-              <span class="type-badge psych">PSYCH</span>
-            </li>
+            <li>Тип:</li>
             <li>
               <pre
                 style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
@@ -47,7 +42,7 @@ globalProps.page_section = "guides";
               <pre
                 style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
             </li>
-            <li style="display: flex; align-items: center;">
+            <li style="display: flex;">
               <span style="margin-right: 15px;">Абилки:</span>
               <div style="display: flex; flex-direction: column;">
                 <span>Плохие сны</span>
@@ -61,7 +56,7 @@ globalProps.page_section = "guides";
             </li>
           </ul>
         </div>
-        <div class="shifted-right">
+        <div>
           <h2><b>Способ получения:</b></h2>
           <ol>
             <li>Легендарные рейды</li>
@@ -70,12 +65,86 @@ globalProps.page_section = "guides";
             <li>Аукционы</li>
           </ol>
         </div>
-        <div class="shifted-right">
+        <div>
           <h2><b>Разведение:</b></h2>
           <ul>
             <li>???</li>
           </ul>
         </div>
+      </element-columns>
+    </element-columns>
+
+    <element-rows>
+      <div class="slider-container">
+        <span class="slider-label">XP</span>
+        <div class="slider" style="width: calc(95px);"></div><b>95</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Атака</span>
+        <div class="slider" style="width: calc(95px);"></div><b>95</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Дэф</span>
+        <div class="slider" style="width: calc(80px);"></div><b>80</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">СП Атака</span>
+        <div class="slider" style="width: calc(165px);"></div><b>165</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">СП Дэф</span>
+        <div class="slider" style="width: calc(90px);"></div><b>90</b>
+      </div>
+
+      <div class="slider-container">
+        <span class="slider-label">Скорость</span>
+        <div class="slider" style="width: calc(140px);"></div><b>140</b>
+      </div>
+    </element-rows>
+    <hr /><br />
+    <element-group class="types_table">
+      <div class="container">
+        <div class="type-box NORM">NORM</div>
+        <div class="type-box FIRE">FIRE</div>
+        <div class="type-box WATER">WATER</div>
+        <div class="type-box ELECTR">ELECTR</div>
+        <div class="type-box GRASS">GRASS</div>
+        <div class="type-box ICE">ICE</div>
+        <div class="type-box FIGHT">FIGHT</div>
+        <div class="type-box POISON">POISON</div>
+        <div class="type-box GROUN">GROUN</div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box x0">0</div>
+        <div class="type-box empty"></div>
+        <div class="type-box x05">0.5</div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box x2">x2</div>
+        <div class="type-box empty"></div>
+
+        <div class="type-box FLY">FLY</div>
+        <div class="type-box PSYCH">PSYCH</div>
+        <div class="type-box BUG">BUG</div>
+        <div class="type-box ROCK">ROCK</div>
+        <div class="type-box GHOST">GHOST</div>
+        <div class="type-box DRAGO">DRAGO</div>
+        <div class="type-box DARK">DARK</div>
+        <div class="type-box STEEL">STEEL</div>
+        <div class="type-box FAIRY">FAIRY</div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box x05">0.5</div>
+        <div class="type-box empty"></div>
+        <div class="type-box empty"></div>
+        <div class="type-box x2">x2</div>
+        <div class="type-box empty"></div>
       </div>
 
       <element-rows>
@@ -571,10 +640,6 @@ globalProps.page_section = "guides";
     background-color: #ee99ac;
   }
 
-  .shifted-right {
-    margin-left: 100px;
-  }
-
   .card li {
     list-style: none;
   }
@@ -701,5 +766,9 @@ globalProps.page_section = "guides";
   .empty {
     background-color: transparent;
     color: transparent;
+  }
+
+  li {
+    list-style-position: inside;
   }
 </style>
