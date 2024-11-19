@@ -64,11 +64,17 @@ hr {
 
 element-group {
   display: flex;
+  flex-direction: inherit;
 }
 
 element-rows {
   display: flex;
   flex-direction: column;
+}
+
+element-columns {
+  display: flex;
+  flex-direction: row;
 }
 
 .page-wrapper {
