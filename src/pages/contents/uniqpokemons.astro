@@ -8,135 +8,569 @@ globalProps.page_section = "guides";
 
 <Page>
   <Layout>
-    <div style="display: flex; align-items: flex-start;">
+    <div>
+      Список уникальных покемонов:
       <div>
-        <img
-          loading="lazy"
-          style="width: 350px; height: 250px;"
-          src="/images/darkdevo.png"
-          alt=""
-        />
-        <br /><b>Номер в дексе: <i>#1001</i></b>
-      </div>
-      <div class="shifted-right">
-        <ul style="text-align: left; list-style-type: none; padding-left: 0;">
-          <li>Тип:</li>
-          <li>
-            <pre
-              style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
-          </li>
-          <li>
-            <pre
-              style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
-          </li>
-          <li style="display: flex; align-items: center;">
-            <span style="margin-right: 15px;">Абилки:</span>
-            <div style="display: flex; flex-direction: column;">
-              <span>Плохие сны</span>
-              <span>След</span>
-              <span>Оворожение</span>
-            </div>
-          </li>
-          <li>
-            <pre
-              style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-          </li>
-        </ul>
-      </div>
-      <div class="shifted-right">
-        <h2><b>Способ получения:</b></h2>
-        <ol>
-          <li>Легендарные рейды</li>
-          <li>Турниры(ключ)</li>
-          <li>ПокеВопросы(ключ)</li>
-          <li>Аукционы</li>
-        </ol>
-      </div>
-      <div class="shifted-right">
-        <h2><b>Разведение:</b></h2>
-        <ul>
-          <li>???</li>
+        <ul style="list-style: none;">
+          <li>Darkdevoir-<a href="#1001">#1001</a></li>
+          <li>Хуй знает-<a href="#1002">#1002</a></li>
+          <li>Хуй знает-<a href="#1003">#1003</a></li>
+          <li>Хуй знает-<a href="#1004">#1004</a></li>
         </ul>
       </div>
     </div>
-
-    <element-rows>
-      <div class="slider-container">
-        <span class="slider-label">XP</span>
-        <div class="slider" style="width: calc(95px);"></div><b>95</b>
-      </div>
-
-      <div class="slider-container">
-        <span class="slider-label">Атака</span>
-        <div class="slider" style="width: calc(95px);"></div><b>95</b>
-      </div>
-
-      <div class="slider-container">
-        <span class="slider-label">Дэф</span>
-        <div class="slider" style="width: calc(80px);"></div><b>80</b>
-      </div>
-
-      <div class="slider-container">
-        <span class="slider-label">СП Атака</span>
-        <div class="slider" style="width: calc(165px);"></div><b>165</b>
-      </div>
-
-      <div class="slider-container">
-        <span class="slider-label">СП Дэф</span>
-        <div class="slider" style="width: calc(90px);"></div><b>90</b>
-      </div>
-
-      <div class="slider-container">
-        <span class="slider-label">Скорость</span>
-        <div class="slider" style="width: calc(140px);"></div><b>140</b>
-      </div>
-    </element-rows>
-    <hr /><br />
-    <element-group class="types_table">
-      <div class="container">
-        <div class="type-box NORM">NORM</div>
-        <div class="type-box FIRE">FIRE</div>
-        <div class="type-box WATER">WATER</div>
-        <div class="type-box ELECTR">ELECTR</div>
-        <div class="type-box GRASS">GRASS</div>
-        <div class="type-box ICE">ICE</div>
-        <div class="type-box FIGHT">FIGHT</div>
-        <div class="type-box POISON">POISON</div>
-        <div class="type-box GROUN">GROUN</div>
-        <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box x0">0</div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box x05">0.5</div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box x2">x2</div>
-		  <div class="type-box empty"></div>
-
-        <div class="type-box FLY">FLY</div>
-        <div class="type-box PSYCH">PSYCH</div>
-        <div class="type-box BUG">BUG</div>
-        <div class="type-box ROCK">ROCK</div>
-        <div class="type-box GHOST">GHOST</div>
-        <div class="type-box DRAGO">DRAGO</div>
-        <div class="type-box DARK">DARK</div>
-        <div class="type-box STEEL">STEEL</div>
-        <div class="type-box FAIRY">FAIRY</div>
-        <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box x05">0.5</div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box empty"></div>
-		  <div class="type-box x2">x2</div>
-		  <div class="type-box empty">
+    <span class="line"></span>
+    <div id="1001">
+      <div style="display: flex; align-items: flex-start;">
+        <div>
+          <img
+            loading="lazy"
+            style="width: 350px; height: 250px;"
+            src="/images/darkdevo.png"
+            alt=""
+          />
+          <br /><b>Номер в дексе: <i>#1001</i></b>
+        </div>
+        <div class="shifted-right">
+          <ul style="text-align: left; list-style-type: none; padding-left: 0;">
+            <li>
+              Тип: <span class="type-badge dark" style="margin-left: 20px;"
+                >DARK</span
+              >
+              <span class="type-badge psych">PSYCH</span>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
+            </li>
+            <li style="display: flex; align-items: center;">
+              <span style="margin-right: 15px;">Абилки:</span>
+              <div style="display: flex; flex-direction: column;">
+                <span>Плохие сны</span>
+                <span>След</span>
+                <span>Оворожение</span>
+              </div>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
+            </li>
+          </ul>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Способ получения:</b></h2>
+          <ol>
+            <li>Легендарные рейды</li>
+            <li>Турниры(ключ)</li>
+            <li>ПокеВопросы(ключ)</li>
+            <li>Аукционы</li>
+          </ol>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Разведение:</b></h2>
+          <ul>
+            <li>???</li>
+          </ul>
         </div>
       </div>
-    </element-group>
+
+      <element-rows>
+        <div class="slider-container">
+          <span class="slider-label">XP</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Атака</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Дэф</span>
+          <div class="slider" style="width: calc(80px);"></div><b>80</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Атака</span>
+          <div class="slider" style="width: calc(165px);"></div><b>165</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Дэф</span>
+          <div class="slider" style="width: calc(90px);"></div><b>90</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Скорость</span>
+          <div class="slider" style="width: calc(140px);"></div><b>140</b>
+        </div>
+      </element-rows>
+      <hr /><br />
+      <element-group class="types_table">
+        <div class="container">
+          <div class="type-box NORM">NORM</div>
+          <div class="type-box FIRE">FIRE</div>
+          <div class="type-box WATER">WATER</div>
+          <div class="type-box ELECTR">ELECTR</div>
+          <div class="type-box GRASS">GRASS</div>
+          <div class="type-box ICE">ICE</div>
+          <div class="type-box FIGHT">FIGHT</div>
+          <div class="type-box POISON">POISON</div>
+          <div class="type-box GROUN">GROUN</div>
+          <div class="type-box FLY">FLY</div>
+          <div class="type-box PSYCH">PSYCH</div>
+          <div class="type-box BUG">BUG</div>
+          <div class="type-box ROCK">ROCK</div>
+          <div class="type-box GHOST">GHOST</div>
+          <div class="type-box DRAGO">DRAGO</div>
+          <div class="type-box DARK">DARK</div>
+          <div class="type-box STEEL">STEEL</div>
+          <div class="type-box FAIRY">FAIRY</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x0">0</div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+        </div>
+      </element-group>
+    </div>
+    <span class="line"></span>
+    <div id="1002">
+      <div style="display: flex; align-items: flex-start;">
+        <div>
+          <img
+            loading="lazy"
+            style="width: 350px; height: 250px;"
+            src="/images/darkdevo.png"
+            alt=""
+          />
+          <br /><b>Номер в дексе: <i>#1002</i></b>
+        </div>
+        <div class="shifted-right">
+          <ul style="text-align: left; list-style-type: none; padding-left: 0;">
+            <li>
+              Тип: <span class="type-badge dark" style="margin-left: 20px;"
+                >DARK</span
+              >
+              <span class="type-badge psych">PSYCH</span>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
+            </li>
+            <li style="display: flex; align-items: center;">
+              <span style="margin-right: 15px;">Абилки:</span>
+              <div style="display: flex; flex-direction: column;">
+                <span>Плохие сны</span>
+                <span>След</span>
+                <span>Оворожение</span>
+              </div>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
+            </li>
+          </ul>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Способ получения:</b></h2>
+          <ol>
+            <li>Легендарные рейды</li>
+            <li>Турниры(ключ)</li>
+            <li>ПокеВопросы(ключ)</li>
+            <li>Аукционы</li>
+          </ol>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Разведение:</b></h2>
+          <ul>
+            <li>???</li>
+          </ul>
+        </div>
+      </div>
+
+      <element-rows>
+        <div class="slider-container">
+          <span class="slider-label">XP</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Атака</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Дэф</span>
+          <div class="slider" style="width: calc(80px);"></div><b>80</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Атака</span>
+          <div class="slider" style="width: calc(165px);"></div><b>165</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Дэф</span>
+          <div class="slider" style="width: calc(90px);"></div><b>90</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Скорость</span>
+          <div class="slider" style="width: calc(140px);"></div><b>140</b>
+        </div>
+      </element-rows>
+      <hr /><br />
+      <element-group class="types_table">
+        <div class="container">
+          <div class="container">
+            <div class="type-box NORM">NORM</div>
+            <div class="type-box FIRE">FIRE</div>
+            <div class="type-box WATER">WATER</div>
+            <div class="type-box ELECTR">ELECTR</div>
+            <div class="type-box GRASS">GRASS</div>
+            <div class="type-box ICE">ICE</div>
+            <div class="type-box FIGHT">FIGHT</div>
+            <div class="type-box POISON">POISON</div>
+            <div class="type-box GROUN">GROUN</div>
+            <div class="type-box FLY">FLY</div>
+            <div class="type-box PSYCH">PSYCH</div>
+            <div class="type-box BUG">BUG</div>
+            <div class="type-box ROCK">ROCK</div>
+            <div class="type-box GHOST">GHOST</div>
+            <div class="type-box DRAGO">DRAGO</div>
+            <div class="type-box DARK">DARK</div>
+            <div class="type-box STEEL">STEEL</div>
+            <div class="type-box FAIRY">FAIRY</div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box x05">0.5</div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box x2">x2</div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box x0">0</div>
+            <div class="type-box empty"></div>
+            <div class="type-box x05">0.5</div>
+            <div class="type-box empty"></div>
+            <div class="type-box empty"></div>
+            <div class="type-box x2">x2</div>
+            <div class="type-box empty"></div>
+          </div>
+        </div>
+      </element-group>
+    </div>
+    <span class="line"></span>
+    <div id="1003">
+      <div style="display: flex; align-items: flex-start;">
+        <div>
+          <img
+            loading="lazy"
+            style="width: 350px; height: 250px;"
+            src="/images/darkdevo.png"
+            alt=""
+          />
+          <br /><b>Номер в дексе: <i>#1003</i></b>
+        </div>
+        <div class="shifted-right">
+          <ul style="text-align: left; list-style-type: none; padding-left: 0;">
+            <li>
+              Тип: <span class="type-badge dark" style="margin-left: 20px;"
+                >DARK</span
+              >
+              <span class="type-badge psych">PSYCH</span>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
+            </li>
+            <li style="display: flex; align-items: center;">
+              <span style="margin-right: 15px;">Абилки:</span>
+              <div style="display: flex; flex-direction: column;">
+                <span>Плохие сны</span>
+                <span>След</span>
+                <span>Оворожение</span>
+              </div>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
+            </li>
+          </ul>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Способ получения:</b></h2>
+          <ol>
+            <li>Легендарные рейды</li>
+            <li>Турниры(ключ)</li>
+            <li>ПокеВопросы(ключ)</li>
+            <li>Аукционы</li>
+          </ol>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Разведение:</b></h2>
+          <ul>
+            <li>???</li>
+          </ul>
+        </div>
+      </div>
+
+      <element-rows>
+        <div class="slider-container">
+          <span class="slider-label">XP</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Атака</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Дэф</span>
+          <div class="slider" style="width: calc(80px);"></div><b>80</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Атака</span>
+          <div class="slider" style="width: calc(165px);"></div><b>165</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Дэф</span>
+          <div class="slider" style="width: calc(90px);"></div><b>90</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Скорость</span>
+          <div class="slider" style="width: calc(140px);"></div><b>140</b>
+        </div>
+      </element-rows>
+      <hr /><br />
+      <element-group class="types_table">
+        <div class="container">
+          <div class="type-box NORM">NORM</div>
+          <div class="type-box FIRE">FIRE</div>
+          <div class="type-box WATER">WATER</div>
+          <div class="type-box ELECTR">ELECTR</div>
+          <div class="type-box GRASS">GRASS</div>
+          <div class="type-box ICE">ICE</div>
+          <div class="type-box FIGHT">FIGHT</div>
+          <div class="type-box POISON">POISON</div>
+          <div class="type-box GROUN">GROUN</div>
+          <div class="type-box FLY">FLY</div>
+          <div class="type-box PSYCH">PSYCH</div>
+          <div class="type-box BUG">BUG</div>
+          <div class="type-box ROCK">ROCK</div>
+          <div class="type-box GHOST">GHOST</div>
+          <div class="type-box DRAGO">DRAGO</div>
+          <div class="type-box DARK">DARK</div>
+          <div class="type-box STEEL">STEEL</div>
+          <div class="type-box FAIRY">FAIRY</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x0">0</div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+        </div>
+      </element-group>
+    </div>
+    <span class="line"></span>
+    <div id="1004">
+      <div style="display: flex; align-items: flex-start;">
+        <div>
+          <img
+            loading="lazy"
+            style="width: 350px; height: 250px;"
+            src="/images/darkdevo.png"
+            alt=""
+          />
+          <br /><b>Номер в дексе: <i>#1004</i></b>
+        </div>
+        <div class="shifted-right">
+          <ul style="text-align: left; list-style-type: none; padding-left: 0;">
+            <li>
+              Тип: <span class="type-badge dark" style="margin-left: 20px;"
+                >DARK</span
+              >
+              <span class="type-badge psych">PSYCH</span>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
+            </li>
+            <li style="display: flex; align-items: center;">
+              <span style="margin-right: 15px;">Абилки:</span>
+              <div style="display: flex; flex-direction: column;">
+                <span>Плохие сны</span>
+                <span>След</span>
+                <span>Оворожение</span>
+              </div>
+            </li>
+            <li>
+              <pre
+                style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
+            </li>
+          </ul>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Способ получения:</b></h2>
+          <ol>
+            <li>Легендарные рейды</li>
+            <li>Турниры(ключ)</li>
+            <li>ПокеВопросы(ключ)</li>
+            <li>Аукционы</li>
+          </ol>
+        </div>
+        <div class="shifted-right">
+          <h2><b>Разведение:</b></h2>
+          <ul>
+            <li>???</li>
+          </ul>
+        </div>
+      </div>
+
+      <element-rows>
+        <div class="slider-container">
+          <span class="slider-label">XP</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Атака</span>
+          <div class="slider" style="width: calc(95px);"></div><b>95</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Дэф</span>
+          <div class="slider" style="width: calc(80px);"></div><b>80</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Атака</span>
+          <div class="slider" style="width: calc(165px);"></div><b>165</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">СП Дэф</span>
+          <div class="slider" style="width: calc(90px);"></div><b>90</b>
+        </div>
+
+        <div class="slider-container">
+          <span class="slider-label">Скорость</span>
+          <div class="slider" style="width: calc(140px);"></div><b>140</b>
+        </div>
+      </element-rows>
+      <hr /><br />
+      <element-group class="types_table">
+        <div class="container">
+          <div class="type-box NORM">NORM</div>
+          <div class="type-box FIRE">FIRE</div>
+          <div class="type-box WATER">WATER</div>
+          <div class="type-box ELECTR">ELECTR</div>
+          <div class="type-box GRASS">GRASS</div>
+          <div class="type-box ICE">ICE</div>
+          <div class="type-box FIGHT">FIGHT</div>
+          <div class="type-box POISON">POISON</div>
+          <div class="type-box GROUN">GROUN</div>
+          <div class="type-box FLY">FLY</div>
+          <div class="type-box PSYCH">PSYCH</div>
+          <div class="type-box BUG">BUG</div>
+          <div class="type-box ROCK">ROCK</div>
+          <div class="type-box GHOST">GHOST</div>
+          <div class="type-box DRAGO">DRAGO</div>
+          <div class="type-box DARK">DARK</div>
+          <div class="type-box STEEL">STEEL</div>
+          <div class="type-box FAIRY">FAIRY</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x0">0</div>
+          <div class="type-box empty"></div>
+          <div class="type-box x05">0.5</div>
+          <div class="type-box empty"></div>
+          <div class="type-box empty"></div>
+          <div class="type-box x2">x2</div>
+          <div class="type-box empty"></div>
+        </div>
+      </element-group>
+    </div>
+    <span class="line"></span>
   </Layout>
 </Page>
 <style>
+  .type-badge {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin-right: 5px;
+  }
+
+  .dark {
+    background-color: #a98a78;
+  }
+
+  .psych {
+    background-color: #ee99ac;
+  }
+
   .shifted-right {
     margin-left: 100px;
   }
@@ -172,14 +606,13 @@ globalProps.page_section = "guides";
   .types_table {
     display: grid;
     --size: 1em;
-    grid-template-columns: repeat(9, var(--size));
     gap: 1em;
   }
 
   .container {
     display: grid;
-    grid-template-columns: repeat(9, 60px);
-    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(18, 60px);
+    grid-template-rows: repeat(2, 50px);
     gap: 1px;
   }
 
@@ -191,6 +624,7 @@ globalProps.page_section = "guides";
     justify-content: center;
     font-weight: bold;
     font-size: 10px;
+    border-radius: 5px;
   }
 
   .NORM {
@@ -224,7 +658,7 @@ globalProps.page_section = "guides";
     background-color: #a98ff3;
   }
   .PSYCH {
-    background-color: #f95587;
+    background-color: #ee99ac;
   }
   .BUG {
     background-color: #a6b91a;
@@ -239,7 +673,7 @@ globalProps.page_section = "guides";
     background-color: #6f35fc;
   }
   .DARK {
-    background-color: #705746;
+    background-color: #a98a78;
   }
   .STEEL {
     background-color: #b7b7ce;
