@@ -15,6 +15,44 @@ const Types = {
     label: "PSYCH",
   },
 };
+const Specs = {
+  xp: {
+    label: "XP",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.xp));
+    },
+  },
+  attack: {
+    label: "Атака",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.attack));
+    },
+  },
+  defence: {
+    label: "Дэф",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.defence));
+    },
+  },
+  SP_attack: {
+    label: "SP атака",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_attack));
+    },
+  },
+  SP_defence: {
+    label: "SP дэф",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_defence));
+    },
+  },
+  speed: {
+    label: "Скорость",
+    get max() {
+      return Math.max(...Pokemons.map((pokemon) => pokemon.specs.speed));
+    },
+  },
+};
 const Pokemons = [
   {
     name: "Darkdevoir",
@@ -52,7 +90,7 @@ const Pokemons = [
       STEEL: "x2",
       FAIRY: null,
     },
-    data: {
+    specs: {
       xp: 95,
       attack: 95,
       defence: 80,
@@ -86,154 +124,119 @@ const Pokemons = [
     </header>
 
     {
-      (() =>
-        Pokemons.map((pokemon) => (
-          <aside>
-            <element-columns style="flex-wrap: wrap; gap: 40px">
-              {/* MARK: Image */}
-              <element-rows style="gap: 40px">
-                <img
-                  loading="lazy"
-                  style="width: 350px; height: 250px;"
-                  src={pokemon.picture}
-                  alt=""
-                />
+      Pokemons.map((pokemon) => (
+        <aside>
+          <element-columns style="flex-wrap: wrap; gap: 40px">
+            {/* MARK: Image */}
+            <element-rows style="gap: 40px">
+              <img
+                loading="lazy"
+                style="width: 350px; height: 250px;"
+                src={pokemon.picture}
+                alt=""
+              />
 
-                <b>
-                  Номер в дексе: <i>#{pokemon.id}</i>
-                </b>
-              </element-rows>
-
-              {/* Specs */}
-              <table>
-                <tr>
-                  <td>Тип:</td>
-                  <td>
-                    {pokemon.types.map((type) => (
-                      <span class={`type-badge ${type.key.toLowerCase()}`}>
-                        {type.label}
-                      </span>
-                    ))}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Рост:</td>
-                  <td>
-                    <i>{pokemon.height} М</i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Вес:</td>
-                  <td>
-                    <i>{pokemon.weight} кг</i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Абилки:</td>
-                  <td>
-                    {pokemon.abilities.map((ability) => (
-                      <li>{ability}</li>
-                    ))}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Обитает:</td>
-                  <td>
-                    <i>{pokemon.location}</i>
-                  </td>
-                </tr>
-              </table>
-
-              {/* MARK: Wayof */}
-              <section>
-                <h2>
-                  <b>Способ получения:</b>
-                </h2>
-                <ol>
-                  {pokemon.wayof.map((way) => (
-                    <li>{way}</li>
-                  ))}
-                </ol>
-              </section>
-              {/* MARK: Breeding */}
-              <section>
-                <h2>
-                  <b>Разведение:</b>
-                </h2>
-                <ul>
-                  {pokemon.breeding.map((way) => (
-                    <li>{way}</li>
-                  ))}
-                </ul>
-              </section>
-            </element-columns>
-            <>
-              <hr />
-              <br />
-            </>
-            <element-rows>
-              <div class="slider-container">
-                <span class="slider-label">XP</span>
-                <>
-                  <div class="slider" style="width: calc(95px);" />
-                  <b>95</b>
-                </>
-              </div>
-
-              <div class="slider-container">
-                <span class="slider-label">Атака</span>
-                <>
-                  <div class="slider" style="width: calc(95px);" />
-                  <b>95</b>
-                </>
-              </div>
-
-              <div class="slider-container">
-                <span class="slider-label">Дэф</span>
-                <>
-                  <div class="slider" style="width: calc(80px);" />
-                  <b>80</b>
-                </>
-              </div>
-
-              <div class="slider-container">
-                <span class="slider-label">СП Атака</span>
-                <>
-                  <div class="slider" style="width: calc(165px);" />
-                  <b>165</b>
-                </>
-              </div>
-
-              <div class="slider-container">
-                <span class="slider-label">СП Дэф</span>
-                <>
-                  <div class="slider" style="width: calc(90px);" />
-                  <b>90</b>
-                </>
-              </div>
-
-              <div class="slider-container">
-                <span class="slider-label">Скорость</span>
-                <>
-                  <div class="slider" style="width: calc(140px);" />
-                  <b>140</b>
-                </>
-              </div>
+              <b>
+                Номер в дексе: <i>#{pokemon.id}</i>
+              </b>
             </element-rows>
-            <>
-              <hr />
-              <br />
-            </>
-            <element-group class="types_table">
-              {Object.keys(pokemon.types_multipliers).map((type) => (
-                <div class={`type-box ${type}`}>{type}</div>
-              ))}
-              {Object.values(pokemon.types_multipliers).map((value) => (
-                <div class={`type-box ${value}`}>{value}</div>
-              ))}
-            </element-group>
-          </aside>
-        )))()
+
+            {/* Type specs */}
+            <table>
+              <tr>
+                <td>Тип:</td>
+                <td>
+                  {pokemon.types.map((type) => (
+                    <span class={`type-badge ${type.key.toLowerCase()}`}>
+                      {type.label}
+                    </span>
+                  ))}
+                </td>
+              </tr>
+              <tr>
+                <td>Рост:</td>
+                <td>
+                  <span>{pokemon.height} М</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Вес:</td>
+                <td>
+                  <span>{pokemon.weight} кг</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Абилки:</td>
+                <td>
+                  {pokemon.abilities.map((ability) => (
+                    <li>{ability}</li>
+                  ))}
+                </td>
+              </tr>
+              <tr>
+                <td>Обитает:</td>
+                <td>
+                  <span>{pokemon.location}</span>
+                </td>
+              </tr>
+            </table>
+
+            {/* MARK: Wayof */}
+            <section>
+              <h2>
+                <b>Способ получения:</b>
+              </h2>
+              <ol>
+                {pokemon.wayof.map((way) => (
+                  <li>{way}</li>
+                ))}
+              </ol>
+            </section>
+            {/* MARK: Breeding */}
+            <section>
+              <h2>
+                <b>Разведение:</b>
+              </h2>
+              <ul>
+                {pokemon.breeding.map((way) => (
+                  <li>{way}</li>
+                ))}
+              </ul>
+            </section>
+          </element-columns>
+
+          <table>
+            {Object.entries(pokemon.specs).map(([key, value]) => (
+              <tr>
+                <td>{Specs[key].label}</td>
+                <td>
+                  <span
+                    class="slider"
+                    style={`width: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
+                  />
+                  <b>{value}</b>
+                </td>
+              </tr>
+            ))}
+          </table>
+
+          <hr />
+          <br />
+
+          <element-group class="types_table">
+            {Object.keys(pokemon.types_multipliers).map((type) => (
+              <div class="type-box" data-types_multiplier_name={type}>
+                {type}
+              </div>
+            ))}
+            {Object.values(pokemon.types_multipliers).map((value) => (
+              <div class="type-box" data-types_multiplier_value={value}>
+                {value}
+              </div>
+            ))}
+          </element-group>
+        </aside>
+      ))
     }
     <span class="line"></span>
 
@@ -331,7 +334,10 @@ const Pokemons = [
           <div class="slider" style="width: calc(140px);"></div><b>140</b>
         </div>
       </element-rows>
-      <hr /><br />
+
+      <hr />
+      <br />
+
       <element-group class="types_table">
         <div class="container">
           <div class="type-box NORM">NORM</div>
@@ -414,6 +420,7 @@ const Pokemons = [
   }
 
   .slider {
+    display: inline-block;
     height: 15px;
     background-color: gold;
     margin-right: 10px;
@@ -453,74 +460,74 @@ const Pokemons = [
     border-radius: 5px;
   }
 
-  .NORM {
+  [data-types_multiplier_name="NORM"] {
     background-color: #a8a77a;
   }
-  .FIRE {
+  [data-types_multiplier_name="FIRE"] {
     background-color: #ee8130;
   }
-  .WATER {
+  [data-types_multiplier_name="WATER"] {
     background-color: #6390f0;
   }
-  .ELECTR {
+  [data-types_multiplier_name="ELECTR"] {
     background-color: #f7d057;
   }
-  .GRASS {
+  [data-types_multiplier_name="GRASS"] {
     background-color: #7ac74c;
   }
-  .ICE {
+  [data-types_multiplier_name="ICE"] {
     background-color: #96d9d6;
   }
-  .FIGHT {
+  [data-types_multiplier_name="FIGHT"] {
     background-color: #c22e28;
   }
-  .POISON {
+  [data-types_multiplier_name="POISON"] {
     background-color: #a33ea1;
   }
-  .GROUN {
+  [data-types_multiplier_name="GROUN"] {
     background-color: #e2bf65;
   }
-  .FLY {
+  [data-types_multiplier_name="FLY"] {
     background-color: #a98ff3;
   }
-  .PSYCH {
+  [data-types_multiplier_name="PSYCH"] {
     background-color: #ee99ac;
   }
-  .BUG {
+  [data-types_multiplier_name="BUG"] {
     background-color: #a6b91a;
   }
-  .ROCK {
+  [data-types_multiplier_name="ROCK"] {
     background-color: #b6a136;
   }
-  .GHOST {
+  [data-types_multiplier_name="GHOST"] {
     background-color: #735797;
   }
-  .DRAGO {
+  [data-types_multiplier_name="DRAGO"] {
     background-color: #6f35fc;
   }
-  .DARK {
+  [data-types_multiplier_name="DARK"] {
     background-color: #a98a78;
   }
-  .STEEL {
+  [data-types_multiplier_name="STEEL"] {
     background-color: #b7b7ce;
   }
-  .FAIRY {
+  [data-types_multiplier_name="FAIRY"] {
     background-color: #d685ad;
   }
 
-  .x2 {
+  [data-types_multiplier_value="x2"] {
     background-color: #7ac74c;
     color: white;
   }
-  .x0 {
+  [data-types_multiplier_value="0"] {
     background-color: #606060;
     color: white;
   }
-  .x05 {
+  [data-types_multiplier_value="0.5"] {
     background-color: #c22e28;
     color: white;
   }
-  .x025 {
+  [data-types_multiplier_value="0.25"] {
     background-color: #a04338;
     color: white;
   }
