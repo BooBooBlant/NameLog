@@ -110,7 +110,11 @@ const Pokemons = [
         {
           Pokemons.map((pokemon) => (
             <li>
-              <a href={`#${pokemon.id}`} rel="noopener noreferrer">
+              <a
+                href={`#${pokemon.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {pokemon.name}
               </a>
             </li>
@@ -121,7 +125,7 @@ const Pokemons = [
 
     {
       Pokemons.map((pokemon) => (
-        <aside id={pokemon.id.toString()}>
+        <aside>
           <element-columns style="flex-wrap: wrap; gap: 40px">
             {/* MARK: Image */}
             <element-rows style="gap: 40px">
