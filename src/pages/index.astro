@@ -57,30 +57,5 @@ globalProps.page_section = "guides";
       align-self: center;
       max-width: 60em;
     }
-
-    [data-page_section_article]::after {
-      content: "";
-      display: block;
-      width: 2.5em;
-      aspect-ratio: 1/1;
-      background: #00ffff20;
-      offset-path: inset(15%);
-      animation: blob 300s infinite;
-    }
-
-    @keyframes blob {
-      0% {
-        offset-distance: 50%;
-        border-radius: 0%;
-      }
-      50% {
-        offset-distance: 100%;
-        border-radius: 50%;
-      }
-      100% {
-        border-radius: 0%;
-        offset-distance: 0%;
-      }
-    }
   }
 </style>
