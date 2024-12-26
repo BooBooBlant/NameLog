@@ -4,1829 +4,397 @@ import Layout from "../../layouts/Layout.astro";
 import { globalProps } from "@lib/globalProps.js";
 
 globalProps.page_section = "guides";
+
+const Types = {
+	Dark: {
+		key: "Dark",
+		label: "DARK",
+	},
+	Psych: {
+		key: "Psych",
+		label: "PSYCH",
+	},
+};
+const Specs = {
+	xp: {
+		label: "XP",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.xp));
+		},
+	},
+	attack: {
+		label: "Атака",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.attack));
+		},
+	},
+	defence: {
+		label: "Дэф",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.defence));
+		},
+	},
+	SP_attack: {
+		label: "SP атака",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_attack));
+		},
+	},
+	SP_defence: {
+		label: "SP дэф",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_defence));
+		},
+	},
+	speed: {
+		label: "Скорость",
+		get max() {
+			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.speed));
+		},
+	},
+};
+const Pokemons = [
+	{
+		name: "Darkdevoir",
+		picture: "/images/darkdevo.png",
+		types: [Types.Dark, Types.Psych],
+		id: 1001,
+		weight: 50.5,
+		height: 1.5,
+		abilities: ["Плохие сны", "След", "Оворожение"],
+		location: "???",
+		wayof: [
+			"Легендарные рейды",
+			"Турниры(ключ)",
+			"ПокеВопросы(ключ)",
+			"Аукционы",
+		],
+		breeding: ["???"],
+		types_multipliers: {
+			NORM: null,
+			FIRE: null,
+			WATER: null,
+			ELECTR: null,
+			GRASS: "0.5",
+			ICE: null,
+			FIGHT: null,
+			POISON: "x2",
+			GROUN: null,
+			FLY: null,
+			PSYCH: null,
+			BUG: "0",
+			ROCK: null,
+			GHOST: "0.5",
+			DRAGO: null,
+			DARK: null,
+			STEEL: "x2",
+			FAIRY: null,
+		},
+		specs: {
+			xp: 95,
+			attack: 95,
+			defence: 80,
+			SP_attack: 165,
+			SP_defence: 140,
+			speed: 140,
+		},
+	},
+];
 ---
 
 <Page>
-  <Layout>
-    <div>
-      Список уникальных покемонов:
-      <div>
-        <ul style="list-style: none;">
-          <li>Darkdevoir-<a href="#1001">#1001</a></li>
-          <li>Tsariani-<a href="#1002">#1002</a></li>
-          <li>Loviper-<a href="#1003">#1003</a></li>
-          <li>Voilur-<a href="#1004">#1004</a></li>
-          <li>Dragtaria-<a href="#1005">#1005</a></li>
-          <li>Banblade-<a href="#1006">#1006</a></li>
-          <li>Milodeen-<a href="#1007">#1007</a></li>
-          <li>Bipoleon-<a href="#1008">#1008</a></li>
-          <li>Luxvern-<a href="#1009">#1009</a></li>
-          <li>Cosmochi-<a href="#1010">#1010</a></li>
-        </ul>
-      </div>
-    </div>
-    <span class="line"></span>
-    <div id="1001">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/darkdevo.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1001</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge dark" style="margin-left: 20px;"
-                  >DARK</span
-                >
-                <span class="type-badge fairy">FAIRY</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Bad Dreams</span>
-                  <span>Trace</span>
-                  <span>Pixilate</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <element-rows>
-        <b>Базовые статы:</b>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 85px"><b>85</b></div>
-          <aside class="slider-min">280</aside>
-          <aside class="slider-max">374</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 80px"><b>80</b></div>
-          <aside class="slider-min">148</aside>
-          <aside class="slider-max">284</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 75px"><b>75</b></div>
-          <aside class="slider-min">139</aside>
-          <aside class="slider-max">273</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 140px"><b>140</b></div>
-          <aside class="slider-min">256</aside>
-          <aside class="slider-max">416</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 85px"><b>85</b></div>
-          <aside class="slider-min">157</aside>
-          <aside class="slider-max">295</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 135px"><b>135</b></div>
-          <aside class="slider-min">247</aside>
-          <aside class="slider-max">405</aside>
-        </div>
-        <b>Total: 600</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box x0">0</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">0.5</div>
-          <div class="type-box x0">0</div>
-          <div class="type-box x05">0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x2">x2</div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1002">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 325px; height: 275px;"
-            src="/images/tsarianni.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1002</i></b>
-        </element-rows>
-
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge grass" style="margin-left: 20px;"
-                  >GRASS</span
-                >
-                <span class="type-badge water">WATER</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.2М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>21.4кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Merciless</span>
-                  <span>QueenlyMajesty</span>
-                  <span>Regenerator</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows style="display: flex; margin-top: 10px;">
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 130px"><b>130</b></div>
-          <aside class="slider-min">370</aside>
-          <aside class="slider-max">464</aside>
-        </div>
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 140px"><b>140</b></div>
-          <aside class="slider-min">256</aside>
-          <aside class="slider-max">416</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 140px"><b>140</b></div>
-          <aside class="slider-min">256</aside>
-          <aside class="slider-max">416</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 20px"><b>20</b></div>
-          <aside class="slider-min">40</aside>
-          <aside class="slider-max">152</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 130px"><b>130</b></div>
-          <aside class="slider-min">238</aside>
-          <aside class="slider-max">394</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 70px"><b>70</b></div>
-          <aside class="slider-min">70</aside>
-          <aside class="slider-max">130</aside>
-        </div>
-        <b>Total: 630</b>
-        <hr /><br />
-      </element-rows>
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">х0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1003">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/loviper.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1003</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge norm" style="margin-left: 20px;"
-                  >NORMAL</span
-                >
-                <span class="type-badge poison">POISON</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.3М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>28.3кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Scrappy</span>
-                  <span>Infiltrator</span>
-                  <span>Shed Skin</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 90px"><b>90</b></div>
-          <aside class="slider-min">290</aside>
-          <aside class="slider-max">384</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 185px"><b>185</b></div>
-          <aside class="slider-min">337</aside>
-          <aside class="slider-max">515</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 75px"><b>75</b></div>
-          <aside class="slider-min">139</aside>
-          <aside class="slider-max">273</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 20px"><b>20</b></div>
-          <aside class="slider-min">40</aside>
-          <aside class="slider-max">152</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 75px"><b>75</b></div>
-          <aside class="slider-min">139</aside>
-          <aside class="slider-max">273</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 185px"><b>185</b></div>
-          <aside class="slider-min">337</aside>
-          <aside class="slider-max">515</aside>
-        </div>
-        <b>Total: 630</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x0">x0</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1004">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/voilyre.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1004</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge fire" style="margin-left: 20px;"
-                  >FIRE</span
-                >
-                <span class="type-badge fairy">FAIRY</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.60М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>50.5кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Flash Fire</span>
-                  <span>Flame Body</span>
-                  <span>Pixilate</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 100px"><b>100</b></div>
-          <aside class="slider-min">310</aside>
-          <aside class="slider-max">404</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 75px"><b>75</b></div>
-          <aside class="slider-min">139</aside>
-          <aside class="slider-max">273</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 90px"><b>90</b></div>
-          <aside class="slider-min">166</aside>
-          <aside class="slider-max">306</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 145px"><b>145</b></div>
-          <aside class="slider-min">265</aside>
-          <aside class="slider-max">427</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 100px"><b>100</b></div>
-          <aside class="slider-min">184</aside>
-          <aside class="slider-max">328</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 120px"><b>120</b></div>
-          <aside class="slider-min">220</aside>
-          <aside class="slider-max">372</aside>
-        </div>
-        <b>Total: 630</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x2">x2</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x0">x0</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empry"></div>
-          <div class="type-box x05">x0.5</div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1005">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/dragtaria.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1005</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge fairy" style="margin-left: 20px;"
-                  >FAIRY</span
-                >
-                <span class="type-badge fly">FLY</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.60М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>25.5кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Multiscale</span>
-                  <span>Pixilate</span>
-                  <span>Natural Cure</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 90px"><b>90</b></div>
-          <aside class="slider-min">290</aside>
-          <aside class="slider-max">384</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 140px"><b>140</b></div>
-          <aside class="slider-min">256</aside>
-          <aside class="slider-max">416</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 115px"><b>115</b></div>
-          <aside class="slider-min">211</aside>
-          <aside class="slider-max">361</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 120px"><b>120</b></div>
-          <aside class="slider-min">220</aside>
-          <aside class="slider-max">372</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 115px"><b>115</b></div>
-          <aside class="slider-min">211</aside>
-          <aside class="slider-max">361</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 80px"><b>80</b></div>
-          <aside class="slider-min">148</aside>
-          <aside class="slider-max">284</aside>
-        </div>
-        <b>Total: 660</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x0">x0</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x0">x0</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1006">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/banblayde.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1006</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge steel" style="margin-left: 20px;"
-                  >STEEL</span
-                >
-                <span class="type-badge ghost">GHOST</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.30М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>15кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>No Guard</span>
-                  <span>Cursed Body</span>
-                  <span>Prankster</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 75px"><b>75</b></div>
-          <aside class="slider-min">260</aside>
-          <aside class="slider-max">354</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 160px"><b>160</b></div>
-          <aside class="slider-min">292</aside>
-          <aside class="slider-max">460</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 135px"><b>135</b></div>
-          <aside class="slider-min">247</aside>
-          <aside class="slider-max">405</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 45px"><b>45</b></div>
-          <aside class="slider-min">85</aside>
-          <aside class="slider-max">207</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 135px"><b>135</b></div>
-          <aside class="slider-min">247</aside>
-          <aside class="slider-max">405</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 25px"><b>25</b></div>
-          <aside class="slider-min">49</aside>
-          <aside class="slider-max">163</aside>
-        </div>
-        <b>Total: 575</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box x0">x0</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">0.5</div>
-          <div class="type-box x05">0.5</div>
-          <div class="type-box x0">0</div>
-          <div class="type-box x0">0</div>
-          <div class="type-box x2">x2</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1007">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/mylodine.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1007</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge water" style="margin-left: 20px;"
-                  >WATER</span
-                >
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>6.2М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>150кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>LightningRod</span>
-                  <span>Competitive</span>
-                  <span>MarvelScale</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 125px"><b>125</b></div>
-          <aside class="slider-min">360</aside>
-          <aside class="slider-max">454</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 85px"><b>85</b></div>
-          <aside class="slider-min">157</aside>
-          <aside class="slider-max">295</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 80px"><b>80</b></div>
-          <aside class="slider-min">148</aside>
-          <aside class="slider-max">284</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 120px"><b>120</b></div>
-          <aside class="slider-min">220</aside>
-          <aside class="slider-max">372</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 130px"><b>130</b></div>
-          <aside class="slider-min">238</aside>
-          <aside class="slider-max">394</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 85px"><b>85</b></div>
-          <aside class="slider-min">157</aside>
-          <aside class="slider-max">295</aside>
-        </div>
-        <b>Total: 625</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1008">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/bipoleon.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1008</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge water" style="margin-left: 20px;"
-                  >WATER</span
-                >
-                <span class="type-badge steel">STEEL</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.70М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>70кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Defiant</span>
-                  <span>Torrent</span>
-                  <span>Inner Focus</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 85px"><b>85</b></div>
-          <aside class="slider-min">280</aside>
-          <aside class="slider-max">374</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 145px"><b>145</b></div>
-          <aside class="slider-min">265</aside>
-          <aside class="slider-max">427</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 130px"><b>130</b></div>
-          <aside class="slider-min">238</aside>
-          <aside class="slider-max">394</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 100px"><b>100</b></div>
-          <aside class="slider-min">184</aside>
-          <aside class="slider-max">328</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 110px"><b>110</b></div>
-          <aside class="slider-min">202</aside>
-          <aside class="slider-max">350</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 50px"><b>50</b></div>
-          <aside class="slider-min">94</aside>
-          <aside class="slider-max">218</aside>
-        </div>
-        <b>Total: 620</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x0">x0</div>
-          <div class="type-box x2">x2</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box x05">x0.5</div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1009">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/luxvern.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1009</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge electr" style="margin-left: 20px;"
-                  >ELECTR</span
-                >
-                <span class="type-badge fly">FLY</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1.50М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>73кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>Guts</span>
-                  <span>Frisk</span>
-                  <span>Intimidate</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 95px"><b>95</b></div>
-          <aside class="slider-min">300</aside>
-          <aside class="slider-max">394</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 135px"><b>135</b></div>
-          <aside class="slider-min">247</aside>
-          <aside class="slider-max">405</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 82px"><b>82</b></div>
-          <aside class="slider-min">152</aside>
-          <aside class="slider-max">289</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 91px"><b>91</b></div>
-          <aside class="slider-min">168</aside>
-          <aside class="slider-max">309</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 82px"><b>82</b></div>
-          <aside class="slider-min">152</aside>
-          <aside class="slider-max">289</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 135px"><b>135</b></div>
-          <aside class="slider-min">247</aside>
-          <aside class="slider-max">405</aside>
-        </div>
-        <b>Total: 620</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x0">x0</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-        </div>
-      </element-group>
-    </div>
-    <span class="line"></span>
-    <div id="1010">
-      <element-columns style="flex-wrap: wrap; gap: 40px">
-        <element-rows>
-          <img
-            loading="lazy"
-            style="width: 350px; height: 250px;"
-            src="/images/cosmochi.png"
-            alt=""
-          />
-          <br /><b style="margin-left: 85px;">Номер в дексе: <i>#1010</i></b>
-        </element-rows>
-        <element-columns
-          style="flex-wrap: wrap; justify-content: space-between; gap: 40px"
-        >
-          <div>
-            <ul
-              style="text-align: left; list-style-type: none; padding-left: 0;"
-            >
-              <li>
-                Тип: <span class="type-badge psych" style="margin-left: 20px;"
-                  >PSYCH</span
-                >
-                <span class="type-badge steel">STEEL</span>
-              </li>
-              <pre
-                style="font-family: inherit; font-size: inherit; margin:0">Рост:          <i>1М</i></pre>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Вес:           <i>5кг</i></pre>
-              </li>
-              <li style="display: flex; align-items: center">
-                <span style="margin-right: 15px;">Абилки:</span>
-                <div style="display: flex; flex-direction: column;">
-                  <span>SereneGrace</span>
-                  <span>Sturdy</span>
-                  <span>Unaware</span>
-                </div>
-              </li>
-              <li>
-                <pre
-                  style="font-family: inherit; font-size: inherit; margin:0">Обитает:  <i>???</i></pre>
-              </li>
-            </ul>
-          </div>
-        </element-columns>
-        <div>
-          <h2><b>Способ получения:</b></h2>
-          <ol>
-            <li>Легендарные рейды</li>
-            <li>Турниры(ключ)</li>
-            <li>ПокеВопросы(ключ)</li>
-            <li>Аукционы</li>
-          </ol>
-        </div>
-        <div>
-          <h2><b>Разведение:</b></h2>
-          <ul>
-            <li>???</li>
-          </ul>
-        </div>
-      </element-columns>
-      <hr /><br />
-      <b>Базовые статы:</b>
-      <element-rows>
-        <div class="slider-container">
-          <span class="slider-label">XP</span>
-          <div class="slider" style="--data-progress: 90px"><b>90</b></div>
-          <aside class="slider-min">290</aside>
-          <aside class="slider-max">384</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Атака</span>
-          <div class="slider" style="--data-progress: 94px"><b>94</b></div>
-          <aside class="slider-min">173</aside>
-          <aside class="slider-max">315</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Дэф</span>
-          <div class="slider" style="--data-progress: 122px"><b>122</b></div>
-          <aside class="slider-min">224</aside>
-          <aside class="slider-max">377</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Атака</span>
-          <div class="slider" style="--data-progress: 100px"><b>100</b></div>
-          <aside class="slider-min">184</aside>
-          <aside class="slider-max">328</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">СП Дэф</span>
-          <div class="slider" style="--data-progress: 132px"><b>132</b></div>
-          <aside class="slider-min">242</aside>
-          <aside class="slider-max">399</aside>
-        </div>
-
-        <div class="slider-container">
-          <span class="slider-label">Скорость</span>
-          <div class="slider" style="--data-progress: 132px"><b>132</b></div>
-          <aside class="slider-min">242</aside>
-          <aside class="slider-max">399</aside>
-        </div>
-        <b>Total: 670</b>
-      </element-rows>
-      <hr /><br />
-      <element-group class="types_table">
-        <div class="container">
-          <div class="type-box NORM">NORM</div>
-          <div class="type-box FIRE">FIRE</div>
-          <div class="type-box WATER">WATER</div>
-          <div class="type-box ELECTR">ELECTR</div>
-          <div class="type-box GRASS">GRASS</div>
-          <div class="type-box ICE">ICE</div>
-          <div class="type-box FIGHT">FIGHT</div>
-          <div class="type-box POISON">POISON</div>
-          <div class="type-box GROUN">GROUN</div>
-
-          <div class="type-box FLY">FLY</div>
-          <div class="type-box PSYCH">PSYCH</div>
-          <div class="type-box BUG">BUG</div>
-          <div class="type-box ROCK">ROCK</div>
-          <div class="type-box GHOST">GHOST</div>
-          <div class="type-box DRAGO">DRAGO</div>
-          <div class="type-box DARK">DARK</div>
-          <div class="type-box STEEL">STEEL</div>
-          <div class="type-box FAIRY">FAIRY</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box empty"></div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x0">x0</div>
-          <div class="type-box x2">x2</div>
-
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x025">x0.25</div>
-          <div class="type-box empty"></div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x2">x2</div>
-          <div class="type-box x05">x0.5</div>
-          <div class="type-box x05">x0.5</div>
-        </div>
-      </element-group>
-    </div>
-  </Layout>
+	<Layout>
+		<header>
+			Список уникальных покемонов:
+			<ul style="list-style: none;">
+				{
+					Pokemons.map((pokemon) => (
+						<li>
+							<a href={`#${pokemon.id}`} rel="noopener noreferrer">
+								{pokemon.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</header>
+
+		{
+			Pokemons.map((pokemon) => (
+				<aside id={pokemon.id.toString()}>
+					<element-columns style="flex-wrap: wrap; gap: 40px">
+						{/* MARK: Image */}
+						<element-rows style="gap: 40px">
+							<img
+								loading="lazy"
+								style="width: 350px; height: 250px;"
+								src={pokemon.picture}
+								alt=""
+							/>
+
+							<b>
+								Номер в дексе: <i>#{pokemon.id}</i>
+							</b>
+						</element-rows>
+
+						{/* Type specs */}
+						<table>
+							<tr>
+								<td>Тип:</td>
+								<td>
+									{pokemon.types.map((type) => (
+										<span class={`type-badge ${type.key.toLowerCase()}`}>
+											{type.label}
+										</span>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Рост:</td>
+								<td>
+									<span>{pokemon.height} М</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Вес:</td>
+								<td>
+									<span>{pokemon.weight} кг</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Абилки:</td>
+								<td>
+									{pokemon.abilities.map((ability) => (
+										<li>{ability}</li>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Обитает:</td>
+								<td>
+									<span>{pokemon.location}</span>
+								</td>
+							</tr>
+						</table>
+
+						{/* MARK: Wayof */}
+						<section>
+							<h2>
+								<b>Способ получения:</b>
+							</h2>
+							<ol>
+								{pokemon.wayof.map((way) => (
+									<li>{way}</li>
+								))}
+							</ol>
+						</section>
+						{/* MARK: Breeding */}
+						<section>
+							<h2>
+								<b>Разведение:</b>
+							</h2>
+							<ul>
+								{pokemon.breeding.map((way) => (
+									<li>{way}</li>
+								))}
+							</ul>
+						</section>
+					</element-columns>
+
+					<p>Базовые статы:</p>
+					<table>
+						{Object.entries(pokemon.specs).map(([key, value]) => (
+							<tr>
+								<td>{Specs[key].label}</td>
+								<td>
+									<span
+										class="slider"
+										style={`width: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
+									/>
+									<b>{value}</b>
+								</td>
+							</tr>
+						))}
+					</table>
+
+					<hr />
+					<br />
+
+					<element-group class="types_table">
+						{Object.keys(pokemon.types_multipliers).map((type) => (
+							<div class="type-box" data-types_multiplier_name={type}>
+								{type}
+							</div>
+						))}
+						{Object.values(pokemon.types_multipliers).map((value) => (
+							<div class="type-box" data-types_multiplier_value={value}>
+								{value}
+							</div>
+						))}
+					</element-group>
+				</aside>
+			))
+		}
+	</Layout>
 </Page>
 
 <style>
-  .type-badge {
-    display: inline-block;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    margin-right: 5px;
-  }
+	.type-badge {
+		display: inline-block;
+		padding: 2px 5px;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 0.8em;
+		text-transform: uppercase;
+		margin-right: 5px;
+	}
 
-  .dark {
-    background-color: #a98a78;
-  }
+	.dark {
+		background-color: #a98a78;
+	}
 
-  .psych {
-    background-color: #ee99ac;
-  }
+	.psych {
+		background-color: #ee99ac;
+	}
 
-  .norm {
-    background-color: #a8a77a;
-  }
+	.card li {
+		list-style: none;
+	}
 
-  .fire {
-    background-color: #ee8130;
-  }
+	.slider-container {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
 
-  .water {
-    background-color: #6390f0;
-  }
+	.slider-label {
+		width: 100px;
+		margin-right: 10px;
+	}
 
-  .electr {
-    background-color: #f7d057;
-  }
+	.slider {
+		display: inline-block;
+		height: 15px;
+		background-color: gold;
+		margin-right: 10px;
+		border-radius: 5px;
+		border: 2px solid grey;
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+	}
 
-  .grass {
-    background-color: #7ac74c;
-  }
+	.slider-value {
+		width: 40px;
+	}
 
-  .ice {
-    background-color: #96d9d6;
-  }
+	.types_table {
+		display: grid;
+		--size: 1em;
 
-  .fight {
-    background-color: #c22e28;
-  }
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
 
-  .poison {
-    background-color: #a33ea1;
-  }
+	.container {
+		display: grid;
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
 
-  .ground {
-    background-color: #e2bf65;
-  }
+	.type-box {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		font-size: 10px;
+		border-radius: 5px;
+	}
 
-  .fly {
-    background-color: #a98ff3;
-  }
+	[data-types_multiplier_name="NORM"] {
+		background-color: #a8a77a;
+	}
+	[data-types_multiplier_name="FIRE"] {
+		background-color: #ee8130;
+	}
+	[data-types_multiplier_name="WATER"] {
+		background-color: #6390f0;
+	}
+	[data-types_multiplier_name="ELECTR"] {
+		background-color: #f7d057;
+	}
+	[data-types_multiplier_name="GRASS"] {
+		background-color: #7ac74c;
+	}
+	[data-types_multiplier_name="ICE"] {
+		background-color: #96d9d6;
+	}
+	[data-types_multiplier_name="FIGHT"] {
+		background-color: #c22e28;
+	}
+	[data-types_multiplier_name="POISON"] {
+		background-color: #a33ea1;
+	}
+	[data-types_multiplier_name="GROUN"] {
+		background-color: #e2bf65;
+	}
+	[data-types_multiplier_name="FLY"] {
+		background-color: #a98ff3;
+	}
+	[data-types_multiplier_name="PSYCH"] {
+		background-color: #ee99ac;
+	}
+	[data-types_multiplier_name="BUG"] {
+		background-color: #a6b91a;
+	}
+	[data-types_multiplier_name="ROCK"] {
+		background-color: #b6a136;
+	}
+	[data-types_multiplier_name="GHOST"] {
+		background-color: #735797;
+	}
+	[data-types_multiplier_name="DRAGO"] {
+		background-color: #6f35fc;
+	}
+	[data-types_multiplier_name="DARK"] {
+		background-color: #a98a78;
+	}
+	[data-types_multiplier_name="STEEL"] {
+		background-color: #b7b7ce;
+	}
+	[data-types_multiplier_name="FAIRY"] {
+		background-color: #d685ad;
+	}
 
-  .bug {
-    background-color: #a6b91a;
-  }
+	[data-types_multiplier_value="x2"] {
+		background-color: #7ac74c;
+		color: white;
+	}
+	[data-types_multiplier_value="0"] {
+		background-color: #606060;
+		color: white;
+	}
+	[data-types_multiplier_value="0.5"] {
+		background-color: #c22e28;
+		color: white;
+	}
+	[data-types_multiplier_value="0.25"] {
+		background-color: #a04338;
+		color: white;
+	}
+	.empty {
+		background-color: transparent;
+		color: transparent;
+	}
 
-  .rock {
-    background-color: #b6a136;
-  }
-
-  .ghost {
-    background-color: #735797;
-  }
-
-  .drago {
-    background-color: #6f35fc;
-  }
-
-  .steel {
-    background-color: #b7b7ce;
-  }
-
-  .fairy {
-    background-color: #d685ad;
-  }
-
-  .card li {
-    list-style: none;
-  }
-
-  .slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    max-width: min(800px, 100%);
-  }
-
-  .slider-container:first-of-type .slider-max::before {
-    content: "Max: ";
-    position: absolute;
-    margin-top: -1.5em;
-    margin-left: -0.5em;
-    opacity: 0.5;
-  }
-  .slider-container:first-of-type .slider-min::before {
-    content: "Min: ";
-    position: absolute;
-    margin-top: -1.5em;
-    width: 1em;
-    text-align: center;
-    margin-right: 0.5em;
-    opacity: 0.5;
-  }
-
-  .slider-max {
-    position: relative;
-    display: flex;
-    white-space: pre;
-    justify-content: start;
-    flex-grow: 1;
-    margin-inline: 1em;
-  }
-  .slider-min {
-    position: relative;
-    white-space: pre;
-    display: flex;
-    justify-content: end;
-    flex-grow: 1;
-    margin-inline: 1em;
-  }
-
-  .slider-label {
-    width: 100px;
-    margin-right: 10px;
-  }
-
-  .slider {
-    height: 15px;
-    width: 200px;
-    display: flex;
-    align-items: center;
-  }
-
-  .slider::before {
-    content: "";
-    display: inline-block;
-    align-items: center;
-    height: 100%;
-    width: var(--data-progress, 200px);
-
-    background-color: gold;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 2px solid grey;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-  }
-
-  .slider-value {
-    width: 40px;
-  }
-
-  .types_table {
-    display: grid;
-    --size: 1em;
-    gap: 1em;
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: repeat(18, 60px);
-    grid-template-rows: repeat(2, 60px);
-    gap: 1px;
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  .type-box {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 10px;
-    border-radius: 5px;
-  }
-
-  .NORM {
-    background-color: #a8a77a;
-  }
-  .FIRE {
-    background-color: #ee8130;
-  }
-  .WATER {
-    background-color: #6390f0;
-  }
-  .ELECTR {
-    background-color: #f7d057;
-  }
-  .GRASS {
-    background-color: #7ac74c;
-  }
-  .ICE {
-    background-color: #96d9d6;
-  }
-  .FIGHT {
-    background-color: #c22e28;
-  }
-  .POISON {
-    background-color: #a33ea1;
-  }
-  .GROUN {
-    background-color: #e2bf65;
-  }
-  .FLY {
-    background-color: #a98ff3;
-  }
-  .PSYCH {
-    background-color: #ee99ac;
-  }
-  .BUG {
-    background-color: #a6b91a;
-  }
-  .ROCK {
-    background-color: #b6a136;
-  }
-  .GHOST {
-    background-color: #735797;
-  }
-  .DRAGO {
-    background-color: #6f35fc;
-  }
-  .DARK {
-    background-color: #a98a78;
-  }
-  .STEEL {
-    background-color: #b7b7ce;
-  }
-  .FAIRY {
-    background-color: #d685ad;
-  }
-
-  .x2 {
-    background-color: #7ac74c;
-    color: white;
-  }
-  .x0 {
-    background-color: #606060;
-    color: white;
-  }
-  .x05 {
-    background-color: #c22e28;
-    color: white;
-  }
-  .x025 {
-    background-color: #a04338;
-    color: white;
-  }
-  .empty {
-    background-color: transparent;
-    color: transparent;
-  }
-
-  ol li {
-    list-style: inherit;
-    list-style-position: inside;
-  }
-  li {
-    list-style-position: inside;
-    list-style: none;
-  }
+	ol li {
+		list-style: inherit;
+		list-style-position: inside;
+	}
+	li {
+		list-style-position: inside;
+		list-style: none;
+	}
 </style>
