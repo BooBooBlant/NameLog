@@ -6,503 +6,907 @@ import { globalProps } from "@lib/globalProps.js";
 globalProps.page_section = "guides";
 
 const Types = {
-  Norm: {
-    key: "Norm",
-    label: "NORM",
-  },
-  Fire: {
-    key: "Fire",
-    label: "FIRE",
-  },
-  Water: {
-    key: "Water",
-    label: "WATER",
-  },
-  Electr: {
-    key: "Electr",
-    label: "ELECTR",
-  },
-  Grass: {
-    key: "Grass",
-    label: "GRASS",
-  },
-  Ice: {
-    key: "Ice",
-    label: "ICE",
-  },
-  Fight: {
-    key: "Fight",
-    label: "FIGHT",
-  },
-  Poison: {
-    key: "Poison",
-    label: "POISON",
-  },
-  Groun: {
-    key: "Groun",
-    label: "GROUN",
-  },
-  Fly: {
-    key: "Fly",
-    label: "FLY",
-  },
-  Psych: {
-    key: "Psych",
-    label: "PSYCH",
-  },
-  Bug: {
-    key: "Bug",
-    label: "BUG",
-  },
-  Rock: {
-    key: "Rock",
-    label: "ROCK",
-  },
-  Ghost: {
-    key: "Ghost",
-    label: "GHOST",
-  },
-  Drago: {
-    key: "Drago",
-    label: "DRAGO",
-  },
-  Dark: {
-    key: "Dark",
-    label: "DARK",
-  },
-  Steel: {
-    key: "Steel",
-    label: "STEEL",
-  },
-  Fairy: {
-    key: "Fairy",
-    label: "FAIRY",
-  },
+	Normal: {
+		key: "Normal",
+		label: "NORM",
+	},
+	Fire: {
+		key: "Fire",
+		label: "FIRE",
+	},
+	Water: {
+		key: "Water",
+		label: "WATER",
+	},
+	Electric: {
+		key: "Electric",
+		label: "ELECTR",
+	},
+	Grass: {
+		key: "Grass",
+		label: "GRASS",
+	},
+	Ice: {
+		key: "Ice",
+		label: "ICE",
+	},
+	Fight: {
+		key: "Fight",
+		label: "FIGHT",
+	},
+	Poison: {
+		key: "Poison",
+		label: "POISON",
+	},
+	Groun: {
+		key: "Groun",
+		label: "GROUN",
+	},
+	Flying: {
+		key: "Flying",
+		label: "FLY",
+	},
+	Psychic: {
+		key: "Psychic",
+		label: "PSYCH",
+	},
+	Bug: {
+		key: "Bug",
+		label: "BUG",
+	},
+	Rock: {
+		key: "Rock",
+		label: "ROCK",
+	},
+	Ghost: {
+		key: "Ghost",
+		label: "GHOST",
+	},
+	Drago: {
+		key: "Drago",
+		label: "DRAGO",
+	},
+	Dark: {
+		key: "Dark",
+		label: "DARK",
+	},
+	Steel: {
+		key: "Steel",
+		label: "STEEL",
+	},
+	Fairy: {
+		key: "Fairy",
+		label: "FAIRY",
+	},
 };
 const Specs = {
-  hp: {
-    label: "HP",
-    max: 200,
-  },
-  attack: {
-    label: "Attack",
-    max: 200,
-  },
-  defence: {
-    label: "Defence",
-    max: 200,
-  },
-  SP_attack: {
-    label: "Sp. Atk",
-    max: 200,
-  },
-  SP_defence: {
-    label: "Sp. Def",
-    max: 200,
-  },
-  speed: {
-    label: "Speed",
-    max: 200,
-  },
+	hp: {
+		label: "HP",
+		max: 200,
+	},
+	attack: {
+		label: "Attack",
+		max: 200,
+	},
+	defence: {
+		label: "Defence",
+		max: 200,
+	},
+	SP_attack: {
+		label: "Sp. Atk",
+		max: 200,
+	},
+	SP_defence: {
+		label: "Sp. Def",
+		max: 200,
+	},
+	speed: {
+		label: "Speed",
+		max: 200,
+	},
 };
 const pokemons_list = [
-  {
-    name: "Darkdevoir",
-    picture: "/images/darkdevo.png",
-    types: [Types.Dark, Types.Psych],
-    id: 1001,
-    weight: 50.5,
-    height: 1.5,
-    abilities: ["Плохие сны", "След", "Оворожение"],
-    location: "???",
-    wayof: [
-      "Легендарные рейды",
-      "Турниры(ключ)",
-      "ПокеВопросы(ключ)",
-      "Аукционы",
-    ],
-    breeding: ["???"],
-    types_multipliers: {
-      NORM: null,
-      FIRE: null,
-      WATER: null,
-      ELECTR: null,
-      GRASS: "0.5",
-      ICE: null,
-      FIGHT: null,
-      POISON: "x2",
-      GROUN: null,
-      FLY: null,
-      PSYCH: null,
-      BUG: "0",
-      ROCK: null,
-      GHOST: "0.5",
-      DRAGO: null,
-      DARK: null,
-      STEEL: "x2",
-      FAIRY: null,
-    },
-    specs: {
-      hp: 95,
-      attack: 95,
-      defence: 80,
-      SP_attack: 165,
-      SP_defence: 140,
-      speed: 140,
-    },
-  },
-  {
-    name: "Tsariani",
-    picture: "/images/tsarianni.png",
-    types: [Types.Grass, Types.Water],
-    id: 1002,
-    weight: 50.5,
-    height: 1.5,
-    abilities: ["Плохие сны", "След", "Оворожение"],
-    location: "???",
-    wayof: [
-      "Легендарные рейды",
-      "Турниры(ключ)",
-      "ПокеВопросы(ключ)",
-      "Аукционы",
-    ],
-    breeding: ["???"],
-    types_multipliers: {
-      NORM: null,
-      FIRE: null,
-      WATER: null,
-      ELECTR: null,
-      GRASS: "0.5",
-      ICE: null,
-      FIGHT: null,
-      POISON: "x2",
-      GROUN: null,
-      FLY: null,
-      PSYCH: null,
-      BUG: "0",
-      ROCK: null,
-      GHOST: "0.5",
-      DRAGO: null,
-      DARK: null,
-      STEEL: "x2",
-      FAIRY: null,
-    },
-    specs: {
-      hp: 95,
-      attack: 95,
-      defence: 80,
-      SP_attack: 165,
-      SP_defence: 140,
-      speed: 140,
-    },
-  },
+	{
+		name: "Darkdevoir",
+
+		picture: "/images/darkdevo.png",
+		types: [Types.Dark, Types.Psychic],
+		id: 1001,
+		weight: 50.5,
+		height: 1.5,
+		abilities: ["Плохие сны", "След", "Оворожение"],
+		location: "???",
+		wayof: [
+			"Легендарные рейды",
+			"Турниры(ключ)",
+			"ПокеВопросы(ключ)",
+			"Аукционы",
+		],
+		breeding: ["???"],
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: null,
+			Electric: null,
+			Grass: "0.5",
+			Ice: null,
+			Fight: null,
+			Poison: "x2",
+			Groun: null,
+			Flying: null,
+			Psychic: null,
+			Bug: "0",
+			Rock: null,
+			Ghost: "0.5",
+			Drago: null,
+			Dark: null,
+			Steel: "x2",
+			Fairy: null,
+		},
+		specs: {
+			hp: 95,
+			attack: 95,
+			defence: 80,
+			SP_attack: 165,
+			SP_defence: 140,
+			speed: 140,
+		},
+	},
+
+	{
+		name: "Даркдевоир",
+
+		picture: "/images/darkdevo.png",
+		id: 1001,
+		types: [Types.Fairy, Types.Dark],
+		specs: {
+			hp: 85,
+			attack: 80,
+			defence: 75,
+			SP_attack: 140,
+			SP_defence: 85,
+			speed: 135,
+		},
+
+		height: 1.5,
+		weight: 50.5,
+
+		abilities: ["BadDreams", "Trace", "Pixilate"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: null,
+			Electric: null,
+			Grass: null,
+			Ice: null,
+			Fight: null,
+			Poison: "x2",
+			Groun: null,
+			Flying: null,
+			Psychic: 0,
+			Bug: null,
+			Rock: null,
+			Ghost: 0.5,
+			Drago: 0,
+			Dark: 0.5,
+			Steel: "x2",
+			Fairy: "x2",
+		},
+	},
+	{
+		name: "Tsariani",
+
+		picture: "/images/tsarianni.png",
+		id: 1002,
+		types: [Types.Grass, Types.Water],
+		specs: {
+			hp: 130,
+			attack: 140,
+			defence: 140,
+			SP_attack: 20,
+			SP_defence: 130,
+			speed: 70,
+		},
+
+		height: 1.2,
+		weight: 21.4,
+
+		abilities: ["Merciless", "QueenlyMajesty", "Regenerator"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: 0.5,
+			Electric: null,
+			Grass: null,
+			Ice: null,
+			Fight: null,
+			Poison: "x2",
+			Groun: 0.5,
+			Flying: "x2",
+			Psychic: null,
+			Bug: "x2",
+			Rock: null,
+			Ghost: null,
+			Drago: null,
+			Dark: null,
+			Steel: 0.5,
+			Fairy: null,
+		},
+	},
+	{
+		name: "Loviper",
+
+		picture: "/images/loviper.png",
+		id: 1003,
+		types: [Types.Normal, Types.Poison],
+		specs: {
+			hp: 90,
+			attack: 185,
+			defence: 75,
+			SP_attack: 20,
+			SP_defence: 75,
+			speed: 185,
+		},
+
+		height: 1.3,
+		weight: 28.3,
+
+		abilities: ["Scrappy", "Infiltrator", "ShedSkin"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: null,
+			Electric: null,
+			Grass: 0.5,
+			Ice: null,
+			Fight: null,
+			Poison: 0.5,
+			Groun: "x2",
+			Flying: null,
+			Psychic: "x2",
+			Bug: 0.5,
+			Rock: null,
+			Ghost: 0,
+			Drago: null,
+			Dark: null,
+			Steel: null,
+			Fairy: 0.5,
+		},
+	},
+	{
+		name: "Voilur",
+
+		picture: "/images/voilyre.png",
+		id: 1004,
+		types: [Types.Fire, Types.Fairy],
+		specs: {
+			hp: 100,
+			attack: 75,
+			defence: 90,
+			SP_attack: 145,
+			SP_defence: 100,
+			speed: 120,
+		},
+
+		height: 1.6,
+		weight: 50.5,
+
+		abilities: ["FlashFire", "FlameBody", "Pixilate"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: 0.5,
+			Water: "x2",
+			Electric: null,
+			Grass: 0.5,
+			Ice: 0.5,
+			Fight: null,
+			Poison: "x2",
+			Groun: "x2",
+			Flying: null,
+			Psychic: null,
+			Bug: 0.25,
+			Rock: "x2",
+			Ghost: null,
+			Drago: 0,
+			Dark: 0.5,
+			Steel: null,
+			Fairy: 0.5,
+		},
+	},
+	{
+		name: "Dragtaria",
+
+		picture: "/images/dragtaria.png",
+		id: 1005,
+		types: [Types.Fairy, Types.Flying],
+		specs: {
+			hp: 90,
+			attack: 140,
+			defence: 115,
+			SP_attack: 120,
+			SP_defence: 115,
+			speed: 80,
+		},
+
+		height: 1.6,
+		weight: 25.5,
+
+		abilities: ["Multiscale", "Pixilate", "NaturalCure"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: null,
+			Electric: "x2",
+			Grass: 0.5,
+			Ice: "x2",
+			Fight: 0.25,
+			Poison: "x2",
+			Groun: 0,
+			Flying: null,
+			Psychic: null,
+			Bug: 0.25,
+			Rock: "x2",
+			Ghost: null,
+			Drago: 0,
+			Dark: 0.5,
+			Steel: "x2",
+			Fairy: null,
+		},
+	},
+	{
+		name: "Banblade",
+
+		picture: "/images/banblayde.png",
+		id: 1006,
+		types: [Types.Steel, Types.Ghost],
+		specs: {
+			hp: 75,
+			attack: 160,
+			defence: 135,
+			SP_attack: 45,
+			SP_defence: 135,
+			speed: 25,
+		},
+
+		height: 1.3,
+		weight: 15,
+
+		abilities: ["NoGuard", "CursedBody", "Prankster"],
+
+		types_multipliers: {
+			Normal: 0,
+			Fire: "x2",
+			Water: null,
+			Electric: null,
+			Grass: 0.5,
+			Ice: 0.5,
+			Fight: 0,
+			Poison: 0,
+			Groun: "x2",
+			Flying: 0.5,
+			Psychic: 0.5,
+			Bug: 0.25,
+			Rock: 0.5,
+			Ghost: "x2",
+			Drago: 0.5,
+			Dark: "x2",
+			Steel: 0.5,
+			Fairy: 0.5,
+		},
+	},
+	{
+		name: "Milodeen",
+
+		picture: "/images/mylodine.png",
+		id: 1007,
+		types: [Types.Water],
+		specs: {
+			hp: 125,
+			attack: 85,
+			defence: 80,
+			SP_attack: 120,
+			SP_defence: 130,
+			speed: 85,
+		},
+
+		height: 6.2,
+		weight: 150,
+
+		abilities: ["LightningRod", "Competitive", "MarvelScale"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: 0.5,
+			Water: 0.5,
+			Electric: "x2",
+			Grass: "x2",
+			Ice: 0.5,
+			Fight: null,
+			Poison: null,
+			Groun: null,
+			Flying: null,
+			Psychic: null,
+			Bug: null,
+			Rock: null,
+			Ghost: null,
+			Drago: null,
+			Dark: null,
+			Steel: 0.5,
+			Fairy: null,
+		},
+	},
+	{
+		name: "Bipoleon",
+
+		picture: "/images/bipoleon.png",
+		id: 1008,
+		types: [Types.Water, Types.Steel],
+		specs: {
+			hp: 85,
+			attack: 145,
+			defence: 130,
+			SP_attack: 100,
+			SP_defence: 110,
+			speed: 50,
+		},
+
+		height: 1.7,
+		weight: 70,
+
+		abilities: ["Defiant", "Torrent", "InnerFocus"],
+
+		types_multipliers: {
+			Normal: 0.5,
+			Fire: null,
+			Water: 0.5,
+			Electric: "x2",
+			Grass: null,
+			Ice: 0.25,
+			Fight: 0.5,
+			Poison: 0,
+			Groun: "x2",
+			Flying: 0.5,
+			Psychic: 0.5,
+			Bug: 0.5,
+			Rock: 0.5,
+			Ghost: null,
+			Drago: null,
+			Dark: 0.5,
+			Steel: 0.25,
+			Fairy: 0.5,
+		},
+	},
+	{
+		name: "Luxvern",
+
+		picture: "/images/luxvern.png",
+		id: 1009,
+		types: [Types.Electric, Types.Flying],
+		specs: {
+			hp: 95,
+			attack: 135,
+			defence: 82,
+			SP_attack: 91,
+			SP_defence: 82,
+			speed: 135,
+		},
+
+		height: 1.5,
+		weight: 73,
+
+		abilities: ["Guts", "Frisk", "Intimidate"],
+
+		types_multipliers: {
+			Normal: null,
+			Fire: null,
+			Water: null,
+			Electric: null,
+			Grass: 0.5,
+			Ice: "x2",
+			Fight: 0.5,
+			Poison: null,
+			Groun: 0,
+			Flying: 0.5,
+			Psychic: null,
+			Bug: 0.5,
+			Rock: "x2",
+			Ghost: null,
+			Drago: null,
+			Dark: null,
+			Steel: 0.5,
+			Fairy: null,
+		},
+	},
+	{
+		name: "Cosmochi",
+
+		picture: "/images/cosmochi.png",
+		id: 1010,
+		types: [Types.Psychic, Types.Steel],
+		specs: {
+			hp: 90,
+			attack: 94,
+			defence: 122,
+			SP_attack: 100,
+			SP_defence: 132,
+			speed: 132,
+		},
+
+		height: 1.0,
+		weight: 5.0,
+
+		abilities: ["SereneGrace", "Sturdy", "Unaware"],
+
+		types_multipliers: {
+			Normal: 0.5,
+			Fire: "x2",
+			Water: null,
+			Electric: null,
+			Grass: 0.5,
+			Ice: 0.5,
+			Fight: null,
+			Poison: 0,
+			Groun: "x2",
+			Flying: 0.5,
+			Psychic: 0.25,
+			Bug: null,
+			Rock: 0.5,
+			Ghost: "x2",
+			Drago: 0.5,
+			Dark: "x2",
+			Steel: 0.5,
+			Fairy: 0.5,
+		},
+	},
 ];
 ---
 
 <Page>
-  <Layout>
-    <header>
-      Список уникальных покемонов:
-      <ul style="list-style: none;">
-        {
-          pokemons_list.map((pokemon) => (
-            <li>
-              {pokemon.name}-
-              <a href={`#${pokemon.id}`} rel="noopener noreferrer">
-                {pokemon.id}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </header>
-    <span class="line"></span>
-    {
-      pokemons_list.map((pokemon) => (
-        <aside id={pokemon.id.toString()}>
-          <element-columns style="flex-wrap: wrap; gap: 40px">
-            {/* MARK: Image */}
-            <element-rows style="gap: 40px">
-              <img
-                loading="lazy"
-                style="width: 350px; height: 250px;"
-                src={pokemon.picture}
-                alt=""
-              />
+	<Layout>
+		<header>
+			Список уникальных покемонов:
+			<ul style="list-style: none;">
+				{
+					pokemons_list.map((pokemon) => (
+						<li>
+							{pokemon.name} -
+							<a href={`#${pokemon.id}`} rel="noopener noreferrer">
+								#{pokemon.id}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</header>
+		<span class="line"></span>
+		{
+			pokemons_list.map((pokemon) => (
+				<aside id={pokemon.id.toString()}>
+					<element-columns style="flex-wrap: wrap; gap: 40px">
+						{/* MARK: Image */}
+						<element-rows style="gap: 40px">
+							<img
+								loading="lazy"
+								style="width: 350px; height: 250px;"
+								src={pokemon.picture}
+								alt=""
+							/>
 
-              <b>
-                Номер в дексе: <i>#{pokemon.id}</i>
-              </b>
-            </element-rows>
+							<b>
+								Номер в дексе: <i>#{pokemon.id}</i>
+							</b>
+						</element-rows>
 
-            {/* Type specs */}
-            <table>
-              <tr>
-                <td>Тип:</td>
-                <td>
-                  {pokemon.types.map((type) => (
-                    <span class={`type-badge ${type.key.toLowerCase()}`}>
-                      {type.label}
-                    </span>
-                  ))}
-                </td>
-              </tr>
-              <tr>
-                <td>Рост:</td>
-                <td>
-                  <span>{pokemon.height} М</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Вес:</td>
-                <td>
-                  <span>{pokemon.weight} кг</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Абилки:</td>
-                <td>
-                  {pokemon.abilities.map((ability) => (
-                    <li>{ability}</li>
-                  ))}
-                </td>
-              </tr>
-              <tr>
-                <td>Обитает:</td>
-                <td>
-                  <span>{pokemon.location}</span>
-                </td>
-              </tr>
-            </table>
+						{/* Type specs */}
+						<table>
+							<tr>
+								<td>Тип:</td>
+								<td>
+									{pokemon.types.map((type) => (
+										<span class="type-badge" data-background-for={type.key}>
+											{type.label}
+										</span>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Рост:</td>
+								<td>
+									<span>{pokemon.height} М</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Вес:</td>
+								<td>
+									<span>{pokemon.weight} кг</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Абилки:</td>
+								<td>
+									{pokemon.abilities.map((ability) => (
+										<li>{ability}</li>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Обитает:</td>
+								<td>
+									<span>{pokemon.location}</span>
+								</td>
+							</tr>
+						</table>
 
-            {/* MARK: Wayof */}
-            <section>
-              <h2>
-                <b>Способ получения:</b>
-              </h2>
-              <ol>
-                {pokemon.wayof.map((way) => (
-                  <li>{way}</li>
-                ))}
-              </ol>
-            </section>
-            {/* MARK: Breeding */}
-            <section>
-              <h2>
-                <b>Разведение:</b>
-              </h2>
-              <ul>
-                {pokemon.breeding.map((way) => (
-                  <li>{way}</li>
-                ))}
-              </ul>
-            </section>
-          </element-columns>
-          <hr />
-          <br />
-          <p>Базовые статы:</p>
-          <table>
-            {Object.entries(pokemon.specs).map(([key, value]) => (
-              <tr>
-                <td>{Specs[key].label}</td>
-                <td>
-                  <span
-                    class="slider"
-                    style={`width: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
-                  />
-                  <b>{value}</b>
-                </td>
-              </tr>
-            ))}
-          </table>
+						{/* MARK: Wayof */}
+						<section>
+							<h2>
+								<b>Способ получения:</b>
+							</h2>
+							<ol>
+								{pokemon.wayof?.map((way) => (
+									<li>{way}</li>
+								))}
+							</ol>
+						</section>
+						{/* MARK: Breeding */}
+						<section>
+							<h2>
+								<b>Разведение:</b>
+							</h2>
+							<ul>
+								{pokemon.breeding?.map((way) => (
+									<li>{way}</li>
+								))}
+							</ul>
+						</section>
+					</element-columns>
+					<hr />
+					<br />
+					<p>Базовые статы:</p>
+					<abc>
+						{Object.entries(pokemon.specs).map(([key, value]) => (
+							<div class="slider-container">
+								<span class="slider-label">{Specs[key].label}</span>
+								<div
+									class="slider"
+									style={`--data-slider: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
+								>
+									<b>{value}</b>
+								</div>
+								<aside class="slider-min">{Specs[key].min ?? 0}</aside>
+								<aside class="slider-max">{Specs[key].max ?? 0}</aside>
+							</div>
+						))}
+						<span>
+							Total: {Object.values(pokemon.specs).reduce((a, b) => a + b, 0)}
+						</span>
+					</abc>
 
-          <hr />
-          <br />
+					<hr />
+					<br />
 
-          <element-group class="types_table">
-            {Object.keys(pokemon.types_multipliers).map((type) => (
-              <div class="type-box" data-types_multiplier_name={type}>
-                {type}
-              </div>
-            ))}
-            {Object.values(pokemon.types_multipliers).map((value) => (
-              <div class="type-box" data-types_multiplier_value={value}>
-                {value}
-              </div>
-            ))}
-          </element-group>
-          <span class="line" />
-        </aside>
-      ))
-    }
-  </Layout>
+					<element-group class="types_table">
+						{Object.keys(pokemon.types_multipliers).map((typeKey) => (
+							<div class="type-box" data-types_multiplier_name={typeKey}>
+								{Types[typeKey].label}
+							</div>
+						))}
+						{Object.values(pokemon.types_multipliers).map((value) => (
+							<div class="type-box" data-types_multiplier_value={value}>
+								{value}
+							</div>
+						))}
+					</element-group>
+					<span class="line" />
+				</aside>
+			))
+		}
+	</Layout>
 </Page>
 
 <style>
-  .type-badge {
-    display: inline-block;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    margin-right: 5px;
-  }
+	.type-badge {
+		display: inline-block;
+		padding: 2px 5px;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 0.8em;
+		text-transform: uppercase;
+		margin-right: 5px;
+	}
 
-  .dark {
-    background-color: #a98a78;
-  }
+	.card li {
+		list-style: none;
+	}
 
-  .psych {
-    background-color: #ee99ac;
-  }
+	.slider-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 10px;
+		max-width: min(800px, 100%);
 
-  .grass {
-    background-color: #7ac74c;
-  }
+		word-break: keep-all;
+	}
 
-  .water {
-    background-color: #6390f0;
-  }
+	.slider-container:first-of-type .slider-max::before {
+		content: "Max: ";
+		position: absolute;
+		margin-top: -1.5em;
+		margin-left: -0.5em;
+		opacity: 0.5;
+	}
+	.slider-container:first-of-type .slider-min::before {
+		content: "Min: ";
+		position: absolute;
+		margin-top: -1.5em;
+		width: 1em;
+		text-align: center;
+		margin-right: 0.5em;
+		opacity: 0.5;
+	}
 
-  .card li {
-    list-style: none;
-  }
+	.slider-max {
+		position: relative;
+		display: flex;
+		white-space: pre;
+		justify-content: start;
+		flex-grow: 1;
+		margin-inline: 1em;
+	}
+	.slider-min {
+		position: relative;
+		white-space: pre;
+		display: flex;
+		justify-content: end;
+		flex-grow: 1;
+		margin-inline: 1em;
+	}
 
-  .slider-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+	.slider-label {
+		width: 100px;
+		margin-right: 10px;
+	}
 
-  .slider-label {
-    width: 100px;
-    margin-right: 10px;
-  }
+	.slider {
+		height: 15px;
+		width: 200px;
+		display: flex;
+		align-items: center;
+	}
 
-  .slider {
-    display: inline-block;
-    height: 15px;
-    background-color: gold;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 2px solid grey;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-  }
+	.slider::before {
+		content: "";
+		display: inline-block;
+		align-items: center;
+		height: 100%;
+		width: var(--data-progress, 200px);
 
-  .slider-value {
-    width: 40px;
-  }
+		background-color: gold;
+		margin-right: 10px;
+		border-radius: 5px;
+		border: 2px solid grey;
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+	}
 
-  .types_table {
-    display: grid;
-    --size: 1em;
+	.slider-value {
+		width: 40px;
+	}
 
-    grid-template-columns: repeat(18, 60px);
-    grid-template-rows: repeat(2, 60px);
-    gap: 1px;
-  }
+	.types_table {
+		display: grid;
+		--size: 1em;
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(18, 60px);
-    grid-template-rows: repeat(2, 60px);
-    gap: 1px;
-  }
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
 
-  .type-box {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 10px;
-    border-radius: 5px;
-  }
+	.container {
+		display: grid;
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
 
-  [data-types_multiplier_name="NORM"] {
-    background-color: #a8a77a;
-  }
-  [data-types_multiplier_name="FIRE"] {
-    background-color: #ee8130;
-  }
-  [data-types_multiplier_name="WATER"] {
-    background-color: #6390f0;
-  }
-  [data-types_multiplier_name="ELECTR"] {
-    background-color: #f7d057;
-  }
-  [data-types_multiplier_name="GRASS"] {
-    background-color: #7ac74c;
-  }
-  [data-types_multiplier_name="ICE"] {
-    background-color: #96d9d6;
-  }
-  [data-types_multiplier_name="FIGHT"] {
-    background-color: #c22e28;
-  }
-  [data-types_multiplier_name="POISON"] {
-    background-color: #a33ea1;
-  }
-  [data-types_multiplier_name="GROUN"] {
-    background-color: #e2bf65;
-  }
-  [data-types_multiplier_name="FLY"] {
-    background-color: #a98ff3;
-  }
-  [data-types_multiplier_name="PSYCH"] {
-    background-color: #ee99ac;
-  }
-  [data-types_multiplier_name="BUG"] {
-    background-color: #a6b91a;
-  }
-  [data-types_multiplier_name="ROCK"] {
-    background-color: #b6a136;
-  }
-  [data-types_multiplier_name="GHOST"] {
-    background-color: #735797;
-  }
-  [data-types_multiplier_name="DRAGO"] {
-    background-color: #6f35fc;
-  }
-  [data-types_multiplier_name="DARK"] {
-    background-color: #a98a78;
-  }
-  [data-types_multiplier_name="STEEL"] {
-    background-color: #b7b7ce;
-  }
-  [data-types_multiplier_name="FAIRY"] {
-    background-color: #d685ad;
-  }
+	.type-box {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		font-size: 10px;
+		border-radius: 5px;
+	}
 
-  [data-types_multiplier_value="x2"] {
-    background-color: #7ac74c;
-    color: white;
-  }
-  [data-types_multiplier_value="0"] {
-    background-color: #606060;
-    color: white;
-  }
-  [data-types_multiplier_value="0.5"] {
-    background-color: #c22e28;
-    color: white;
-  }
-  [data-types_multiplier_value="0.25"] {
-    background-color: #a04338;
-    color: white;
-  }
-  .empty {
-    background-color: transparent;
-    color: transparent;
-  }
+	[data-background-for="Normal"] {
+		background-color: #a8a77a;
+	}
+	[data-background-for="Fire"] {
+		background-color: #ee8130;
+	}
+	[data-background-for="Water"] {
+		background-color: #6390f0;
+	}
+	[data-background-for="Electric"] {
+		background-color: #f7d057;
+	}
+	[data-background-for="Grass"] {
+		background-color: #7ac74c;
+	}
+	[data-background-for="Ice"] {
+		background-color: #96d9d6;
+	}
+	[data-background-for="Fight"] {
+		background-color: #c22e28;
+	}
+	[data-background-for="Poison"] {
+		background-color: #a33ea1;
+	}
+	[data-background-for="Groun"] {
+		background-color: #e2bf65;
+	}
+	[data-background-for="Flying"] {
+		background-color: #a98ff3;
+	}
+	[data-background-for="Psychic"] {
+		background-color: #ee99ac;
+	}
+	[data-background-for="Bug"] {
+		background-color: #a6b91a;
+	}
+	[data-background-for="Rock"] {
+		background-color: #b6a136;
+	}
+	[data-background-for="Ghost"] {
+		background-color: #735797;
+	}
+	[data-background-for="Drago"] {
+		background-color: #6f35fc;
+	}
+	[data-background-for="Dark"] {
+		background-color: #a98a78;
+	}
+	[data-background-for="Steel"] {
+		background-color: #b7b7ce;
+	}
+	[data-background-for="Fairy"] {
+		background-color: #d685ad;
+	}
 
-  ol li {
-    list-style: inherit;
-    list-style-position: inside;
-  }
-  li {
-    list-style-position: inside;
-    list-style: none;
-  }
+	[data-types_multiplier_value="x2"] {
+		background-color: #7ac74c;
+		color: white;
+	}
+	[data-types_multiplier_value="0"] {
+		background-color: #606060;
+		color: white;
+	}
+	[data-types_multiplier_value="0.5"] {
+		background-color: #c22e28;
+		color: white;
+	}
+	[data-types_multiplier_value="0.25"] {
+		background-color: #a04338;
+		color: white;
+	}
+	.empty {
+		background-color: transparent;
+		color: transparent;
+	}
+
+	ol li {
+		list-style: inherit;
+		list-style-position: inside;
+	}
+	li {
+		list-style-position: inside;
+		list-style: none;
+	}
 </style>
