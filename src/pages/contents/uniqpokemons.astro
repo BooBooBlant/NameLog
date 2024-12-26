@@ -6,395 +6,503 @@ import { globalProps } from "@lib/globalProps.js";
 globalProps.page_section = "guides";
 
 const Types = {
-	Dark: {
-		key: "Dark",
-		label: "DARK",
-	},
-	Psych: {
-		key: "Psych",
-		label: "PSYCH",
-	},
+  Norm: {
+    key: "Norm",
+    label: "NORM",
+  },
+  Fire: {
+    key: "Fire",
+    label: "FIRE",
+  },
+  Water: {
+    key: "Water",
+    label: "WATER",
+  },
+  Electr: {
+    key: "Electr",
+    label: "ELECTR",
+  },
+  Grass: {
+    key: "Grass",
+    label: "GRASS",
+  },
+  Ice: {
+    key: "Ice",
+    label: "ICE",
+  },
+  Fight: {
+    key: "Fight",
+    label: "FIGHT",
+  },
+  Poison: {
+    key: "Poison",
+    label: "POISON",
+  },
+  Groun: {
+    key: "Groun",
+    label: "GROUN",
+  },
+  Fly: {
+    key: "Fly",
+    label: "FLY",
+  },
+  Psych: {
+    key: "Psych",
+    label: "PSYCH",
+  },
+  Bug: {
+    key: "Bug",
+    label: "BUG",
+  },
+  Rock: {
+    key: "Rock",
+    label: "ROCK",
+  },
+  Ghost: {
+    key: "Ghost",
+    label: "GHOST",
+  },
+  Drago: {
+    key: "Drago",
+    label: "DRAGO",
+  },
+  Dark: {
+    key: "Dark",
+    label: "DARK",
+  },
+  Steel: {
+    key: "Steel",
+    label: "STEEL",
+  },
+  Fairy: {
+    key: "Fairy",
+    label: "FAIRY",
+  },
 };
 const Specs = {
-	xp: {
-		label: "XP",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.xp));
-		},
-	},
-	attack: {
-		label: "Атака",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.attack));
-		},
-	},
-	defence: {
-		label: "Дэф",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.defence));
-		},
-	},
-	SP_attack: {
-		label: "SP атака",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_attack));
-		},
-	},
-	SP_defence: {
-		label: "SP дэф",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.SP_defence));
-		},
-	},
-	speed: {
-		label: "Скорость",
-		get max() {
-			return Math.max(...Pokemons.map((pokemon) => pokemon.specs.speed));
-		},
-	},
+  hp: {
+    label: "HP",
+    max: 200,
+  },
+  attack: {
+    label: "Attack",
+    max: 200,
+  },
+  defence: {
+    label: "Defence",
+    max: 200,
+  },
+  SP_attack: {
+    label: "Sp. Atk",
+    max: 200,
+  },
+  SP_defence: {
+    label: "Sp. Def",
+    max: 200,
+  },
+  speed: {
+    label: "Speed",
+    max: 200,
+  },
 };
-const Pokemons = [
-	{
-		name: "Darkdevoir",
-		picture: "/images/darkdevo.png",
-		types: [Types.Dark, Types.Psych],
-		id: 1001,
-		weight: 50.5,
-		height: 1.5,
-		abilities: ["Плохие сны", "След", "Оворожение"],
-		location: "???",
-		wayof: [
-			"Легендарные рейды",
-			"Турниры(ключ)",
-			"ПокеВопросы(ключ)",
-			"Аукционы",
-		],
-		breeding: ["???"],
-		types_multipliers: {
-			NORM: null,
-			FIRE: null,
-			WATER: null,
-			ELECTR: null,
-			GRASS: "0.5",
-			ICE: null,
-			FIGHT: null,
-			POISON: "x2",
-			GROUN: null,
-			FLY: null,
-			PSYCH: null,
-			BUG: "0",
-			ROCK: null,
-			GHOST: "0.5",
-			DRAGO: null,
-			DARK: null,
-			STEEL: "x2",
-			FAIRY: null,
-		},
-		specs: {
-			xp: 95,
-			attack: 95,
-			defence: 80,
-			SP_attack: 165,
-			SP_defence: 140,
-			speed: 140,
-		},
-	},
+const pokemons_list = [
+  {
+    name: "Darkdevoir",
+    picture: "/images/darkdevo.png",
+    types: [Types.Dark, Types.Psych],
+    id: 1001,
+    weight: 50.5,
+    height: 1.5,
+    abilities: ["Плохие сны", "След", "Оворожение"],
+    location: "???",
+    wayof: [
+      "Легендарные рейды",
+      "Турниры(ключ)",
+      "ПокеВопросы(ключ)",
+      "Аукционы",
+    ],
+    breeding: ["???"],
+    types_multipliers: {
+      NORM: null,
+      FIRE: null,
+      WATER: null,
+      ELECTR: null,
+      GRASS: "0.5",
+      ICE: null,
+      FIGHT: null,
+      POISON: "x2",
+      GROUN: null,
+      FLY: null,
+      PSYCH: null,
+      BUG: "0",
+      ROCK: null,
+      GHOST: "0.5",
+      DRAGO: null,
+      DARK: null,
+      STEEL: "x2",
+      FAIRY: null,
+    },
+    specs: {
+      hp: 95,
+      attack: 95,
+      defence: 80,
+      SP_attack: 165,
+      SP_defence: 140,
+      speed: 140,
+    },
+  },
+  {
+    name: "Tsariani",
+    picture: "/images/tsarianni.png",
+    types: [Types.Grass, Types.Water],
+    id: 1002,
+    weight: 50.5,
+    height: 1.5,
+    abilities: ["Плохие сны", "След", "Оворожение"],
+    location: "???",
+    wayof: [
+      "Легендарные рейды",
+      "Турниры(ключ)",
+      "ПокеВопросы(ключ)",
+      "Аукционы",
+    ],
+    breeding: ["???"],
+    types_multipliers: {
+      NORM: null,
+      FIRE: null,
+      WATER: null,
+      ELECTR: null,
+      GRASS: "0.5",
+      ICE: null,
+      FIGHT: null,
+      POISON: "x2",
+      GROUN: null,
+      FLY: null,
+      PSYCH: null,
+      BUG: "0",
+      ROCK: null,
+      GHOST: "0.5",
+      DRAGO: null,
+      DARK: null,
+      STEEL: "x2",
+      FAIRY: null,
+    },
+    specs: {
+      hp: 95,
+      attack: 95,
+      defence: 80,
+      SP_attack: 165,
+      SP_defence: 140,
+      speed: 140,
+    },
+  },
 ];
 ---
 
 <Page>
-	<Layout>
-		<header>
-			Список уникальных покемонов:
-			<ul style="list-style: none;">
-				{
-					Pokemons.map((pokemon) => (
-						<li>
-							<a href={`#${pokemon.id}`} rel="noopener noreferrer">
-								{pokemon.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</header>
+  <Layout>
+    <header>
+      Список уникальных покемонов:
+      <ul style="list-style: none;">
+        {
+          pokemons_list.map((pokemon) => (
+            <li>
+              {pokemon.name}-
+              <a href={`#${pokemon.id}`} rel="noopener noreferrer">
+                {pokemon.id}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+    <span class="line"></span>
+    {
+      pokemons_list.map((pokemon) => (
+        <aside id={pokemon.id.toString()}>
+          <element-columns style="flex-wrap: wrap; gap: 40px">
+            {/* MARK: Image */}
+            <element-rows style="gap: 40px">
+              <img
+                loading="lazy"
+                style="width: 350px; height: 250px;"
+                src={pokemon.picture}
+                alt=""
+              />
 
-		{
-			Pokemons.map((pokemon) => (
-				<aside id={pokemon.id.toString()}>
-					<element-columns style="flex-wrap: wrap; gap: 40px">
-						{/* MARK: Image */}
-						<element-rows style="gap: 40px">
-							<img
-								loading="lazy"
-								style="width: 350px; height: 250px;"
-								src={pokemon.picture}
-								alt=""
-							/>
+              <b>
+                Номер в дексе: <i>#{pokemon.id}</i>
+              </b>
+            </element-rows>
 
-							<b>
-								Номер в дексе: <i>#{pokemon.id}</i>
-							</b>
-						</element-rows>
+            {/* Type specs */}
+            <table>
+              <tr>
+                <td>Тип:</td>
+                <td>
+                  {pokemon.types.map((type) => (
+                    <span class={`type-badge ${type.key.toLowerCase()}`}>
+                      {type.label}
+                    </span>
+                  ))}
+                </td>
+              </tr>
+              <tr>
+                <td>Рост:</td>
+                <td>
+                  <span>{pokemon.height} М</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Вес:</td>
+                <td>
+                  <span>{pokemon.weight} кг</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Абилки:</td>
+                <td>
+                  {pokemon.abilities.map((ability) => (
+                    <li>{ability}</li>
+                  ))}
+                </td>
+              </tr>
+              <tr>
+                <td>Обитает:</td>
+                <td>
+                  <span>{pokemon.location}</span>
+                </td>
+              </tr>
+            </table>
 
-						{/* Type specs */}
-						<table>
-							<tr>
-								<td>Тип:</td>
-								<td>
-									{pokemon.types.map((type) => (
-										<span class={`type-badge ${type.key.toLowerCase()}`}>
-											{type.label}
-										</span>
-									))}
-								</td>
-							</tr>
-							<tr>
-								<td>Рост:</td>
-								<td>
-									<span>{pokemon.height} М</span>
-								</td>
-							</tr>
-							<tr>
-								<td>Вес:</td>
-								<td>
-									<span>{pokemon.weight} кг</span>
-								</td>
-							</tr>
-							<tr>
-								<td>Абилки:</td>
-								<td>
-									{pokemon.abilities.map((ability) => (
-										<li>{ability}</li>
-									))}
-								</td>
-							</tr>
-							<tr>
-								<td>Обитает:</td>
-								<td>
-									<span>{pokemon.location}</span>
-								</td>
-							</tr>
-						</table>
+            {/* MARK: Wayof */}
+            <section>
+              <h2>
+                <b>Способ получения:</b>
+              </h2>
+              <ol>
+                {pokemon.wayof.map((way) => (
+                  <li>{way}</li>
+                ))}
+              </ol>
+            </section>
+            {/* MARK: Breeding */}
+            <section>
+              <h2>
+                <b>Разведение:</b>
+              </h2>
+              <ul>
+                {pokemon.breeding.map((way) => (
+                  <li>{way}</li>
+                ))}
+              </ul>
+            </section>
+          </element-columns>
+          <hr />
+          <br />
+          <p>Базовые статы:</p>
+          <table>
+            {Object.entries(pokemon.specs).map(([key, value]) => (
+              <tr>
+                <td>{Specs[key].label}</td>
+                <td>
+                  <span
+                    class="slider"
+                    style={`width: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
+                  />
+                  <b>{value}</b>
+                </td>
+              </tr>
+            ))}
+          </table>
 
-						{/* MARK: Wayof */}
-						<section>
-							<h2>
-								<b>Способ получения:</b>
-							</h2>
-							<ol>
-								{pokemon.wayof.map((way) => (
-									<li>{way}</li>
-								))}
-							</ol>
-						</section>
-						{/* MARK: Breeding */}
-						<section>
-							<h2>
-								<b>Разведение:</b>
-							</h2>
-							<ul>
-								{pokemon.breeding.map((way) => (
-									<li>{way}</li>
-								))}
-							</ul>
-						</section>
-					</element-columns>
+          <hr />
+          <br />
 
-					<p>Базовые статы:</p>
-					<table>
-						{Object.entries(pokemon.specs).map(([key, value]) => (
-							<tr>
-								<td>{Specs[key].label}</td>
-								<td>
-									<span
-										class="slider"
-										style={`width: ${(value / Specs[key].max) * 200 /* DEFAULT */}px`}
-									/>
-									<b>{value}</b>
-								</td>
-							</tr>
-						))}
-					</table>
-
-					<hr />
-					<br />
-
-					<element-group class="types_table">
-						{Object.keys(pokemon.types_multipliers).map((type) => (
-							<div class="type-box" data-types_multiplier_name={type}>
-								{type}
-							</div>
-						))}
-						{Object.values(pokemon.types_multipliers).map((value) => (
-							<div class="type-box" data-types_multiplier_value={value}>
-								{value}
-							</div>
-						))}
-					</element-group>
-				</aside>
-			))
-		}
-	</Layout>
+          <element-group class="types_table">
+            {Object.keys(pokemon.types_multipliers).map((type) => (
+              <div class="type-box" data-types_multiplier_name={type}>
+                {type}
+              </div>
+            ))}
+            {Object.values(pokemon.types_multipliers).map((value) => (
+              <div class="type-box" data-types_multiplier_value={value}>
+                {value}
+              </div>
+            ))}
+          </element-group>
+          <span class="line" />
+        </aside>
+      ))
+    }
+  </Layout>
 </Page>
 
 <style>
-	.type-badge {
-		display: inline-block;
-		padding: 2px 5px;
-		border-radius: 5px;
-		font-weight: bold;
-		font-size: 0.8em;
-		text-transform: uppercase;
-		margin-right: 5px;
-	}
+  .type-badge {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin-right: 5px;
+  }
 
-	.dark {
-		background-color: #a98a78;
-	}
+  .dark {
+    background-color: #a98a78;
+  }
 
-	.psych {
-		background-color: #ee99ac;
-	}
+  .psych {
+    background-color: #ee99ac;
+  }
 
-	.card li {
-		list-style: none;
-	}
+  .grass {
+    background-color: #7ac74c;
+  }
 
-	.slider-container {
-		display: flex;
-		align-items: center;
-		margin-bottom: 10px;
-	}
+  .water {
+    background-color: #6390f0;
+  }
 
-	.slider-label {
-		width: 100px;
-		margin-right: 10px;
-	}
+  .card li {
+    list-style: none;
+  }
 
-	.slider {
-		display: inline-block;
-		height: 15px;
-		background-color: gold;
-		margin-right: 10px;
-		border-radius: 5px;
-		border: 2px solid grey;
-		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-	}
+  .slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
-	.slider-value {
-		width: 40px;
-	}
+  .slider-label {
+    width: 100px;
+    margin-right: 10px;
+  }
 
-	.types_table {
-		display: grid;
-		--size: 1em;
+  .slider {
+    display: inline-block;
+    height: 15px;
+    background-color: gold;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
 
-		grid-template-columns: repeat(18, 60px);
-		grid-template-rows: repeat(2, 60px);
-		gap: 1px;
-	}
+  .slider-value {
+    width: 40px;
+  }
 
-	.container {
-		display: grid;
-		grid-template-columns: repeat(18, 60px);
-		grid-template-rows: repeat(2, 60px);
-		gap: 1px;
-	}
+  .types_table {
+    display: grid;
+    --size: 1em;
 
-	.type-box {
-		width: 40px;
-		height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: bold;
-		font-size: 10px;
-		border-radius: 5px;
-	}
+    grid-template-columns: repeat(18, 60px);
+    grid-template-rows: repeat(2, 60px);
+    gap: 1px;
+  }
 
-	[data-types_multiplier_name="NORM"] {
-		background-color: #a8a77a;
-	}
-	[data-types_multiplier_name="FIRE"] {
-		background-color: #ee8130;
-	}
-	[data-types_multiplier_name="WATER"] {
-		background-color: #6390f0;
-	}
-	[data-types_multiplier_name="ELECTR"] {
-		background-color: #f7d057;
-	}
-	[data-types_multiplier_name="GRASS"] {
-		background-color: #7ac74c;
-	}
-	[data-types_multiplier_name="ICE"] {
-		background-color: #96d9d6;
-	}
-	[data-types_multiplier_name="FIGHT"] {
-		background-color: #c22e28;
-	}
-	[data-types_multiplier_name="POISON"] {
-		background-color: #a33ea1;
-	}
-	[data-types_multiplier_name="GROUN"] {
-		background-color: #e2bf65;
-	}
-	[data-types_multiplier_name="FLY"] {
-		background-color: #a98ff3;
-	}
-	[data-types_multiplier_name="PSYCH"] {
-		background-color: #ee99ac;
-	}
-	[data-types_multiplier_name="BUG"] {
-		background-color: #a6b91a;
-	}
-	[data-types_multiplier_name="ROCK"] {
-		background-color: #b6a136;
-	}
-	[data-types_multiplier_name="GHOST"] {
-		background-color: #735797;
-	}
-	[data-types_multiplier_name="DRAGO"] {
-		background-color: #6f35fc;
-	}
-	[data-types_multiplier_name="DARK"] {
-		background-color: #a98a78;
-	}
-	[data-types_multiplier_name="STEEL"] {
-		background-color: #b7b7ce;
-	}
-	[data-types_multiplier_name="FAIRY"] {
-		background-color: #d685ad;
-	}
+  .container {
+    display: grid;
+    grid-template-columns: repeat(18, 60px);
+    grid-template-rows: repeat(2, 60px);
+    gap: 1px;
+  }
 
-	[data-types_multiplier_value="x2"] {
-		background-color: #7ac74c;
-		color: white;
-	}
-	[data-types_multiplier_value="0"] {
-		background-color: #606060;
-		color: white;
-	}
-	[data-types_multiplier_value="0.5"] {
-		background-color: #c22e28;
-		color: white;
-	}
-	[data-types_multiplier_value="0.25"] {
-		background-color: #a04338;
-		color: white;
-	}
-	.empty {
-		background-color: transparent;
-		color: transparent;
-	}
+  .type-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 5px;
+  }
 
-	ol li {
-		list-style: inherit;
-		list-style-position: inside;
-	}
-	li {
-		list-style-position: inside;
-		list-style: none;
-	}
+  [data-types_multiplier_name="NORM"] {
+    background-color: #a8a77a;
+  }
+  [data-types_multiplier_name="FIRE"] {
+    background-color: #ee8130;
+  }
+  [data-types_multiplier_name="WATER"] {
+    background-color: #6390f0;
+  }
+  [data-types_multiplier_name="ELECTR"] {
+    background-color: #f7d057;
+  }
+  [data-types_multiplier_name="GRASS"] {
+    background-color: #7ac74c;
+  }
+  [data-types_multiplier_name="ICE"] {
+    background-color: #96d9d6;
+  }
+  [data-types_multiplier_name="FIGHT"] {
+    background-color: #c22e28;
+  }
+  [data-types_multiplier_name="POISON"] {
+    background-color: #a33ea1;
+  }
+  [data-types_multiplier_name="GROUN"] {
+    background-color: #e2bf65;
+  }
+  [data-types_multiplier_name="FLY"] {
+    background-color: #a98ff3;
+  }
+  [data-types_multiplier_name="PSYCH"] {
+    background-color: #ee99ac;
+  }
+  [data-types_multiplier_name="BUG"] {
+    background-color: #a6b91a;
+  }
+  [data-types_multiplier_name="ROCK"] {
+    background-color: #b6a136;
+  }
+  [data-types_multiplier_name="GHOST"] {
+    background-color: #735797;
+  }
+  [data-types_multiplier_name="DRAGO"] {
+    background-color: #6f35fc;
+  }
+  [data-types_multiplier_name="DARK"] {
+    background-color: #a98a78;
+  }
+  [data-types_multiplier_name="STEEL"] {
+    background-color: #b7b7ce;
+  }
+  [data-types_multiplier_name="FAIRY"] {
+    background-color: #d685ad;
+  }
+
+  [data-types_multiplier_value="x2"] {
+    background-color: #7ac74c;
+    color: white;
+  }
+  [data-types_multiplier_value="0"] {
+    background-color: #606060;
+    color: white;
+  }
+  [data-types_multiplier_value="0.5"] {
+    background-color: #c22e28;
+    color: white;
+  }
+  [data-types_multiplier_value="0.25"] {
+    background-color: #a04338;
+    color: white;
+  }
+  .empty {
+    background-color: transparent;
+    color: transparent;
+  }
+
+  ol li {
+    list-style: inherit;
+    list-style-position: inside;
+  }
+  li {
+    list-style-position: inside;
+    list-style: none;
+  }
 </style>
