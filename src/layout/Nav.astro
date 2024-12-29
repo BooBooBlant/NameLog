@@ -1,7 +1,7 @@
 ---
 import { pages } from "@/router/pages.js";
 import { globalProps } from "@/globalProps.js";
-
+import LogoIcon from "@/logo/logo.webp";
 const { url } = Astro;
 const id = `id_${crypto.randomUUID()}`;
 ---
@@ -9,7 +9,7 @@ const id = `id_${crypto.randomUUID()}`;
 <nav class="page-nav" id={id}>
 	<icon-element class="page-icon">
 		<a href="/" class="page_logo">
-			<img loading="lazy" src="/images/logo.webp" alt="NL" /></a
+			<img loading="lazy" src={LogoIcon.src} alt="NL" /></a
 		>
 	</icon-element>
 	<ul class="page-nav-list">

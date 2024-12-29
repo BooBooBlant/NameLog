@@ -1,9 +1,20 @@
+import PictureDarkdevo from "./assets/darkdevo.png";
+import PictureTsarianni from "./assets/tsarianni.png";
+import PictureLoviper from "./assets/loviper.png";
+import PictureVoilyre from "./assets/voilyre.png";
+import PictureDragtaria from "./assets/dragtaria.png";
+import PictureBanblayde from "./assets/banblayde.png";
+import PictureMylodine from "./assets/mylodine.png";
+import PictureBipoleon from "./assets/bipoleon.png";
+import PictureLuxvern from "./assets/luxvern.png";
+import PictureCosmochi from "./assets/cosmochi.png";
+
 import { Types } from "./enum.js";
 export const pokemons_list = [
 	{
 		name: "Даркдевоир",
 
-		picture: "/images/darkdevo.png",
+		picture: PictureDarkdevo.src,
 		id: 1001,
 		types: [Types.Fairy, Types.Dark],
 		specs: {
@@ -71,7 +82,7 @@ export const pokemons_list = [
 	{
 		name: "Tsariani",
 
-		picture: "/images/tsarianni.png",
+		picture: PictureTsarianni.src,
 		id: 1002,
 		types: [Types.Grass, Types.Water],
 		specs: {
@@ -136,7 +147,7 @@ export const pokemons_list = [
 	{
 		name: "Loviper",
 
-		picture: "/images/loviper.png",
+		picture: PictureLoviper.src,
 		id: 1003,
 		types: [Types.Normal, Types.Poison],
 		specs: {
@@ -201,7 +212,7 @@ export const pokemons_list = [
 	{
 		name: "Voilur",
 
-		picture: "/images/voilyre.png",
+		picture: PictureVoilyre.src,
 		id: 1004,
 		types: [Types.Fire, Types.Fairy],
 		specs: {
@@ -266,7 +277,7 @@ export const pokemons_list = [
 	{
 		name: "Dragtaria",
 
-		picture: "/images/dragtaria.png",
+		picture: PictureDragtaria.src,
 		id: 1005,
 		types: [Types.Fairy, Types.Flying],
 		specs: {
@@ -330,7 +341,7 @@ export const pokemons_list = [
 	{
 		name: "Banblade",
 
-		picture: "/images/banblayde.png",
+		picture: PictureBanblayde.src,
 		id: 1006,
 		types: [Types.Steel, Types.Ghost],
 		specs: {
@@ -395,7 +406,7 @@ export const pokemons_list = [
 	{
 		name: "Milodeen",
 
-		picture: "/images/mylodine.png",
+		picture: PictureMylodine.src,
 		id: 1007,
 		types: [Types.Water],
 		specs: {
@@ -460,7 +471,7 @@ export const pokemons_list = [
 	{
 		name: "Bipoleon",
 
-		picture: "/images/bipoleon.png",
+		picture: PictureBipoleon.src,
 		id: 1008,
 		types: [Types.Water, Types.Steel],
 		specs: {
@@ -525,7 +536,7 @@ export const pokemons_list = [
 	{
 		name: "Luxvern",
 
-		picture: "/images/luxvern.png",
+		picture: PictureLuxvern.src,
 		id: 1009,
 		types: [Types.Electric, Types.Flying],
 		specs: {
@@ -590,7 +601,7 @@ export const pokemons_list = [
 	{
 		name: "Cosmochi",
 
-		picture: "/images/cosmochi.png",
+		picture: PictureCosmochi.src,
 		id: 1010,
 		types: [Types.Psychic, Types.Steel],
 		specs: {

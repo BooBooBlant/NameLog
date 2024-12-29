@@ -2,6 +2,8 @@
 import { page_sections } from "@/router/section/list";
 import { globalProps } from "@/globalProps";
 import PageControl from "./PageControl.astro";
+import IconTelegram from "./icons8-telegram-188.png";
+import IconDiscord from "./icons8-discord-64.png";
 ---
 
 <header class="page-header">
@@ -13,7 +15,7 @@ import PageControl from "./PageControl.astro";
 			<span class="link-1">
 				<a href="https://discord.gg/kWhCx4Kdbb">
 					<img
-						src="/images/icons8-discord-64.png"
+						src={IconDiscord.src}
 						alt="Discord"
 						loading="lazy"
 						width="45"
@@ -24,7 +26,7 @@ import PageControl from "./PageControl.astro";
 			<span class="link-2">
 				<a href="https://t.me/+pREC84AhX8xmMmRi">
 					<img
-						src="/images/icons8-телеграм-188 (1).png"
+						src={IconTelegram.src}
 						alt="Telegram"
 						loading="lazy"
 						width="45"
