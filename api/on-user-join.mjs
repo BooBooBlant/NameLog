@@ -1,4 +1,4 @@
-import { supabase } from "../src/lib/supabase/client.js";
+import { supabase } from "@/supabase/client.js";
 
 export async function GET(request) {
 	const result = await supabase.from("user_join_counter").select();
@@ -10,6 +10,9 @@ export async function GET(request) {
 	}
 
 	const previousCount = result.data[0]?.count || 0;
-	await supabase.from("user_join_counter").update({ count: previousCount + 1 }).eq("id", 0);
+	await supabase
+		.from("user_join_counter")
+		.update({ count: previousCount + 1 })
+		.eq("id", 0);
 	return new Response(previousCount);
 }

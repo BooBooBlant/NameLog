@@ -1,0 +1,441 @@
+---
+import Page from "@/layout/Page.astro";
+import Layout from "@/layout/Layout.astro";
+import Tooltiped from "@/Tooltiped.astro";
+import { globalProps } from "@/globalProps.js";
+import HowToUse from "./howtouse.jpg";
+
+globalProps.page_section = "guides";
+---
+
+<Page>
+	<Layout>
+		<h1>Полезное</h1>
+		<h4 style="margin-top: 20px">
+			В этом разделе будут размещены уточнения по некоторым другим разделам,а
+			также мини гайды по игровым механикам мода Pixelmon на <span
+				id="openSite"
+				style="color:white; text-decoration: underline; cursor: pointer;"
+				>Black Dragon</span
+			>
+		</h4>
+		<span class="line-1"></span>
+		<h3>Список всего что есть в этом разделе:</h3>
+		<ul class="list">
+			<li><a href="#Ultra">Ультра мир</a></li>
+			<li><a href="#Raids">Рейды</a></li>
+			<li><a href="#Dynamax">Динамакс</a></li>
+			<li><a href="#MegaEvol">Мега Эволюции</a></li>
+			<li><a href="#LvlUp">Прокачка покемонов</a></li>
+		</ul>
+		<span class="line"></span>
+		<section id="Ultra">
+			<h3 style="display: block; text-align: center;">Ультра мир</h3>
+			<b style="margin-top: 10px; display: block">
+				Ультра-мир очень схож с Эндер-миром. Он состоит из множества летающих
+				островов, находящихся в разных биомах, так же там есть уникальные
+				ультра-биомы.
+			</b>
+			<b style="margin-top: 10px; display: block">
+				В этом измерении с перемещением есть не большие проблемы, так как там
+				понижена гравитация, но для вас это не будет проблемой если у вас есть <Tooltiped
+				>
+					<span style="text-decoration: underline dotted" slot="container"
+						>ультра ускоритель</span
+					>
+					<img
+						loading="lazy"
+						slot="content"
+						src="/images/Booster.png"
+						alt=""
+						width="125"
+						height="125"
+					/>
+				</Tooltiped>
+			</b>
+			<b style="margin-top: 10px; display: block">
+				Так же в ультра-мире шансы спавна хидов и шайни покемонов больше в 2
+				раза
+			</b>
+			<b style="margin-top: 10px; display: block">
+				Туман в измерении сильно уменьшает дальность обзора, для того, что бы
+				ослабить эффект тумана можно надеть <Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>Защитные очки</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/Grid_Safety_Goggles.png"
+						alt=""
+					/>
+				</Tooltiped> в слот шлема
+			</b>
+			<b style="margin-top: 10px; display: block">
+				Исследуя ультра-мир, помимо обычных деревень вы можете найти несколько
+				других данжей, а именно: крепости из незера и эндер-города с летающими
+				кораблями. По всему ультра миру разбросаны бист-луты и мастер-луты
+			</b>
+			<b style="margin-top: 10px; display: block"> Бист-лут.</b>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/beastloot.jpg"
+					alt=""
+					width="750"
+					height="350"
+				/>
+			</details>
+			<b style="margin-top: 10px; display: block"> Мастер-лут.</b>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/masterloot.jpg"
+					alt=""
+					width="750"
+					height="350"
+				/>
+			</details>
+			<b style="margin-top: 40px; display: block">
+				Здесь можно найти алтари легендарных птиц (Артикуно, Запдос, Молтрес) /
+				Временные алтари для призыва Палкии, Гиратины, Диалги.
+			</b>
+			<h3 style="margin-top: 50px; display: block">
+				Уверен, что у вас появился вопрос, а как же попасть в этот ультра-мир ?
+				Для этого нужен портал в ультра-мир.
+			</h3>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/portals.png"
+					alt=""
+					width="350"
+					height="250"
+				/>
+			</details>
+			<b style="margin-top:20px; display: block">
+				Получить этот портал можно двумя способами.
+			</b>
+			<ul class="list">
+				<li>
+					Первый: С небольшим шансом портал может заспавнится в обычном мире.
+				</li>
+				<li>
+					Второй: Заспавнить его самостоятельно, использовав внешнюю атаку
+					Солгалео, Луналы, Арцеуса, Некрозмы или Палкии.
+				</li>
+			</ul>
+			<h3 style="margin-top:20px; display: block">
+				Внешнюю атаку можно выбрать нажав на "B", а использовать на "G"
+			</h3>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src={HowToUse.src}
+					alt=""
+					width="550"
+					height="350"
+				/>
+			</details>
+		</section>
+		<span class="line"></span>
+		<section id="Raids">
+			<h3 style="display: block; text-align: center;">Рейды</h3>
+			<b style="margin-top:20px; display: block">
+				Рейды это очень полезная штука, с которой вы можете залутать хорошие
+				предметы, но далеко не всегда и не со всех рейдов падает хороший лут,
+				всё зависит от вашей удачи и от уровня рейда.
+			</b>
+			<b style="margin-top:10px; display: block">
+				Всего существует 5 уровней рейда, от 1 звезды до 5. Рейды 1-4* вы можете
+				закрывать соло, но для 5* рейдов, вам возможно понадобится помощь.
+			</b>
+			<b>
+				С рейдов 1-4* вам скорее всего будет падать так себе лут, за рейд 5*
+				награды уже будут получше, но опять же, всё зависит от вашей удачи, вам
+				может дропнуться как несколько голд крышек, так и пара ягод и конфет.
+			</b>
+			<h3 style="margin-top:30px; display: block">Где найти эти рейды?</h3>
+			<b> Рейды спавнятся в рейд логовах, это такие дырки:</b>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/raid.jpg"
+					alt=""
+					width="750"
+					height="450"
+				/>
+			</details>
+			<b style="margin-top:10px; display: block">
+				Рейд логова вы можете найти в "Заповедник" и "Разлом".
+			</b>
+			<b style="margin-top:40px; display: block">
+				Покемоны могут вернуться к жизни во время битвы. Если битва продлится
+				более 10 ходов или покемоны участников рейда будут повержены в общей
+				сложности 4 раза, то рейд завершится неудачей, и покемон исчезнет.
+			</b>
+			<b style="margin-top:10px; display: block">
+				Боссы в рейдах появляются с небольшой задержкой. Большинство логов,
+				которые вы обнаружите, скорее всего будут пустыми.
+			</b>
+		</section>
+
+		<span class="line"></span>
+
+		<section id="Dynamax">
+			<h3 style="display: block; text-align: center;">Динамакс</h3>
+			<b style="margin-top:10px; display: block">
+				Динамакс - это игровая механика, позволяющая покемонам достигать
+				гигантских размеров и получать усиленные способности. Любой покемон
+				может использовать Динамакс, если у тренера есть специальный
+				Динамакс-браслет. Использовать Динамакс во время битвы может только один
+				покемон в команде, другие автоматом заблокируются. Чтобы активировать
+				Динамакс во время битвы, необходимо нажать на специальную круглую кнопку
+				между ходами покемона и выбрать следующий ход
+			</b>
+			<p style="margin-top:20px; display: block">
+				Вот фото того, как выглядит эта круглая кнопка:
+			</p>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/DynaMax.png"
+					alt=""
+				/>
+			</details>
+			<b style="margin-top:10px; display: block">
+				Когда покемон становится Динамакс, его ходы заменяются Максимальными
+				атаками - это мощные разрушительные ходы с дополнительными эффектами.
+				Вместо статусных атак, покемон в Динамаксе использует Максимальную
+				Защиту (Max Guard). Стандартная Динамакс механика увеличивает
+				максимальное здоровье покемона на 50%, что означает, что если у покемона
+				было 300 из 400 здоровья, то после Динамакса будет 450 из 600 и
+				наоборот. Однако также важно иметь в виду, что у покемонов есть уровень
+				Динамакса. За каждый уровень бонус к здоровью увеличивается на 5%, и это
+				увеличение может достигать 50%, так как максимальное количество уровней
+				- 10. Таким образом, общий бонус к здоровью в результате уровней
+				Динамакса может составить до 100%
+			</b>
+			<h3 style="margin-top:20px; display: block">
+				Как получить Динамакс-браслет?
+			</h3>
+			<b style="margin-top:2px; display: block">
+				Для получения Динамакс-браслета вам нужно будет найти и выполнить квест
+				"Падающая звезда". В нём вам нужно будет убить 75 любых покемонов, и
+				словить 25 любых покемонов.
+			</b>
+		</section>
+
+		<span class="line"></span>
+
+		<section id="MegaEvol">
+			<h3 style="display: block; text-align: center;">Мега Эволюции</h3>
+			<b style="margin-top:10px; display: block">
+				Мега-Эволюция - это особая форма трансформации, доступная определенным
+				покемонам. При этой эволюции происходит изменение внешнего вида
+				покемона, увеличиваются его статы и могут происходить изменения в его
+				типах и способностях.
+			</b>
+			<b style="margin-top:5px; display: block">
+				Для использования Мега-Эволюции требуется наличие мега камня
+				соответствующего выбранному покемону, а также Мега браслет. С
+				использованием Мега-Эволюции в битве всё так же как и с Динамаксом.
+			</b>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/Megaevol.jpg"
+					alt=""
+				/>
+			</details>
+			<h3 style="margin-top:20px; display: block">
+				Как получить Мега-браслет?
+			</h3>
+			<b style="margin-top:5px; display: block">
+				Да всё просто, вам нужно убить Мега босса, после его убийства у вас
+				автоматически появится Мега браслет.
+			</b>
+		</section>
+		<span class="line"></span>
+		<section id="LvlUp">
+			<h3 style="display: block; text-align: center;">Прокачка покемонов</h3>
+			<b style="margin-top:10px; display: block">
+				Прокачивать покемонов вы будете либо с помощью битв с дикими покемонами,
+				либо с помощью конфет, конфеты бавают разные, я пройдусь и обьясню про
+				каждую конфету. На счёт битв с дикими покемонами, опыт вы будете
+				получать в зависимости от того, какого уровня дикий покемон, чем выше
+				уровень, тем больше опыта за победу над ним вы получите.
+			</b>
+			<b style="margin-top:10px; display: block">
+				С каждым новым уровнем, вам нужно будет всё больше и больше опыта для
+				перехода на следующий уровень.
+			</b>
+			<b style="margin-top:10px; display: block">
+				Все конфеты которые есть на проекте:
+			</b>
+			<details>
+				<summary>Показать картинку</summary>
+				<img
+					loading="lazy"
+					style="margin-top:20px"
+					src="/images/Candies.jpg"
+					alt=""
+				/>
+			</details>
+			<b style="margin-top:60px; display: block">
+				<Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/rare.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped>: Повышает 1 уровень покемона, не зависимо от того, сколько
+				EXP ему нужно для его повышения.
+			</b>
+			<b style="margin-top:20px; display: block">
+				<Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>XL Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/XL.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped>: XL конфеты дают очень много опыта, она очень полезна из-за
+				того, что её можно использовать на низкоуровневых покемонах, что бы не
+				тратить кучу Редких конфет на его прокачку до 100 лвла.
+			</b>
+			<b style="margin-top:20px; display: block">
+				<Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>L Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/L.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped> \ <Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>M Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/M.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped> \ <Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>S Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/S.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped> \ <Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>XS Редкая конфета</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/XS.png"
+						alt=""
+						width="40"
+						height="40"
+					/>
+				</Tooltiped>: Их используют с той же целью, что и XL, но конфеты S и XS
+				дают очень мало опыта, по этому их использование весьма сомнительное
+			</b>
+
+			<b style="margin-top:20px; display: block">
+				<Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>Вредные конфеты</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/Bad.png"
+						alt=""
+						width="30"
+						height="30"
+					/>
+				</Tooltiped>: Понижают уровень покемона на 1 единицу. Используют их для
+				того что бы понизить уровень покемона, после чего повысить его, и
+				изучить нужную атаку.Так же их использование распространено в целях
+				снизижения уровня, до минимального уровня определённых турниров.
+			</b>
+			<b style="margin-top:20px; display: block">
+				<Tooltiped>
+					<span style="text-decoration: underline dotted" slot="container"
+						>Динамакс конфеты</span
+					>
+					<img
+						loading="lazy"
+						style="margin-bottom: 20px; display: block"
+						slot="content"
+						src="/images/DMax.png"
+						alt=""
+						width="25"
+						height="25"
+					/>
+				</Tooltiped>: Динамакс конфеты испольюзут, что бы повысить динамкс
+				уровень желаемого покемона, у каждого покемона изначально нулевой
+				уровень динамакса, его максимальное значение - 10, то есть, что бы
+				замаксить динамакс уровень вашего покемона, вам нужно будет потратить 10
+				Динамакс конфет.
+			</b>
+		</section>
+
+		<span class="line"></span>
+	</Layout>
+</Page>
+<script>
+	document.getElementById("openSite").addEventListener("click", function () {
+		window.open("https://bd-server.com/", "_blank");
+	});
+</script>
+<style></style>

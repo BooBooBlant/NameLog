@@ -1,0 +1,115 @@
+---
+import { page_sections } from "@/router/section/list";
+import { globalProps } from "@/globalProps";
+import PageControl from "./PageControl.astro";
+---
+
+<header class="page-header">
+	<section class="page-header-leftContent page-header-content">
+		<element-group page_header__links>
+			<span class="all-links-label" style="font-size: 0.9em;">
+				Ссылки на наши соц. сети:
+			</span>
+			<span class="link-1">
+				<a href="https://discord.gg/kWhCx4Kdbb">
+					<img
+						src="/images/icons8-discord-64.png"
+						alt="Discord"
+						loading="lazy"
+						width="45"
+						height="45"
+					/>
+				</a>
+			</span>
+			<span class="link-2">
+				<a href="https://t.me/+pREC84AhX8xmMmRi">
+					<img
+						src="/images/icons8-телеграм-188 (1).png"
+						alt="Telegram"
+						loading="lazy"
+						width="45"
+						height="45"
+					/>
+				</a>
+			</span>
+		</element-group>
+	</section>
+	<section class="page-header-float page-header-content">
+		<span
+			>({
+				page_sections.get(globalProps?.page_section)?.label || "NameLog"
+			})</span
+		>
+	</section>
+	<section
+		class="page-header-rightContent page-header-content"
+		style="gap: 40px"
+	>
+		<PageControl />
+	</section>
+</header>
+
+<style>
+	.page-header {
+		position: relative;
+		z-index: var(--z-index-layout);
+		padding-left: var(--default-block-padding, 2vw);
+		container: header / size;
+	}
+
+	[page_header__links] {
+		display: flex;
+		gap: 2vw;
+		align-items: center;
+		height: 100%;
+	}
+	@media (width <= 1280px) {
+		.all-links-label {
+			display: none;
+		}
+
+		.page-header-float span {
+			display: none;
+		}
+	}
+
+	.page-header-content {
+		display: flex;
+	}
+
+	.page-header-float {
+		position: absolute;
+		width: 100cqw;
+		height: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.page-header-rightContent {
+		margin-left: auto;
+		justify-content: end;
+		align-items: center;
+	}
+
+	.page-header-float span {
+		position: absolute;
+		opacity: 0.7;
+		font-family: "Comfortaa";
+		color: orangered;
+	}
+	.link-1,
+	.link-2 {
+		object-fit: contain;
+	}
+
+	.page-header {
+		min-height: var(--page-header-height);
+		background-color: transparent;
+		border-bottom: 1px solid #80808020;
+		display: flex;
+	}
+</style>

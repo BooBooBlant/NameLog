@@ -1,0 +1,361 @@
+---
+import Page from "@/layout/Page.astro";
+import Layout from "@/layout/Layout.astro";
+import { globalProps } from "@/globalProps.js";
+import { pokemons_list } from "@/pokemons/pokemons_list.js";
+import { Specs, Types } from "@/pokemons/enum.js";
+
+globalProps.page_section = "guides";
+---
+
+<Page>
+	<Layout>
+		<header>
+			Список уникальных покемонов:
+			<ul style="list-style: none;">
+				{
+					pokemons_list.map((pokemon) => (
+						<li>
+							{pokemon.name} -
+							<a href={`#${pokemon.id}`} rel="noopener noreferrer">
+								#{pokemon.id}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</header>
+		<span class="line"></span>
+		{
+			pokemons_list.map((pokemon) => (
+				<aside id={pokemon.id.toString()}>
+					<element-columns style="flex-wrap: wrap; gap: 40px">
+						{/* MARK: Image */}
+						<element-rows style="gap: 40px">
+							<img
+								loading="lazy"
+								style="width: 350px; height: 250px;"
+								src={pokemon.picture}
+								alt=""
+							/>
+
+							<b style="margin-left: 80px">
+								Номер в дексе: <i>#{pokemon.id}</i>
+							</b>
+						</element-rows>
+
+						{/* Type specs */}
+						<table>
+							<tr>
+								<td>Тип:</td>
+								<td>
+									{pokemon.types.map((type) => (
+										<span class="type-badge" data-background-for={type.key}>
+											{type.label}
+										</span>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Рост:</td>
+								<td>
+									<span>{pokemon.height} М</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Вес:</td>
+								<td>
+									<span>{pokemon.weight} кг</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Абилки:</td>
+								<td>
+									{pokemon.abilities.map((ability) => (
+										<li>{ability}</li>
+									))}
+								</td>
+							</tr>
+							<tr>
+								<td>Обитает:</td>
+								<td>
+									<span>{pokemon.location}</span>
+								</td>
+							</tr>
+						</table>
+
+						{/* MARK: Wayof */}
+						<section>
+							<h2>
+								<b>Способ получения:</b>
+							</h2>
+							<ol>
+								{pokemon.wayof?.map((way) => (
+									<li>{way}</li>
+								))}
+							</ol>
+						</section>
+						{/* MARK: Breeding */}
+						<section>
+							<h2>
+								<b>Разведение:</b>
+							</h2>
+							<ul>
+								{pokemon.breeding?.map((way) => (
+									<li>{way}</li>
+								))}
+							</ul>
+						</section>
+					</element-columns>
+					<hr />
+					<br />
+					<p>Базовые статы:</p>
+					<abc>
+						{Object.entries(pokemon.specs).map(([key, stat]) => (
+							<div class="slider-container" data-key={key}>
+								<span class="slider-label">{Specs[key].label}</span>
+								<div
+									class="slider"
+									style={`--data-slider: ${(stat.value / 200) * 200}px`}
+								>
+									<b>{stat.value}</b>
+								</div>
+								<aside class="slider-min">{stat.min}</aside>
+								<aside class="slider-max">{stat.max}</aside>
+							</div>
+						))}
+						<span>
+							Total:{" "}
+							{Object.values(pokemon.specs).reduce((a, b) => a + b.value, 0)}
+						</span>
+					</abc>
+
+					<hr />
+					<br />
+
+					<element-group class="types_table">
+						{Object.keys(pokemon.types_multipliers).map((typeKey) => (
+							<div
+								class="type-box"
+								data-types_multiplier_name={typeKey}
+								data-background-for={typeKey}
+							>
+								{Types[typeKey].label}
+							</div>
+						))}
+						{Object.values(pokemon.types_multipliers).map((value) => (
+							<div class="type-box" data-types_multiplier_value={value}>
+								{value}
+							</div>
+						))}
+					</element-group>
+
+					<span class="line" />
+				</aside>
+			))
+		}
+	</Layout>
+</Page>
+
+<style>
+	.type-badge {
+		display: inline-block;
+		padding: 2px 5px;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 0.8em;
+		text-transform: uppercase;
+		margin-right: 5px;
+	}
+
+	.card li {
+		list-style: none;
+	}
+
+	.slider-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 10px;
+		max-width: min(800px, 100%);
+
+		word-break: keep-all;
+	}
+
+	.slider-container:first-of-type .slider-max::before {
+		content: "Max: ";
+		position: absolute;
+		margin-top: -1.5em;
+		margin-left: -0.5em;
+		opacity: 0.5;
+	}
+	.slider-container:first-of-type .slider-min::before {
+		content: "Min: ";
+		position: absolute;
+		margin-top: -1.5em;
+		width: 1em;
+		text-align: center;
+		margin-right: 0.5em;
+		opacity: 0.5;
+	}
+
+	.slider-max {
+		position: relative;
+		display: flex;
+		white-space: pre;
+		justify-content: start;
+		flex-grow: 1;
+		margin-inline: 1em;
+	}
+	.slider-min {
+		position: relative;
+		white-space: pre;
+		display: flex;
+		justify-content: end;
+		flex-grow: 1;
+		margin-inline: 1em;
+	}
+
+	.slider-label {
+		width: 100px;
+		margin-right: 10px;
+	}
+
+	.slider {
+		height: 15px;
+		width: 200px;
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.slider::before {
+		content: "";
+		display: inline-block;
+		align-items: center;
+		height: 100%;
+		width: var(--data-slider, 200px);
+
+		background-color: gold;
+		margin-right: 10px;
+		border-radius: 5px;
+		border: 2px solid grey;
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+	}
+
+	.slider-value {
+		width: 40px;
+	}
+
+	.types_table {
+		display: grid;
+		--size: 1em;
+
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: repeat(18, 60px);
+		grid-template-rows: repeat(2, 60px);
+		gap: 1px;
+	}
+
+	.type-box {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		font-size: 10px;
+		border-radius: 5px;
+	}
+
+	[data-background-for="Normal"] {
+		background-color: #a8a77a;
+	}
+	[data-background-for="Fire"] {
+		background-color: #ee8130;
+	}
+	[data-background-for="Water"] {
+		background-color: #6390f0;
+	}
+	[data-background-for="Electric"] {
+		background-color: #f7d057;
+	}
+	[data-background-for="Grass"] {
+		background-color: #7ac74c;
+	}
+	[data-background-for="Ice"] {
+		background-color: #96d9d6;
+	}
+	[data-background-for="Fight"] {
+		background-color: #c22e28;
+	}
+	[data-background-for="Poison"] {
+		background-color: #a33ea1;
+	}
+	[data-background-for="Groun"] {
+		background-color: #e2bf65;
+	}
+	[data-background-for="Flying"] {
+		background-color: #a98ff3;
+	}
+	[data-background-for="Psychic"] {
+		background-color: #ee99ac;
+	}
+	[data-background-for="Bug"] {
+		background-color: #a6b91a;
+	}
+	[data-background-for="Rock"] {
+		background-color: #b6a136;
+	}
+	[data-background-for="Ghost"] {
+		background-color: #735797;
+	}
+	[data-background-for="Drago"] {
+		background-color: #6f35fc;
+	}
+	[data-background-for="Dark"] {
+		background-color: #a98a78;
+	}
+	[data-background-for="Steel"] {
+		background-color: #b7b7ce;
+	}
+	[data-background-for="Fairy"] {
+		background-color: #d685ad;
+	}
+
+	[data-types_multiplier_value="x2"] {
+		background-color: #7ac74c;
+		color: white;
+	}
+	[data-types_multiplier_value="0"] {
+		background-color: #606060;
+		color: white;
+	}
+	[data-types_multiplier_value="0.5"] {
+		background-color: #c22e28;
+		color: white;
+	}
+	[data-types_multiplier_value="0.25"] {
+		background-color: #a04338;
+		color: white;
+	}
+	.empty {
+		background-color: transparent;
+		color: transparent;
+	}
+
+	ol li {
+		list-style: inherit;
+		list-style-position: inside;
+	}
+	li {
+		list-style-position: inside;
+		list-style: none;
+	}
+</style>

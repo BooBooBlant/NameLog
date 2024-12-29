@@ -1,0 +1,21 @@
+---
+import { page_sections } from "@/router/section/list.js";
+import { globalProps } from "@/globalProps";
+const sections = [...page_sections.values()];
+
+const index = sections.findIndex(
+	(section) => section.key === globalProps.page_section
+);
+
+const target = sections.at((index + 1) % sections.length);
+const label = target.label;
+const href = `/${target.mainPage}`;
+---
+
+<a href={href} style="min-width: max-content;">{label}</a>
+
+<style>
+	a {
+		min-width: max-content;
+	}
+</style>

@@ -1,0 +1,60 @@
+---
+import GiscusComments from "@/GiscusComments.astro";
+import Header from "@/layout/header/Header.astro";
+import Nav from "@/layout/Nav.astro";
+---
+
+<Nav />
+
+<section class="page-wrapper">
+	<Header />
+	<main class="page-main">
+		<section class="slot-layout">
+			<slot />
+		</section>
+		<GiscusComments id={Astro.url.pathname} />
+	</main>
+</section>
+
+<style>
+	.page-main {
+		position: relative;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		max-width: 100%;
+		overflow-x: clip;
+
+		text-align: var(--page-main_text-align);
+	}
+	.page-wrapper {
+		min-width: min(100vw, 800px);
+		max-width: 100vw;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+		overflow: auto;
+	}
+
+	.list-number {
+	}
+
+	.slot-layout {
+		line-height: 1.8;
+	}
+
+	:global([data-page_section_article]) {
+		overflow: hidden;
+	}
+
+	/* [N]rem shold be equalent to other @media [N]rem */
+	@media screen and (width >= 60rem) {
+		:global([data-page_section_article]) {
+			max-width: 40em;
+			margin-inline: auto;
+			align-self: center;
+			padding-inline: 1em;
+			border-inline: 1px solid #8882;
+		}
+	}
+</style>
