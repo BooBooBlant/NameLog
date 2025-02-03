@@ -79,10 +79,10 @@ element-columns {
 	flex-direction: row;
 }
 
-[data-aspect-slip-paragraph] {
+[data_aspect_slip_paragraph] {
 	/* https://habr.com/ru/articles/835286/ */
 	width: 100%;
-	padding: max(0px, calc((100% - 60em) / 2));
+	padding-inline: max(0px, calc((100% - 60em) / 2));
 }
 
 .page-wrapper {
@@ -117,7 +117,7 @@ img {
 	max-width: 100%;
 }
 
-hr[data-variant-1] {
+hr[data_variant_1] {
 	width: 100%;
 	background: none;
 	margin-top: 2rem;
