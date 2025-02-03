@@ -79,6 +79,12 @@ element-columns {
 	flex-direction: row;
 }
 
+[data-aspect-slip-paragraph] {
+	/* https://habr.com/ru/articles/835286/ */
+	width: 100%;
+	padding: max(0px, calc((100% - 60em) / 2));
+}
+
 .page-wrapper {
 	display: flex;
 	flex-direction: column;
