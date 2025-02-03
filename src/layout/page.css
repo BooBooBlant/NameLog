@@ -18,7 +18,6 @@
   padding: 0;
   scrollbar-width: thin;
   scrollbar-color: #aaa7 #fff0;
-  text-wrap: pretty;
 }
 
 html {
@@ -46,6 +45,9 @@ body {
   accent-color: var(--accent-color);
   overflow: auto;
   word-break: break-word;
+  text-wrap: pretty;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
 }
 
 a {
