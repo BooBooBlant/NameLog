@@ -1,126 +1,126 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
-  --page-header-height: 4em;
-  --accent-color: orange;
-  --light: #eeeeee;
-  --dark: #111010;
+	--page-header-height: 4em;
+	--accent-color: orange;
+	--light: #eeeeee;
+	--dark: #111010;
 
-  --default-block-padding: calc(1.5vw + 8px);
+	--default-block-padding: calc(1.5vw + 8px);
 
-  /* https://www.codegram.com/blog/stop-ab-using-z-index/ */
-  --z-index-layout: 1000;
+	/* https://www.codegram.com/blog/stop-ab-using-z-index/ */
+	--z-index-layout: 1000;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scrollbar-width: thin;
-  scrollbar-color: #aaa7 #fff0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scrollbar-width: thin;
+	scrollbar-color: #aaa7 #fff0;
 }
 
 html {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 body.light {
-  --page-text-color: var(--dark);
-  --page-background-color: var(--light);
-  color-scheme: light;
+	--page-text-color: var(--dark);
+	--page-background-color: var(--light);
+	color-scheme: light;
 }
 body:not(.light) {
-  --page-text-color: var(--light);
-  --page-background-color: var(--dark);
-  color-scheme: dark;
+	--page-text-color: var(--light);
+	--page-background-color: var(--dark);
+	color-scheme: dark;
 }
 body {
-  color: var(--page-text-color);
-  background-color: var(--page-background-color);
-  font-family: "Open Sans", sans-serif;
-  display: flex;
-  flex-direction: row;
-  min-height: 100lvh;
-  max-height: 100lvh;
-  accent-color: var(--accent-color);
-  overflow: auto;
-  word-break: break-word;
-  text-wrap: pretty;
-  hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;
+	color: var(--page-text-color);
+	background-color: var(--page-background-color);
+	font-family: "Open Sans", sans-serif;
+	display: flex;
+	flex-direction: row;
+	min-height: 100lvh;
+	max-height: 100lvh;
+	accent-color: var(--accent-color);
+	overflow: auto;
+	word-break: break-word;
+	text-wrap: pretty;
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
 }
 
 a {
-  color: currentColor;
-  text-decoration: underline;
+	color: currentColor;
+	text-decoration: underline;
 }
 
 hr {
-  background-color: var(--background, #80808020);
-  box-shadow: none;
-  border: none;
-  color: transparent;
-  height: var(--height, 2px);
-  width: var(--width, 80%);
+	background-color: var(--background, #80808020);
+	box-shadow: none;
+	border: none;
+	color: transparent;
+	height: var(--height, 2px);
+	width: var(--width, 80%);
 }
 
 element-group {
-  display: flex;
-  flex-direction: inherit;
+	display: flex;
+	flex-direction: inherit;
 }
 
 element-rows {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 element-columns {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .page-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 .page-main {
-  padding: var(--default-block-padding, 2vw);
+	padding: var(--default-block-padding, 2vw);
 }
 
 .list li {
-  margin-block: 0.25em;
-  margin-left: 1em;
+	margin-block: 0.25em;
+	margin-left: 1em;
 }
 
 :target {
-  animation: anchor-highlight 1s;
+	animation: anchor-highlight 1s;
 }
 
 @keyframes anchor-highlight {
-  0% {
-    background-color: var(--accent-color);
-  }
-  100% {
-    background-color: transparent;
-  }
+	0% {
+		background-color: var(--accent-color);
+	}
+	100% {
+		background-color: transparent;
+	}
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .line {
-  height: var(--page-header-height);
-  /* margin-block: 0.5em; */
-  border-bottom: 2px solid #440707c0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	height: var(--page-header-height);
+	/* margin-block: 0.5em; */
+	border-bottom: 2px solid #440707c0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 details > summary {
-  cursor: pointer;
-  text-decoration: underline;
+	cursor: pointer;
+	text-decoration: underline;
 }
