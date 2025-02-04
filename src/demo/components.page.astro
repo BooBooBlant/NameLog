@@ -25,7 +25,7 @@ const ComponentsList = new Map(
 				},
 				{
 					variant_name: "Margin",
-					description: "Встроена в дизайн сайта; имеет блочные отступы",
+					description: "Интегрированна в дизайн сайта; имеет блочные отступы",
 					demo_id: "<hr data_variant_1>",
 				},
 			],
@@ -57,7 +57,7 @@ const ComponentsList = new Map(
 			variants: [
 				{
 					variant_name: "Native",
-					description: "Позволяет отобразить подробности при наведении или клике. Рекомендуется указывать контент в круглых скобках, а не скрывать его*",
+					description: "Позволяет отобразить подробности при наведении или клике. Рекомендуется указывать контент за круглыми скобками, а не скрывать его*",
 					demo_id: "<Tooltiped>",
 				},
 			],
@@ -89,6 +89,8 @@ function components_with_aspect(value: AspectEnum) {
 		<!-- Disable -->
 		<section slot="Comments"></section>
 
+		<!-- MARK: Left sidebar
+		  -->
 		<nav slot="NavContent">
 			{
 				aspects_set().map((aspect, i) => (
@@ -98,6 +100,9 @@ function components_with_aspect(value: AspectEnum) {
 				))
 			}
 		</nav>
+
+		<!-- MARK: Main
+		  -->
 
 		<!-- 
 		Structure: 
@@ -161,6 +166,7 @@ function components_with_aspect(value: AspectEnum) {
 	</Layout>
 </Page>
 
+<!-- Styles -->
 <style>
 	ul[data_variant_0] {
 		gap: 1em;
