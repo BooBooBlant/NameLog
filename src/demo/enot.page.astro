@@ -4,7 +4,6 @@ import Layout from "@/layout/Layout.astro";
 import Copyable from "@/Copyable.astro";
 import Tooltiped from "@/Tooltiped.astro";
 import { Code } from "astro:components";
-import TextAlignSwitcher from "@/layout/header/TextAlignSwitcher.astro";
 import AnimatedCube from "@/AnimatedCube.astro";
 const id = `id_${crypto.randomUUID()}`;
 import { globalProps } from "@/globalProps.js";
@@ -13,7 +12,7 @@ globalProps.page_section = "guides";
 ---
 
 <Page>
-	<Layout>
+	<Layout article_variant="0">
 		<h1>@/pages/enot.astro</h1>
 		<p>
 			Привет, это моя собственная страничка для всяких штук. Вы можете сюда
@@ -55,8 +54,6 @@ globalProps.page_section = "guides";
 		<h3>@components/AnimatedCube</h3>
 		<AnimatedCube />
 		<hr />
-		<TextAlignSwitcher />
-
 		<p>
 			<p>Цветовой акцент:</p>
 			<input
@@ -131,9 +128,3 @@ globalProps.page_section = "guides";
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" is:inline
 ></script>
-
-<style>
-	span {
-		white-space: pre;
-	}
-</style>
