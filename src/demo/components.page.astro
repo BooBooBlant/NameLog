@@ -40,6 +40,28 @@ const ComponentsList = new Map(
 				},
 			],
 		},
+		{
+			key: "Copyable",
+			aspects: [AspectEnum.RichText],
+			variants: [
+				{
+					variant_name: "Native",
+					description: "Когда содержимое полезно скопировать",
+					demo_id: "<Copyable>",
+				},
+			],
+		},
+		{
+			key: "Tooltiped",
+			aspects: [AspectEnum.RichText],
+			variants: [
+				{
+					variant_name: "Native",
+					description: "Позволяет отобразить подробности при наведении или клике. Рекомендуется указывать контент в круглых скобках, а не скрывать его*",
+					demo_id: "<Tooltiped>",
+				},
+			],
+		},
 	].map((item) => [item.key, item])
 );
 
@@ -99,7 +121,7 @@ function components_with_aspect(value: AspectEnum) {
 						<h2>Раздел: {aspect}</h2>
 						<ul data_variant_1>
 							{components_with_aspect(aspect).map(($) => (
-								<li>{$.key}</li>
+								<li><a href = {`#${$.key}`}>{$.key}</a></li>
 							))}
 						</ul>
 						<ul data_ul_variants>
@@ -114,6 +136,18 @@ function components_with_aspect(value: AspectEnum) {
 												return <hr data_variant_1/>
 											case "<Code code= language=>":
 												return <Code code = "Hello!" lang = "javascript"/>
+											case "<Copyable>":
+												return <Copyable>Нажмите, чтобы скопировать</Copyable>
+											case "<Tooltiped>":
+												return <Tooltiped>
+													<span slot="container" style="text-decoration: underline dotted;">
+														Наведите, чтобы увидеть
+													</span>
+													<span
+															slot="content"
+															style="transform: translateY(-20px); padding: 10px; background-color: #2228; width: 20em;"
+													>Поддается полной стилизации</span>
+												</Tooltiped>
 											default: throw new Error(`Unknown demo: ${variant.demo_id}`)
 										}
 									})()}</aside></li>)}</ul>)}
@@ -136,11 +170,14 @@ function components_with_aspect(value: AspectEnum) {
 		position: relative;
 	}
 	[data_preview]{	
-		background: linear-gradient(to right, white, transparent);
+		border: 1px solid;
 		padding: 1em;
 		&:hover {
-			background: white;
+			background: none;
 		}
+	}
+	[data_demo_id] p {
+		max-width: 60em;
 	}
 	h5 {
 		background: #8888;
