@@ -2,16 +2,24 @@
 import GiscusComments from "@/GiscusComments.astro";
 import Header from "@/layout/header/Header.astro";
 import Nav from "@/layout/Nav.astro";
+import RouterNavContent from "@/router/nav_component.astro";
 interface Props {
 	article_variant: string;
+	header_slot?: string;
 }
 const { article_variant } = Astro.props;
 ---
 
-<Nav />
+<Nav>
+	<slot name="NavContent">
+		<RouterNavContent />
+	</slot>
+</Nav>
 
 <section class="page-wrapper">
-	<Header />
+	<slot name="Header">
+		<Header />
+	</slot>
 	<main class="page-main">
 		{
 			article_variant === "0" && (
@@ -27,7 +35,9 @@ const { article_variant } = Astro.props;
 				</section>
 			)
 		}
-		<GiscusComments id={Astro.url.pathname} />
+		<slot name="Comments">
+			<GiscusComments id={Astro.url.pathname} />
+		</slot>
 	</main>
 </section>
 
