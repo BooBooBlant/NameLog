@@ -1,55 +1,55 @@
 <pre
-  title="Нажмите, чтобы скопировать"
-  tabindex="0"
-  class="components_copiable"><slot /></pre>
+	title="Нажмите, чтобы скопировать"
+	tabindex="0"
+	class="components_copiable"><slot /></pre>
 
 <style>
-  pre {
-    position: relative;
-    background-color: #88888820;
-    display: inline;
-    font-family: inherit;
+	pre {
+		position: relative;
+		background-color: #88888820;
+		display: inline;
+		font-family: inherit;
 
-    display: inline-flex;
-  }
+		display: inline-flex;
+	}
 
-  :global(.components_copiable__tooltip) {
-    position: absolute;
-    min-width: fit-content;
-    padding-inline: 4px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #888;
-    border-radius: 4px;
-    animation: apparance 200ms;
-  }
+	:global(.components_copiable__tooltip) {
+		position: absolute;
+		min-width: fit-content;
+		padding-inline: 4px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #888;
+		border-radius: 4px;
+		animation: apparance 200ms;
+	}
 </style>
 
 <script>
-  const nodes = document.querySelectorAll(".components_copiable");
-  async function createTooltip({ node, text, time = 1_200 }) {
-    const tooltip = document.createElement("span");
-    tooltip.textContent = text;
-    tooltip.className = "components_copiable__tooltip";
-    node.appendChild(tooltip);
+	const nodes = document.querySelectorAll(".components_copiable");
+	async function createTooltip({ node, text, time = 1_200 }) {
+		const tooltip = document.createElement("span");
+		tooltip.textContent = text;
+		tooltip.className = "components_copiable__tooltip";
+		node.appendChild(tooltip);
 
-    await globalThis.sleep(time);
-    node.removeChild(tooltip);
-  }
-  async function onClick(clickEvent) {
-    const { target } = clickEvent;
-    try {
-      await navigator.clipboard.writeText(target.textContent);
-      createTooltip({ node: target, text: "Скопировано!" });
-    } catch (error) {
-      console.error(`Неудалось скопировать текст: ${error.message}`, error);
-      createTooltip({ node: target, text: "Ошибка в консоли", time: 4_000 });
-    }
-  }
-  for (const node of nodes) {
-    node.addEventListener("click", onClick);
-  }
+		await globalThis.sleep(time);
+		node.removeChild(tooltip);
+	}
+	async function onClick(clickEvent) {
+		const { target } = clickEvent;
+		try {
+			await navigator.clipboard.writeText(target.textContent);
+			createTooltip({ node: target, text: "Скопировано!" });
+		} catch (error) {
+			console.error(`Неудалось скопировать текст: ${error.message}`, error);
+			createTooltip({ node: target, text: "Ошибка в консоли", time: 4_000 });
+		}
+	}
+	for (const node of nodes) {
+		node.addEventListener("click", onClick);
+	}
 </script>
