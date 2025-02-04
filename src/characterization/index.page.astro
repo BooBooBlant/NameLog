@@ -8,57 +8,76 @@ globalProps.page_section = "guides";
 ---
 
 <Page>
-	<Layout>
-		<main data_aspect_slip_paragraph>
-			<h1>Админы и Модеры</h1>
-			Здесь описано то, как я вижу админов и модеров этого проекта
-			<hr data_variant_1 />
-			infernalistik: Добрый, крутой, да и в общем то хороший человек, ответит вам
-			даже на самые глупые вопросы, позитивный человек (Играет в доту(он много во
-			что играет, но захотелось выделить именно доту))
-			<hr data_variant_1 />
-			Cepera: Честно сказать, я хз что сказать. Из того что я знаю, я понял что Серёга
-			рофло тип, я попросил Пайна (PineApple) спросить Серёгу, могу ли я с ним поговорить,
-			что б понять кто он, но Пайн ответил, цитирую «Он не то что с тобой, он и со
-			мной то не говорит» © PineApple.
-			<hr data_variant_1 />
-			PineApple: Хороший человек, к нему вы можете обратиться в любое время суток,
-			он не знает что такое сон. Позитивный, иногда рофляный, Есть у меня несколько
-			пикч с ним, но покажу я только две)
-			<details>
-				<summary>Показать картинку</summary>
-				<img loading="lazy" src={ChatMessage1.src} alt=" " />
-			</details>
-			<details>
-				<summary>Показать картинку</summary>
-				<img
-					loading="lazy"
-					style="margin-left: 0px;"
-					src={ChatMessage2.src}
-					alt=""
-				/>
-			</details>
-			<hr data_variant_1 />
-			ImGroont: Заходит на сервер не часто, но и не редко, в чате пишет не часто,
-			от него исходит какой-то негатив, но хз, большего сказать не могу, потому,
-			что нечего говорить.
-			<hr data_variant_1 />
-			GrOuS_Off_On:
-			<hr data_variant_1 />
-			SofkaMur:
-			<hr data_variant_1 />
-			mrusenburg:
-			<hr data_variant_1 />
-			Yan_Mayer:
-			<hr data_variant_1 />
-			w1wk4: Девушка позитивная, и стеснительная (такой вывод был сделан исходя из
-			видео). Не ШИШКА а ВИВКА.
-		</main>
+	<Layout article_variant="1">
+		<h1>Состав проекта</h1>
+		Здесь описано то, как я вижу админов и модеров Black Dragon
+		<hr data_variant_1 />
+		<ul>
+			<li data_name="infernalistik">
+				Добрый, крутой, да и в общем то хороший человек, ответит вам даже на
+				самые глупые вопросы, позитивный человек (Играет в доту(он много во что
+				играет, но захотелось выделить именно доту))
+			</li>
+			<li data_name="Cepera">
+				Честно сказать, я хз что сказать. Из того что я знаю, я понял что Серёга
+				рофло тип, я попросил Пайна (PineApple) спросить Серёгу, могу ли я с ним
+				поговорить, что б понять кто он, но Пайн ответил, цитирую «Он не то что
+				с тобой, он и со мной то не говорит» © PineApple.
+			</li>
+			<li data_name="PineApple">
+				Хороший человек, к нему вы можете обратиться в любое время суток, он не
+				знает что такое сон. Позитивный, иногда рофляный, Есть у меня несколько
+				пикч с ним, но покажу я только две)
+				<details>
+					<summary>Показать картинку</summary>
+					<img loading="lazy" src={ChatMessage1.src} alt=" " />
+				</details>
+				<details>
+					<summary>Показать картинку</summary>
+					<img
+						loading="lazy"
+						style="margin-left: 0px;"
+						src={ChatMessage2.src}
+						alt=""
+					/>
+				</details>
+			</li>
+			<li data_name="ImGroont">
+				Заходит на сервер не часто, но и не редко, в чате пишет не часто, от
+				него исходит какой-то негатив, но хз, большего сказать не могу, потому,
+				что нечего говорить.
+			</li>
+			<li data_name="GrOuS_Off_On"></li>
+			<li data_name="SofkaMur"></li>
+			<li data_name="mrusenburg"></li>
+			<li data_name="Yan_Mayer"></li>
+			<li data_name="w1wk4">
+				Девушка позитивная, и стеснительная (такой вывод был сделан исходя из
+				видео). Не ШИШКА а ВИВКА.
+			</li>
+		</ul>
 	</Layout>
 </Page>
 
 <style>
 	span {
 		white-space: pre;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	li {
+		list-style: none;
+		min-height: 1em;
+		&::before {
+			content: attr(data_name) ": ";
+			margin-right: 1em;
+			float: left;
+			background-color: #fff2;
+		}
 	}
 </style>
