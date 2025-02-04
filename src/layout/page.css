@@ -43,7 +43,7 @@ body {
 	accent-color: var(--accent-color);
 	overflow: auto;
 	word-break: break-word;
-	text-wrap: pretty;
+	text-wrap: balance;
 	hyphens: auto;
 	hyphenate-limit-chars: 6 3 3;
 }
