@@ -1,0 +1,187 @@
+---
+import Page from "@/layout/Page.astro";
+import Copyable from "@/Copyable.astro";
+import Tooltiped from "@/Tooltiped.astro";
+import { Code } from "astro:components";
+import { globalProps } from "@/globalProps.js";
+import Layout from "@/layout/Layout.astro";
+globalProps.page_section = "guides";
+
+enum AspectEnum {
+	Control = "Control",
+	UserFocusExperience = "UserFocusExperience",
+	DevTools = "DevTools",
+	RichText = "RichText"
+}
+const ComponentsList = new Map(
+	[
+		{
+			key: "HorizontalLine",
+			aspects: [AspectEnum.UserFocusExperience],
+			variants: [
+				{
+					variant_name: "Native",
+					demo_id: "<hr>",
+				},
+				{
+					variant_name: "Margin",
+					description: "Встроена в дизайн сайта; имеет блочные отступы",
+					demo_id: "<hr data_variant_1>",
+				},
+			],
+		},
+		{
+			key: "CodeTag",
+			aspects: [AspectEnum.DevTools],
+			variants: [
+				{
+					variant_name: "Native",
+					demo_id: "<Code code= language=>",
+				},
+			],
+		},
+	].map((item) => [item.key, item])
+);
+
+function aspects_set() {
+	return Array.from(
+		new Set(
+			Array.from(ComponentsList.values())
+				.map(($) => $.aspects)
+				.flat()
+		).values()
+	);
+}
+
+function components_with_aspect(value: AspectEnum) {
+	return Array.from(ComponentsList.values()).filter(($) =>
+		$.aspects.includes(value)
+	);
+}
+---
+
+<Page>
+	<Layout article_variant="0">
+		<!-- Disable -->
+		<section slot="Header"></section>
+		<!-- Disable -->
+		<section slot="Comments"></section>
+
+		<nav slot="NavContent">
+			{
+				aspects_set().map((aspect, i) => (
+					<li>
+						<a href={`#${aspect}`} rel="noopener noreferrer">{i + 1}. {aspect}</a>
+					</li>
+				))
+			}
+		</nav>
+
+		<!-- 
+		Structure: 
+		main /
+			section[data_section_component]
+				h2
+				ul /
+					section[data_section_variant]
+						h4
+						ul /
+							li[data_demo_id]
+								h5
+								p
+								aside[data_preview]
+		-->
+
+		<main>
+			{
+				aspects_set().map((aspect) => (
+					<section data_section_component id = {aspect}>
+						<h2>Раздел: {aspect}</h2>
+						<ul data_variant_1>
+							{components_with_aspect(aspect).map(($) => (
+								<li>{$.key}</li>
+							))}
+						</ul>
+						<ul data_ul_variants>
+						{components_with_aspect(aspect).map(($) => (
+							<section id={$.key} data_section_variant>
+								{(<h4>Компонент: {$.key}</h4><ul data_variant_0>{$.variants.map(variant => <li data_demo_id = {variant.demo_id}><h5><Copyable>{variant.demo_id}</Copyable></h5><p>{variant.description}</p><aside data_preview>{
+									(() => {
+										switch (variant.demo_id) {
+											case "<hr>":
+												return <hr/>
+											case "<hr data_variant_1>":
+												return <hr data_variant_1/>
+											case "<Code code= language=>":
+												return <Code code = "Hello!" lang = "javascript"/>
+											default: throw new Error(`Unknown demo: ${variant.demo_id}`)
+										}
+									})()}</aside></li>)}</ul>)}
+							</section>
+						))}
+						</ul>
+					</section>
+				))
+			}
+		</main>
+	</Layout>
+</Page>
+
+<style>
+	ul[data_variant_0] {
+		gap: 1em;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		position: relative;
+	}
+	[data_preview]{	
+		background: linear-gradient(to right, white, transparent);
+		padding: 1em;
+		&:hover {
+			background: white;
+		}
+	}
+	h5 {
+		background: #8888;
+			margin-right: 1em;
+			display: inline;
+	}
+	
+	section[data_section_component] > ul[data_ul_variants] {
+		&:has([data_preview]:hover){
+			&::before {
+				background: var(--accent-color);
+			}
+		}
+
+		&::before {
+			content: "";
+			width: 2px;
+			background: #8888;
+			left: -1rem;
+			height: 100%;
+			position: absolute;
+			display: block;
+		}
+		position: relative;
+	}
+	section[data_section_variant] > ul > li {
+		&:has([data_preview]:hover){
+			&::before {
+				background: var(--accent-color);
+			}
+		}
+		
+		&::before {
+			content: "";
+			width: 2px;
+			background: linear-gradient(to bottom, white, transparent);
+			left: -0.5rem;
+			height: 100%;
+			position: absolute;
+			display: block;
+		}
+		position: relative;
+	}	
+</style>
