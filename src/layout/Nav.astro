@@ -1,9 +1,6 @@
 ---
-import { pages } from "@/router/pages.js";
-import { globalProps } from "@/globalProps.js";
-import LogoIcon from "@/logo/logo.webp";
-const { url } = Astro;
 const id = `id_${crypto.randomUUID()}`;
+import LogoIcon from "@/logo/logo.webp";
 ---
 
 <nav class="page-nav" id={id}>
@@ -13,103 +10,87 @@ const id = `id_${crypto.randomUUID()}`;
 		>
 	</icon-element>
 	<ul class="page-nav-list">
-		{
-			(() => {
-				const values = pages
-					.filter((route) => route.sections?.includes(globalProps.page_section))
-					.map(({ label, id }, index) => (
-						<li class:list={{ active: url.pathname.includes(id) }}>
-							<a href={`/${id}`}>
-								<span style="opacity: 0.5" class="list-number">
-									{index + 1}.
-								</span>{" "}
-								{label}
-							</a>
-						</li>
-					));
-				return values.length ? values : <li>Похоже, здесь пусто</li>;
-			})()
-		}
+		<slot />
 	</ul>
+
+	<script define:vars={{ id: id }}>
+		const node = document.getElementById(id);
+		const STORAGE_KEY = "namelog_page-nav_scroll_position";
+		const scroll_position_on_start = sessionStorage.getItem(STORAGE_KEY);
+		if (scroll_position_on_start) {
+			node.scrollTo(0, scroll_position_on_start);
+		}
+		node.addEventListener("scroll", () => {
+			sessionStorage.setItem(STORAGE_KEY, node.scrollTop);
+		});
+	</script>
+
+	<style>
+		nav {
+			font-family: "Comfortaa";
+			flex-shrink: 0;
+			scroll-snap-align: center;
+			scroll-snap-stop: always;
+			color: var(--accent-color);
+		}
+
+		.page-nav {
+			background-color: color-mix(in lab, var(--dark), var(--light) 7%);
+			max-height: 100vh;
+			overflow: visible;
+			overflow: scroll;
+			scrollbar-width: none;
+			width: max-content;
+		}
+
+		.page-nav > .page-icon {
+			height: var(--page-header-height);
+			border-bottom: 1px solid #808080c0;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			& > .page_logo {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				padding: 5px;
+			}
+
+			& > .page_logo img {
+				height: 100%;
+				border-radius: 25%;
+				object-position: center;
+				object-fit: cover;
+			}
+		}
+
+		.page-nav-list {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.page-nav-list :global(li) {
+			aspect-ratio: 2/1;
+
+			& :global(a) {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+				padding: 5px;
+			}
+
+			& :global(a:hover) {
+				background-color: #88888888;
+			}
+		}
+
+		.page-nav-list :global(li.active a) {
+			text-decoration: none;
+		}
+	</style>
 </nav>
-
-<script define:vars={{ id: id }}>
-	const node = document.getElementById(id);
-	const STORAGE_KEY = "namelog_page-nav_scroll_position";
-	const scroll_position_on_start = sessionStorage.getItem(STORAGE_KEY);
-	if (scroll_position_on_start) {
-		node.scrollTo(0, scroll_position_on_start);
-	}
-	node.addEventListener("scroll", () => {
-		sessionStorage.setItem(STORAGE_KEY, node.scrollTop);
-	});
-</script>
-
-<style>
-	nav {
-		font-family: "Comfortaa";
-		flex-shrink: 0;
-		scroll-snap-align: center;
-		scroll-snap-stop: always;
-		color: var(--accent-color);
-	}
-
-	.page-nav {
-		background-color: color-mix(in lab, var(--dark), var(--light) 7%);
-		max-height: 100vh;
-		overflow: visible;
-		overflow: scroll;
-		scrollbar-width: none;
-		width: max-content;
-	}
-
-	.page-nav > .page-icon {
-		height: var(--page-header-height);
-		border-bottom: 1px solid #808080c0;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.page-nav-list {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.page-nav-list li {
-		aspect-ratio: 2/1;
-	}
-
-	.page-nav-list li a {
-		display: flex;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		padding: 5px;
-	}
-
-	.page-nav-list li a:hover {
-		background-color: #88888888;
-	}
-
-	.page-nav-list li.active a {
-		text-decoration: none;
-	}
-
-	.page_logo {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		padding: 5px;
-	}
-
-	.page_logo img {
-		height: 100%;
-		border-radius: 25%;
-		object-position: center;
-		object-fit: cover;
-	}
-</style>

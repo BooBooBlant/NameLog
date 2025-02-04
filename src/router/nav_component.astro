@@ -1,0 +1,23 @@
+---
+import { pages } from "@/router/pages.js";
+import { globalProps } from "@/globalProps.js";
+const { url } = Astro;
+---
+
+{
+	(() => {
+		const values = pages
+			.filter((route) => route.sections?.includes(globalProps.page_section))
+			.map(({ label, id }, index) => (
+				<li class:list={{ active: url.pathname.includes(id) }}>
+					<a href={`/${id}`}>
+						<span style="opacity: 0.5" class="list-number">
+							{index + 1}.
+						</span>{" "}
+						{label}
+					</a>
+				</li>
+			));
+		return values.length ? values : <li>Похоже, здесь пусто</li>;
+	})()
+}
