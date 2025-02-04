@@ -83,7 +83,7 @@ element-columns {
 	padding-inline: max(0px, calc((100% - 60em) / 2));
 }
 
-ul[data_wrapped_inline_variant_1] {
+ul[data_variant_1] {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1em;
