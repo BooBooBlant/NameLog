@@ -2,6 +2,10 @@
 import GiscusComments from "@/GiscusComments.astro";
 import Header from "@/layout/header/Header.astro";
 import Nav from "@/layout/Nav.astro";
+interface Props {
+	article_variant: string;
+}
+const { article_variant } = Astro.props;
 ---
 
 <Nav />
@@ -9,9 +13,20 @@ import Nav from "@/layout/Nav.astro";
 <section class="page-wrapper">
 	<Header />
 	<main class="page-main">
-		<section class="slot-layout">
-			<slot />
-		</section>
+		{
+			article_variant === "0" && (
+				<section class="slot-layout">
+					<slot />
+				</section>
+			)
+		}
+		{
+			article_variant === "1" && (
+				<section class="slot-layout" data_aspect_slip_paragraph>
+					<slot />
+				</section>
+			)
+		}
 		<GiscusComments id={Astro.url.pathname} />
 	</main>
 </section>
@@ -27,6 +42,7 @@ import Nav from "@/layout/Nav.astro";
 		overflow-x: clip;
 
 		text-align: var(--page-main_text-align);
+		container: page_layout_main / inline-size;
 	}
 	.page-wrapper {
 		min-width: min(100vw, 800px);
