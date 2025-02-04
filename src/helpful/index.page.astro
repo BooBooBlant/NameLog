@@ -3,8 +3,24 @@ import Page from "@/layout/Page.astro";
 import Layout from "@/layout/Layout.astro";
 import Tooltiped from "@/Tooltiped.astro";
 import { globalProps } from "@/globalProps.js";
-import HowToUse from "./howtouse.jpg";
-
+import HowToUse from "./assets/howtouse.jpg";
+import XL from "./assets/XL.png";
+import L from "./assets/L.png";
+import M from "./assets/M.png";
+import S from "./assets/S.png";
+import XS from "./assets/XS.png";
+import Bad from "./assets/Bad.png";
+import DMax from "./assets/DMax.png";
+import Grid_Safety_Goggles from "./assets/Grid_Safety_Goggles.png";
+import Booster from "./assets/Booster.png";
+import raid from "./assets/raid.jpg";
+import portals from "./assets/portals.png";
+import masterloot from "./assets/masterloot.jpg";
+import DynaMax from "./assets/DynaMax.png";
+import Megaevol from "./assets/Megaevol.jpg";
+import Candies from "./assets/Candies.jpg";
+import rare from "./assets/rare.png";
+import beastloot from "./assets/beastloot.jpg";
 globalProps.page_section = "guides";
 ---
 
@@ -13,7 +29,7 @@ globalProps.page_section = "guides";
 		<section>
 			<h1>Полезное</h1>
 			<h4>
-				В этом разделе будут размещены уточнения по некоторым другим разделам,а
+				В этом разделе будут размещены уточнения по некоторым другим разделам, а
 				также мини гайды по игровым механикам мода Pixelmon на <span
 					id="
 				openSite"
@@ -24,7 +40,7 @@ globalProps.page_section = "guides";
 			</h4>
 			<span class="line-1"></span>
 			<h3>Список всего что есть в этом разделе:</h3>
-			<ul class="list">
+			<ul data_wrapped_inline_variant_1>
 				<li><a href="#Ultra">Ультра мир</a></li>
 				<li><a href="#Raids">Рейды</a></li>
 				<li><a href="#Dynamax">Динамакс</a></li>
@@ -45,10 +61,10 @@ globalProps.page_section = "guides";
 				<img
 					loading="lazy"
 					slot="content"
-					src="/images/Booster.png"
+					src={Booster.src}
 					alt=""
-					width="125"
-					height="125"
+					width="124"
+					height="124"
 				/>
 			</Tooltiped>
 			Так же в ультра-мире шансы спавна хидов и шайни покемонов больше в 2 раза Туман
@@ -61,7 +77,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/Grid_Safety_Goggles.png"
+					src={Grid_Safety_Goggles.src}
 					alt=""
 				/>
 			</Tooltiped> в слот шлема Исследуя ультра-мир, помимо обычных деревень вы можете
@@ -72,9 +88,7 @@ globalProps.page_section = "guides";
 				<summary>Показать картинку</summary>
 				<img
 					loading="lazy"
-					src="
-				images
-				beastloot.jpg"
+					src={beastloot.src}
 					alt=""
 					width="750"
 					height="350"
@@ -85,7 +99,7 @@ globalProps.page_section = "guides";
 				<summary>Показать картинку</summary>
 				<img
 					loading="lazy"
-					src="images/masterloot.jpg"
+					src={masterloot.src}
 					alt=""
 					width="750"
 					height="350"
@@ -99,13 +113,7 @@ globalProps.page_section = "guides";
 			</h3>
 			<details>
 				<summary>Показать картинку</summary>
-				<img
-					loading="lazy"
-					src="images/portals.png"
-					alt=""
-					width="350"
-					height="250"
-				/>
+				<img loading="lazy" src={portals.src} alt="" width="350" height="250" />
 			</details>
 			Получить этот портал можно двумя способами.
 			<ul class="list">
@@ -145,13 +153,7 @@ globalProps.page_section = "guides";
 			Рейды спавнятся в рейд логовах, это такие дырки:
 			<details>
 				<summary>Показать картинку</summary>
-				<img
-					loading="lazy"
-					src="images/raid.jpg"
-					alt=""
-					width="750"
-					height="450"
-				/>
+				<img loading="lazy" src={raid.src} alt="" width="750" height="450" />
 			</details>
 			<p>Рейд логова вы можете найти в "Заповедник" и "Разлом".</p>
 			<p>
@@ -180,7 +182,7 @@ globalProps.page_section = "guides";
 			</p>
 			<details>
 				<summary>Показать картинку</summary>
-				<img loading="lazy" src="images/DynaMax.png" alt="" />
+				<img loading="lazy" src={DynaMax.src} alt="" />
 			</details>
 			Когда покемон становится Динамакс, его ходы заменяются Максимальными атаками
 			— это мощные разрушительные ходы с дополнительными эффектами. Вместо статусных
@@ -209,7 +211,7 @@ globalProps.page_section = "guides";
 			и с Динамаксом.
 			<details>
 				<summary>Показать картинку</summary>
-				<img loading="lazy" src="images/Megaevol.jpg" alt="" />
+				<img loading="lazy" src={Megaevol.src} alt="" />
 			</details>
 			<h3 style=" display: block">Как получить Мега-браслет?</h3>
 			Да всё просто, вам нужно убить Мега босса, после его убийства у вас автоматически
@@ -226,7 +228,7 @@ globalProps.page_section = "guides";
 			опыта для перехода на следующий уровень. Все конфеты которые есть на проекте:
 			<details>
 				<summary>Показать картинку</summary>
-				<img loading="lazy" src="images/Candies.jpg" alt="" />
+				<img loading="lazy" src={Candies.src} alt="" />
 			</details>
 			<Tooltiped>
 				<span style="text-decoration: underline dotted" slot="container"
@@ -236,7 +238,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/rare.png"
+					src={rare.src}
 					alt=""
 					width="30"
 					height="30"
@@ -251,7 +253,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/XL.png"
+					src={XL.src}
 					alt=""
 					width="30"
 					height="30"
@@ -267,7 +269,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/L.png"
+					src={L.src}
 					alt=""
 					width="30"
 					height="30"
@@ -280,7 +282,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/M.png"
+					src={M.src}
 					alt=""
 					width="30"
 					height="30"
@@ -293,7 +295,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/S.png"
+					src={S.src}
 					alt=""
 					width="30"
 					height="30"
@@ -306,7 +308,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/XS.png"
+					src={XS.src}
 					alt=""
 					width="40"
 					height="40"
@@ -322,7 +324,7 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/Bad.png"
+					src={Bad.src}
 					alt=""
 					width="30"
 					height="30"
@@ -339,18 +341,16 @@ globalProps.page_section = "guides";
 					loading="lazy"
 					style=" display: block"
 					slot="content"
-					src="/images/DMax.png"
+					src={DMax.src}
 					alt=""
-					width="25"
-					height="25"
+					width="24"
+					height="24"
 				/>
-			</Tooltiped>: Динамакс конфеты испольюзут, что бы повысить динамкс уровень
-			желаемого покемона, у каждого покемона изначально нулевой уровень
-			динамакса, его максимальное значение — десять, то есть, что бы замаксить
-			динамакс уровень вашего покемона, вам нужно будет потратить 10 Динамакс
-			конфет.
+			</Tooltiped> Динамакс конфеты испольюзут, что бы повысить динамкс уровень желаемого
+			покемона, у каждого покемона изначально нулевой уровень динамакса, его максимальное
+			значение — десять, то есть, что бы замаксить динамакс уровень вашего покемона,
+			вам нужно будет потратить 10 Динамакс конфет.
 		</section>
-		
 	</Layout>
 
 	<script>
@@ -361,4 +361,7 @@ globalProps.page_section = "guides";
 </Page>
 
 <style>
+	img {
+		background-color: #888888;
+	}
 </style>
