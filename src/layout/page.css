@@ -8,6 +8,8 @@
 
 	/* https://www.codegram.com/blog/stop-ab-using-z-index/ */
 	--z-index-layout: 1000;
+	/* https://www.uprock.ru/education/princip-zolotogo-secheniya редко, но метко*/
+	--divina_proportione: 1.618;
 }
 
 * {
