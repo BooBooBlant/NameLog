@@ -178,14 +178,14 @@ main {
 	--base_hierarchy_gap: 0.75rem;
 	gap: calc(var(--base_hierarchy_gap) * pow(var(--divina_proportione), 2));
 }
-h2, h4, h5 {
-	line-height: 1.4;
+h2, h4, h5, ul[data_variant_1] {
+	line-height: 1.6;
 }
 
 [data_chapter] {
 	display: flex;
 	flex-direction: column;
-	gap: var(--base_hierarchy_gap);
+	gap: calc(var(--base_hierarchy_gap) * var(--divina_proportione));
 
 	&:has([data_preview]:hover) {
 		&::before {
