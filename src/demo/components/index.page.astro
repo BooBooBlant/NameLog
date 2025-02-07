@@ -1,10 +1,9 @@
 ---
 import Page from "@/layout/Page.astro";
 import Copyable from "@/Copyable.astro";
-import Tooltiped from "@/Tooltiped.astro";
-import { Code } from "astro:components";
 import { globalProps } from "@/globalProps.js";
 import Layout from "@/layout/Layout.astro";
+import MyRender from "./Render.astro";
 globalProps.page_section = "guides";
 
 enum AspectEnum {
@@ -27,6 +26,21 @@ const ComponentsList = new Map(
 					variant_name: "Margin",
 					description: "Интегрированна в дизайн сайта; имеет блочные отступы",
 					demo_id: "<hr data_variant_1>",
+				},
+			],
+		},
+		{
+			key: "UnorderedList",
+			aspects: [AspectEnum.UserFocusExperience, AspectEnum.RichText],
+			variants: [
+				{
+					variant_name: "Native",
+					demo_id: "<ul>",
+				},
+				{
+					variant_name: "Inline",
+					description: "Линейный список более эффективно реализует доступное пространство; не превышайте 60em",
+					demo_id: "<ul data_variant_1>",
 				},
 			],
 		},
@@ -62,6 +76,17 @@ const ComponentsList = new Map(
 				},
 			],
 		},
+		{
+			key: "MemoriedInput",
+			aspects: [AspectEnum.Control],
+			variants: [
+				{
+					variant_name: "Native",
+					description: "Синхронизирует и запоминает своё значение",
+					demo_id: `<MemoriedInput key= />`,
+				}
+			]
+		}
 	].map((item) => [item.key, item])
 );
 
@@ -121,7 +146,12 @@ function components_with_aspect(value: AspectEnum) {
 								aside[data_preview]
 		-->
 		<main>
-			<i>Все демонстрации имеют внутренний отступ 1rem*</i>
+			<element-group>
+				<p><i>Все демонстрации имеют внутренний отступ 1rem*</i></p>
+				<p><i>Компоненты могут находиться одновременно в нескольких разделах**</i></p>
+						
+			</element-group>
+			<hr>
 			{
 				aspects_set().map((aspect) => (
 					<section data_chapter id = {aspect}>
@@ -136,36 +166,29 @@ function components_with_aspect(value: AspectEnum) {
 						<ul data_ul_components>
 						{components_with_aspect(aspect).map(($) => (
 							<section id={$.key} data_component>
-								{(<h4>Компонент: {$.key}</h4><ul data_ul_demo_id data_variant_0>{$.variants.map(variant => <li data_demo_id = {variant.demo_id}><h5><Copyable>{variant.demo_id}</Copyable></h5><p>{variant.description}</p><aside data_preview>{
-									(() => {
-										switch (variant.demo_id) {
-											case "<hr>":
-												return <hr/>
-											case "<hr data_variant_1>":
-												return <hr data_variant_1/>
-											case "<Code code= language=>":
-												return <Code code = "Hello!" lang = "javascript"/>
-											case "<Copyable>":
-												return <Copyable>Нажмите, чтобы скопировать</Copyable>
-											case "<Tooltiped>":
-												return <Tooltiped>
-													<span slot="container" style="text-decoration: underline dotted;">
-														Наведите, чтобы увидеть
-													</span>
-													<span
-															slot="content"
-															style="transform: translateY(-20px); padding: 10px; background-color: #2228; width: 20rem;"
-													>Поддается полной стилизации</span>
-												</Tooltiped>
-											default: throw new Error(`Unknown demo: ${variant.demo_id}`)
-										}
-									})()}</aside></li>)}</ul>)}
+								{(
+									<h4>Компонент: {$.key}</h4>
+									<ul data_ul_demo_id data_variant_0>{$.variants.map(variant => 
+										<li data_demo_id = {variant.demo_id}>
+											<h5><Copyable>{variant.demo_id}</Copyable></h5>
+											<p>{variant.description}</p>
+											<aside data_preview x={variant.demo_id}>
+												<MyRender key = {variant.demo_id}/>
+											</aside>
+										</li>
+									)}</ul>
+								)}
 							</section>
 						))}
 						</ul>
 					</section>
 				))
 			}
+			<hr>
+		<footer>
+			<h4>Исходные демонстраций (через VSCode)</h4>
+			<a target="_blank" href="https://vscode.dev/github/BooBooBlant/NameLog/blob/main/src/demo/components/Render.astro">vscode.dev/.../demo/components</a>
+		</footer>
 		</main>
 	</Layout>
 </Page>
@@ -175,17 +198,19 @@ function components_with_aspect(value: AspectEnum) {
 main {
 	display: flex;
 	flex-direction: column;
-	--base_hierarchy_gap: 0.75rem;
+	--base_hierarchy_gap: 0.5rem;
 	gap: calc(var(--base_hierarchy_gap) * pow(var(--divina_proportione), 2));
-}
-h2, h4, h5, ul[data_variant_1] {
 	line-height: 1.6;
+	padding-bottom: 50vh;
+	scroll-snap-type: y mandatory;
 }
 
 [data_chapter] {
 	display: flex;
 	flex-direction: column;
 	gap: calc(var(--base_hierarchy_gap) * var(--divina_proportione));
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
 
 	&:has([data_preview]:hover) {
 		&::before {

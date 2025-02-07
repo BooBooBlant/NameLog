@@ -1,0 +1,83 @@
+---
+import Tooltiped from "@/Tooltiped.astro";
+import { Code } from "astro:components";
+import MemoriedInput from "@/MemoriedInput.astro";
+import Copyable from "@/Copyable.astro";
+
+interface Props {
+	key: string;
+}
+const { key } = Astro.props;
+---
+
+{
+	(() => {
+		switch (key) {
+			case "<hr>":
+				return <hr />;
+			case "<hr data_variant_1>":
+				return <hr data_variant_1 />;
+			case "<ul>":
+				return (
+					<ul>
+						<>
+							<li>ла</li>
+							<li>ла</li>
+							<li>ей</li>
+						</>
+					</ul>
+				);
+			case "<ul data_variant_1>":
+				return (
+					<ul data_variant_1>
+						{[
+							...new Array(Math.floor(Math.random() * 7 + 7)).fill("ла"),
+							...new Array(Math.floor(Math.random() * 3 + 3)).fill("ей"),
+						]
+							.sort(() => Math.random() - 0.5)
+							.map((item) => (
+								<li>{item}</li>
+							))}
+					</ul>
+				);
+			case "<Code code= language=>":
+				return <Code code="Hello!" lang="javascript" />;
+			case "<Copyable>":
+				return <Copyable>Нажмите, чтобы скопировать</Copyable>;
+			case "<Tooltiped>":
+				return (
+					<Tooltiped>
+						<span slot="container" style="text-decoration: underline dotted;">
+							Наведите, чтобы увидеть
+						</span>
+						<span
+							slot="content"
+							style="transform: translateY(-20px); padding: 10px; background-color: #2228; width: 20rem;"
+						>
+							Поддается полной стилизации
+						</span>
+					</Tooltiped>
+				);
+			case "<MemoriedInput key= />":
+				return (
+					<element-group style="display: flex; flex-direction: column;">
+						<MemoriedInput key="disable_contrast">
+							<label>
+								<input type="checkbox" />
+								<span>Отключить контрастные границы</span>
+							</label>
+						</MemoriedInput>
+						<MemoriedInput key="disable_contrast">
+							<label>
+								<input type="checkbox" />
+								<span>Отключить контрастные границы</span>
+							</label>
+						</MemoriedInput>
+					</element-group>
+				);
+
+			default:
+				throw new Error(`Unknown demo: ${key}`);
+		}
+	})()
+}
