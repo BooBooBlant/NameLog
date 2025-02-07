@@ -62,16 +62,13 @@ const { key } = Astro.props;
 				return (
 					<element-group style="display: flex; flex-direction: column;">
 						<CellInput key="disable_contrast">
-							<label>
-								<input type="checkbox" />
-								<span>Отключить контрастные границы</span>
-							</label>
+							<input type="checkbox" />
 						</CellInput>
 						<CellInput key="disable_contrast">
-							<label>
-								<input type="checkbox" />
-								<span>Отключить контрастные границы</span>
-							</label>
+							<input type="number" max="100" />
+						</CellInput>
+						<CellInput key="disable_contrast">
+							<input type="range" />
 						</CellInput>
 					</element-group>
 				);
