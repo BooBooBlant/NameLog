@@ -79,6 +79,12 @@ element-columns {
 	flex-direction: row;
 }
 
+element-columns[data_variant_1],
+element-rows[data_variant_1],
+element-group[data_variant_1] {
+	gap: 0.2rem;
+}
+
 [data_aspect_slip_paragraph] {
 	/* https://habr.com/ru/articles/835286/ */
 	width: 100%;
