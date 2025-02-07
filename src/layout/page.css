@@ -88,8 +88,18 @@ element-columns {
 ul[data_variant_1] {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1em;
+	gap: 0 1em;
 	list-style-position: inside;
+}
+
+label {
+	display: flex;
+	align-items: center;
+	gap: 0.2em;
+	min-height: 1em;
+	& > span {
+		text-box: trim-both ex alphabetic;
+	}
 }
 
 .page-wrapper {
