@@ -1,0 +1,81 @@
+---
+interface Props {
+	key: string;
+	defaultValue?: string;
+}
+const { key, defaultValue } = Astro.props;
+---
+
+<element-memoried-input
+	data_memoried_input_key={key}
+	data_memoried_input_default_value={defaultValue}
+>
+	<slot />
+</element-memoried-input>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const wrappers = [...document.querySelectorAll("element-memoried-input")];
+
+		function getState(input) {
+			switch (input.type) {
+				case "checkbox":
+					return JSON.parse(input.checked);
+				case "number":
+					return Number(input.value);
+				default:
+					return input.value;
+			}
+		}
+
+		function setState(input, value) {
+			console.log(typeof value);
+
+			switch (input.type) {
+				case "checkbox":
+					input.checked = value;
+				case "number":
+					input.value = value;
+				default:
+					input.value = value;
+			}
+		}
+
+		const listened = new Map(
+			Object.entries(
+				Object.groupBy(wrappers, (item) =>
+					item.getAttribute("data_memoried_input_key")
+				)
+			)
+		);
+		addEventListener("storage", ({ key, newValue, oldValue }) => {
+			listened.get(key).forEach((wrapper) => {
+				const target = wrapper.querySelector("input");
+				const value = setState(target, JSON.parse(newValue));
+				wrapper.dispatchEvent(new CustomEvent("change", { detail: value }));
+			});
+		});
+
+		for (const wrapper of wrappers) {
+			const key = wrapper.getAttribute("data_memoried_input_key");
+			const target = wrapper.querySelector("input");
+			const initialValue = localStorage.getItem(key)
+				? JSON.parse(localStorage.getItem(key))
+				: wrapper.getAttribute("data_memoried_input_default_value");
+			initialValue && setState(target, initialValue);
+
+			target.addEventListener("change", () => {
+				const oldValue = localStorage.getItem(key);
+				const newValue = JSON.stringify(getState(target));
+				localStorage.setItem(key, newValue);
+				window.dispatchEvent(
+					new StorageEvent("storage", {
+						key,
+						oldValue,
+						newValue,
+					})
+				);
+			});
+		}
+	});
+</script>
