@@ -6,16 +6,16 @@ interface Props {
 const { key, defaultValue } = Astro.props;
 ---
 
-<element-memoried-input
-	data_memoried_input_key={key}
-	data_memoried_input_default_value={defaultValue}
+<element-cell-input
+	data_cell_input_key={key}
+	data_cell_input_default_value={defaultValue}
 >
 	<slot />
-</element-memoried-input>
+</element-cell-input>
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const wrappers = [...document.querySelectorAll("element-memoried-input")];
+		const wrappers = [...document.querySelectorAll("element-cell-input")];
 
 		function getState(input) {
 			switch (input.type) {
@@ -44,7 +44,7 @@ const { key, defaultValue } = Astro.props;
 		const listened = new Map(
 			Object.entries(
 				Object.groupBy(wrappers, (item) =>
-					item.getAttribute("data_memoried_input_key")
+					item.getAttribute("data_cell_input_key")
 				)
 			)
 		);
@@ -57,11 +57,11 @@ const { key, defaultValue } = Astro.props;
 		});
 
 		for (const wrapper of wrappers) {
-			const key = wrapper.getAttribute("data_memoried_input_key");
+			const key = wrapper.getAttribute("data_cell_input_key");
 			const target = wrapper.querySelector("input");
 			const initialValue = localStorage.getItem(key)
 				? JSON.parse(localStorage.getItem(key))
-				: wrapper.getAttribute("data_memoried_input_default_value");
+				: wrapper.getAttribute("data_cell_input_default_value");
 			initialValue && setState(target, initialValue);
 
 			target.addEventListener("change", () => {

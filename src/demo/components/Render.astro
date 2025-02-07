@@ -1,7 +1,7 @@
 ---
 import Tooltiped from "@/Tooltiped.astro";
 import { Code } from "astro:components";
-import MemoriedInput from "@/MemoriedInput.astro";
+import CellInput from "@/CellInput.astro";
 import Copyable from "@/Copyable.astro";
 
 interface Props {
@@ -58,21 +58,21 @@ const { key } = Astro.props;
 						</span>
 					</Tooltiped>
 				);
-			case "<MemoriedInput key= />":
+			case "<CellInput key= />":
 				return (
 					<element-group style="display: flex; flex-direction: column;">
-						<MemoriedInput key="disable_contrast">
+						<CellInput key="disable_contrast">
 							<label>
 								<input type="checkbox" />
 								<span>Отключить контрастные границы</span>
 							</label>
-						</MemoriedInput>
-						<MemoriedInput key="disable_contrast">
+						</CellInput>
+						<CellInput key="disable_contrast">
 							<label>
 								<input type="checkbox" />
 								<span>Отключить контрастные границы</span>
 							</label>
-						</MemoriedInput>
+						</CellInput>
 					</element-group>
 				);
 
