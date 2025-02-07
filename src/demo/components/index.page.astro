@@ -67,7 +67,7 @@ const ComponentsList = new Map(
 			],
 		},
 		{
-			key: "CodeTag",
+			key: "CodeSyntax",
 			aspects: [AspectEnum.DevTools],
 			variants: [
 				{
@@ -146,12 +146,20 @@ function components_with_aspect(value: AspectEnum) {
 								aside[data_preview]
 		-->
 		<main>
-			<element-group>
+			<element-group data_variant_1>
 				<p><i>Все демонстрации имеют внутренний отступ 1rem*</i></p>
-				<p><i>Компоненты могут находиться одновременно в нескольких разделах**</i></p>
-						
+				<p><i>Компоненты могут находиться одновременно в нескольких разделах**</i></p>	
 			</element-group>
 			<hr>
+			<header>
+				<h2>Содержимое страницы (список компонентов)</h2>
+				<ul data_variant_1>
+					{
+						Array.from(ComponentsList.values()).map(($) => (
+							<li><a href = {`#${$.key}`}>{$.key}</a></li>
+					))}
+				</ul>
+			</header>
 			{
 				aspects_set().map((aspect) => (
 					<section data_chapter id = {aspect}>
