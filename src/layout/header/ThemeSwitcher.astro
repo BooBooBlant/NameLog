@@ -2,10 +2,10 @@
 const id = `id_${crypto.randomUUID()}`;
 ---
 
-<span id={id}>
+<label id={id}>
 	<input type="checkbox" />
 	Светлая тема
-</span>
+</label>
 
 <script define:vars={{ id: id }}>
 	const STORAGE_KEY = "namelog_page-theme_light";
