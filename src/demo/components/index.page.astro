@@ -4,6 +4,7 @@ import Copyable from "@/Copyable.astro";
 import { globalProps } from "@/globalProps.js";
 import Layout from "@/layout/Layout.astro";
 import MyRender from "./Render.astro";
+import ThemeSwitcher from "@/layout/header/ThemeSwitcher.astro";
 globalProps.page_section = "guides";
 
 enum AspectEnum {
@@ -146,11 +147,6 @@ function components_with_aspect(value: AspectEnum) {
 								aside[data_preview]
 		-->
 		<main>
-			<element-group data_variant_1>
-				<p><i>Все демонстрации имеют внутренний отступ 1rem*</i></p>
-				<p><i>Компоненты могут находиться одновременно в нескольких разделах**</i></p>	
-			</element-group>
-			<hr>
 			<header>
 				<h2>Содержимое страницы (список компонентов)</h2>
 				<ul data_variant_1>
@@ -159,6 +155,14 @@ function components_with_aspect(value: AspectEnum) {
 							<li><a href = {`#${$.key}`}>{$.key}</a></li>
 					))}
 				</ul>
+				<element-rows data_variant_1>
+					<i>Все демонстрации имеют внутренний отступ 1rem*</i>
+					<i>Компоненты могут находиться одновременно в нескольких разделах**</i>
+				</element-rows>
+				<element-rows data_variant_1>
+					<h4>Конфигурация</h4>
+					<ThemeSwitcher/>
+				</element-rows>	
 			</header>
 			{
 				aspects_set().map((aspect) => (
@@ -193,16 +197,21 @@ function components_with_aspect(value: AspectEnum) {
 				))
 			}
 			<hr>
-		<footer>
-			<h4>Исходные коды демонстраций (через VSCode)</h4>
-			<a target="_blank" href="https://vscode.dev/github/BooBooBlant/NameLog/blob/main/src/demo/components/Render.astro">vscode.dev/.../demo/components</a>
-		</footer>
+			<footer>
+				<element-rows>
+					<h4>Исходные коды демонстраций (через VSCode)</h4>
+					<a target="_blank" href="https://vscode.dev/github/BooBooBlant/NameLog/blob/main/src/demo/components/Render.astro">vscode.dev/.../demo/components</a>
+				</element-rows>
+			</footer>
 		</main>
 	</Layout>
 </Page>
 
 <!-- Styles -->
 <style>
+ul[variant_1] {
+	max-width: 60em;
+}
 main {
 	display: flex;
 	flex-direction: column;
@@ -212,13 +221,14 @@ main {
 	scroll-snap-type: y mandatory;
 }
 
-[data_chapter] {
+main > section, main > header, main > footer {
+	gap: calc(var(--base_hierarchy_gap) * var(--divina_proportione));
 	display: flex;
 	flex-direction: column;
-	gap: calc(var(--base_hierarchy_gap) * var(--divina_proportione));
-	scroll-snap-align: start;
-	scroll-snap-stop: always;
+	position: relative;
+}
 
+[data_chapter] {
 	&:has([data_preview]:hover) {
 		&::before {
 			background: var(--accent-color);
@@ -234,7 +244,6 @@ main {
 		position: absolute;
 		display: block;
 	}
-	position: relative;
 }
 
 [data_ul_components] {
@@ -250,7 +259,6 @@ main {
 	list-style: none;
 	position: relative;
 }
-
 [data_demo_id] {
 	&:has([data_preview]:hover) {
 		&::before {
@@ -261,23 +269,20 @@ main {
 	&::before {
 		content: "";
 		width: 2px;
-		background: linear-gradient(to bottom, white, transparent);
+		background: linear-gradient(to bottom, var(--page-text-color), transparent);
 		left: -0.5rem;
 		height: 100%;
 		position: absolute;
 		display: block;
 	}
+	& p {
+		max-width: 60em;
+	}
+	& h5 {
+		background: #8888;
+		display: inline;
+	}
 	position: relative;
-}
-
-
-h5 {
-	background: #8888;
-	margin-right: 1rem;
-	display: inline;
-}
-[data_demo_id] p {
-	max-width: 60em;
 }
 [data_preview] {
 	border: 1px solid;
