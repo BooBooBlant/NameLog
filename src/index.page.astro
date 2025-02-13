@@ -12,22 +12,20 @@ globalProps.page_section = "guides";
 			data-page_section_article
 			style={{ "--page_section_article__green_bg": `url(${ImageBlob.src})` }}
 		>
-			<h1>
+			<h1 style="font-weight: initial;">
 				Приветствуем на сайте NameLog. Сайт создан специально для помощи игрокам
 				которые впервые зашли на проект Black Dragon и хотят узнать про
 				уникальности этого проекта.
 			</h1>
-			<p style="margin-block: 50px; display: inline-block">
-				<span style="margin-block: 50px;">
-					Пара слов о самом проекте. Black Dragon — это проект, который всё
-					время развивается: модераторы/администраторы/кодеры, в общем все,
-					стараются сделать его как можно лучше. И вот, спустя 7 лет моего
-					активного (не совсем) прибывания на этом проекте, я решил внести свой
-					импакт в улучшение данного проекта, в чём мне помог Володя — мой друг.
-				</span>
+			<p style="margin-block: calc(3vw + 0.5rem);">
+				Пара слов о самом проекте. Black Dragon — это проект, который всё время
+				развивается: модераторы/администраторы/кодеры, в общем все, стараются
+				сделать его как можно лучше. И вот, спустя 7 лет моего активного (не
+				совсем) прибывания на этом проекте, я решил внести свой импакт в
+				улучшение данного проекта, в чём мне помог Володя — мой друг.
 			</p>
 
-			<h3 style=" display: block">
+			<h3 style="font-weight: initial;">
 				Над созданием сайта работали: Енот & Blant
 				(B.B.Blant/SSof/SSofHikiGaya/Абсолютик)
 			</h3>
@@ -42,6 +40,15 @@ globalProps.page_section = "guides";
 </Page>
 
 <style>
+	article {
+		font-weight: initial;
+	}
+	h1,
+	h3 {
+		font-family: "Open sans", sans-serif;
+		line-height: 1.4;
+		font-weight: initial;
+	}
 	/* [N]rem should be equalent to Layout.astro @media [N]rem */
 	@media screen and (width >= 60rem) {
 		[data-page_section_article] {
