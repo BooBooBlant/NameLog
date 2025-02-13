@@ -25,6 +25,15 @@ html {
 	overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Comfortaa", "Open Sans", sans-serif;
+}
+
 body.light {
 	--page-text-color: var(--dark);
 	--page-background-color: var(--light);
@@ -86,6 +95,12 @@ element-group[data_variant_1] {
 	gap: var(--base_hierarchy_gap, 0.5rem);
 }
 
+element-columns[data_variant_2],
+element-rows[data_variant_2],
+element-group[data_variant_2] {
+	display: block;
+}
+
 [data_aspect_slip_paragraph] {
 	/* https://habr.com/ru/articles/835286/ */
 	width: 100%;
@@ -107,16 +122,6 @@ label {
 	& > span {
 		text-box: trim-both ex alphabetic;
 	}
-}
-
-.page-wrapper {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
-.page-main {
-	padding: var(--default-block-padding, 2vw);
 }
 
 .list li {

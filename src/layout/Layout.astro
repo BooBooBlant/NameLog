@@ -16,33 +16,45 @@ const { article_variant } = Astro.props;
 	</slot>
 </Nav>
 
-<section class="page-wrapper">
+<by-layout-rightbar>
 	<slot name="Header">
 		<Header />
 	</slot>
-	<main class="page-main">
+	<by-layout-content>
 		{
 			article_variant === "0" && (
-				<section class="slot-layout">
+				<by-layout-slot>
 					<slot />
-				</section>
+				</by-layout-slot>
 			)
 		}
 		{
 			article_variant === "1" && (
-				<section class="slot-layout" data_aspect_slip_paragraph>
+				<by-layout-slot data_aspect_slip_paragraph>
 					<slot />
-				</section>
+				</by-layout-slot>
 			)
 		}
 		<slot name="Comments">
 			<GiscusComments id={Astro.url.pathname} />
 		</slot>
-	</main>
-</section>
+	</by-layout-content>
+</by-layout-rightbar>
 
 <style>
-	.page-main {
+	by-layout-rightbar {
+		min-width: min(100vw, 800px);
+		max-width: 100vw;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+		overflow: auto;
+
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	by-layout-content {
 		position: relative;
 		flex-grow: 1;
 		display: flex;
@@ -52,20 +64,28 @@ const { article_variant } = Astro.props;
 		overflow-x: clip;
 
 		container: page_layout_main / inline-size;
-	}
-	.page-wrapper {
-		min-width: min(100vw, 800px);
-		max-width: 100vw;
-		scroll-snap-align: center;
-		scroll-snap-stop: always;
-		overflow: auto;
-	}
-
-	.list-number {
-	}
-
-	.slot-layout {
 		line-height: 1.8;
+		padding: var(--default-block-padding, 2vw);
+	}
+
+	by-layout-slot {
+		gap: calc(var(--base_hierarchy_gap) * pow(var(--divina_proportione), 2));
+		display: flex;
+		flex-direction: column;
+	}
+
+	/*
+	 https://css-tricks.com/dark-mode-and-variable-fonts/ 
+	
+	*/
+	body:not(.light) by-layout-slot {
+		font-weight: 300;
+		& :global(h1, h2, h3, h4, h5, h6) {
+			font-weight: 300;
+		}
+		& :global(b) {
+			font-weight: 400;
+		}
 	}
 
 	:global([data-page_section_article]) {

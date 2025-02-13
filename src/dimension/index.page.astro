@@ -2,7 +2,7 @@
 import Page from "@/layout/Page.astro";
 import Layout from "@/layout/Layout.astro";
 import { globalProps } from "@/globalProps.js";
-
+import Copyable from "@/Copyable.astro";
 globalProps.page_section = "guides";
 ---
 
@@ -52,11 +52,12 @@ globalProps.page_section = "guides";
 			<img loading="lazy" src="/images/Razlom.jpg" />
 		</div>
 		<hr data_variant_1 />
-		<h1>
-			Метка на все измерения: [name:" Измерения", x:-807, y:103, z:-182] ,
-			просто скопируйте, введите в чат, нажмите и добавьте метку к себе (В
-			ультра мир вы можете попасть только призвав портал в него, для этого нужен
-			Арцеус)
-		</h1>
+		<h3>
+			Метка на все измерения <Copyable
+				>[name:" Измерения", x:-807, y:103, z:-182]</Copyable
+			>, — нажмите чтобы скопировать; введите в чат, подтвердите и добавьте
+			метку к себе (В ультра мир вы можете попасть только призвав портал в него,
+			для этого нужен Арцеус)
+		</h3>
 	</Layout>
 </Page>
